@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmitForm(form) {
-    this.router.navigate(['/pages/auth/login']);
+    this.router.navigate(['pages/login']);
     // if (form.valid) {
     //   // localStorage.setItem('token', '33334234234qdsadf');
     //   // // this.router.navigate(['/pages/dashboard']);
