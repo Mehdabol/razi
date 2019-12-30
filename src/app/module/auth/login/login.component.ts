@@ -24,11 +24,8 @@ export class LoginComponent implements OnInit {
     if (form.valid) {
       this.service.login(form.value).subscribe((res) => {
         this.alertService.success(res.Message);
-        // window.location.href = '';
         this.router.navigate(['/pages/dashboard']);
         localStorage.setItem('token', res.Data);
-      }, error => {
-        this.alertService.error(error);
       });
     } else {
       this.errorService.generateArray(form);
@@ -41,6 +38,6 @@ export class LoginComponent implements OnInit {
 
   changePassword() {
     this.router.navigate(['/pages/auth/change-password']);
-
   }
+
 }

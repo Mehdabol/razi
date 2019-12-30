@@ -7,9 +7,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   menu = [
-    {title: 'شرکت در مناقصات', icon: 'sm-icon pe-7s-rocket', path: '', subMenu: []},
+    {
+      title: 'شرکت در مناقصات', icon: 'sm-icon pe-7s-rocket', path: '', subMenu: [
+        {title: 'شرکت ', icon: 'sm-icon pe-7s-rocket', path: ''}
+      ]
+    },
     {title: 'تالار گفتگو', icon: 'sm-icon pe-7s-rocket', path: '', subMenu: []},
-    {title: 'مکاتبات', icon: 'sm-icon pe-7s-rocket', path: ''},
+    {title: 'مکاتبات', icon: 'sm-icon pe-7s-rocket', path: '', subMenu: []},
   ];
 
   constructor() {
