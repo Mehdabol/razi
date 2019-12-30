@@ -8,7 +8,6 @@
     </div>
     <div class="sidebar-user">
       <div class="sidebar-user-picture ">
-        <!--<img alt="تصویر" src="assets/img/userbig.png">-->
         <i class="fa fa-user"></i>
       </div>
       <div class="sidebar-user-details">
@@ -17,50 +16,35 @@
       </div>
     </div>
     <ul class="sidebar-menu">
-      <li *ngFor="let item of menu" class="dropdown">
-        <a class="nav-link "
+      <li *ngFor="let item of menu ;index as i" class="dropdown">
+        <a class="nav-link " [routerLink]="item?.path"
            [ngClass]="{'has-dropdown': item?.subMenu.length > 0}"
 
            [routerLinkActive]="'active'">
           <i class="{{item.icon}}"></i>
           <span>{{item.title}}</span>
         </a>
-        <ul class="dropdown-menu">
-          <li *ngFor="let sub of item.subMenu">
-            <a [routerLink]="sub.path" [routerLinkActive]="'active'" class="nav-link">{{sub.title}}
+        <ul class="dropdown-menu sidebar-menu">
+          <li *ngFor="let sub of item.subMenu" class="dropdown">
+            <a [routerLink]="sub?.path"
+               [routerLinkActive]="'active'" class="nav-link has-dropdown sec-hasDrop">{{sub.title}}
             </a>
+            <ul class="dropdown-menu">
+              <li *ngFor="let subs of sub?.subMenu">
+                <a [routerLink]="subs.path" [routerLinkActive]="'active'" class="nav-link">{{subs.title}}
+                </a>
+              </li>
+            </ul>
           </li>
+
         </ul>
       </li>
-      <!--<li class="dropdown" *ngFor="let item of menu">-->
-      <!--<a href="#" class="nav-link has-dropdown"><i data-feather="shopping-bag"></i><span>پیشرفته</span></a>-->
-      <!--<ul class="dropdown-menu">-->
-      <!--<li><a class="nav-link" href="avatar.html">آواتار</a></li>-->
-      <!--<li><a class="nav-link" href="card.html">کارت</a></li>-->
-      <!--<li><a class="nav-link" href="modal.html">دیالوگ </a></li>-->
-      <!--<li><a class="nav-link" href="sweet-alert.html">پنجره‌های زیبا</a></li>-->
-      <!--<li><a class="nav-link" href="toastr.html">پیغام ها</a></li>-->
-      <!--<li><a class="nav-link" href="empty-state.html">حالت خالی</a></li>-->
-      <!--<li><a class="nav-link" href="multiple-upload.html">بارگذاری چندگانه</a></li>-->
-      <!--<li><a class="nav-link" href="pricing.html">قیمت گذاری</a></li>-->
-      <!--<li><a class="nav-link" href="tabs.html"> برگه ها</a></li>-->
-      <!--</ul>-->
-      <!--</li>-->
-      <!--<li class="dropdown active">-->
-      <!--<a class="nav-link"><i class="fa fa-home"></i><span> مناقصات</span></a>-->
-      <!--</li>-->
-      <!--<li class="dropdown">-->
-      <!--<a class="nav-link"><i class="fa fa-link"></i><span>Issue Tracker</span></a>-->
-      <!--</li>-->
-      <!--<li class="dropdown">-->
-      <!--<a class="nav-link "><i class="fa fa-list"></i><span>سوالات متداول</span></a>-->
-      <!--</li>-->
-
     </ul>
-    <div class="sidebar-faraname">
-      <p> تولید نرم افزار :
-        <span (click)="onClick()">ارتباطات نوین فرانام</span>
-      </p>
-    </div>
+
   </aside>
 </div>
+<!--<div class="sidebar-faraname">-->
+<!--<p> تولید نرم افزار :-->
+<!--<span (click)="onClick()">ارتباطات نوین فرانام</span>-->
+<!--</p>-->
+<!--</div>-->
