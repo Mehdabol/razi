@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {TenderService} from '../../service/tender.service';
 import {AlertService} from '../../../../core/services/alert.service';
+import {GridModel} from '../../model/grid.model';
 
 @Component({
   selector: 'app-grid-grid-dashboard',
@@ -13,9 +14,13 @@ export class GridGridDashboardComponent implements OnInit {
     format: 'jYYYY/jMM/jDD'
   };
 
+  gridData: GridModel[] = [];
+  canStartButton: boolean = false;
+
   constructor(private router: Router,
               private alertService: AlertService,
               private service: TenderService) {
+    this.canStart();
   }
 
   ngOnInit() {
@@ -25,6 +30,7 @@ export class GridGridDashboardComponent implements OnInit {
 
   getGrid() {
     this.service.getGrid(0, 100).subscribe((res) => {
+      this.gridData = res.Items;
     }, error => {
       this.alertService.error(error);
     });
@@ -36,6 +42,12 @@ export class GridGridDashboardComponent implements OnInit {
 
   onDetail() {
     this.router.navigate(['pages/detail2/2']);
+  }
+
+  canStart() {
+    this.service.canStart().subscribe((res: boolean) => {
+      this.canStartButton = res;
+    });
   }
 
   onSearch() {

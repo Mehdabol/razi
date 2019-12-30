@@ -85,7 +85,7 @@
           <th>تاریخ گشایش پاکتها</th>
           <th>وضعیت درخواست</th>
           <th>
-            <button class="btn btn-action bg-success mr-1" data-toggle="tooltip" title="ثبت درخواست" (click)="onAdd()">
+            <button class="btn btn-action bg-success mr-1" data-toggle="tooltip" title="ثبت درخواست" (click)="onAdd()" *ngIf="canStartButton">
               <i
                 class="fas fa-plus"></i>
             </button>
@@ -93,9 +93,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
+        <tr *ngFor="let item of gridData; index as i">
           <td class="p-0 text-center">
-            1
+           {{ i+1}}
           </td>
           <td class="text-truncate">
             <ul class="list-unstyled order-list m-b-0 m-b-0">
@@ -111,26 +111,26 @@
               <div class="progress-bar bg-orange" style="width: 30%"></div>
             </div>
           </td>
-          <td>1398-11-25</td>
-          <td>سارا اسمیت</td>
+          <td>{{item.PackatGoshayesheDate}}</td>
+          <td>{{item.MonagheseGozar}}</td>
           <td class="text-truncate">
-            موضوع
+            {{item.MonaghesTopic}}
           </td>
           <td class="text-truncate">
-            شماره
+            {{item.Code}}
           </td>
           <td class="text-truncate">
-            گروه
+            {{item.BimeGroup}}
           </td>
           <td class="text-truncate">
-            حق بیمه
+            {{item.HagheBimeAmount}}
           </td>
 
           <td>1398-10-25</td>
           <td>1398-08-11</td>
           <td>1398-11-25</td>
           <td class="text-truncate">
-            رد شده
+            {{item.HasAccess? 'تایید شده' : 'رد شده'}}
           </td>
           <td>
             <button class="btn btn-action bg-purple mr-1" data-toggle="tooltip" title="جزئیات" (click)="onDetail()">

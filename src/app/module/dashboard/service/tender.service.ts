@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 export class TenderService {
   url = 'Common/';
   BpUrl = 'BP/';
-
+sabtUrl = 'SabteDarkhast/';
   constructor(private service: ApiService<any>) {
   }
 
@@ -53,5 +53,10 @@ export class TenderService {
 
   insertData(data) {
     return this.service.put(this.BpUrl + 'Insert', data);
+  }
+
+  canStart() {
+    return this.service.get(this.sabtUrl + 'CanStart');
+
   }
 }
