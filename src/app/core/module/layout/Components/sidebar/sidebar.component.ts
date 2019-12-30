@@ -52,6 +52,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
           ]
         },
         {title: 'فناوری اطلاعات', path: 'dashboard', subMenu: []},
+        {title: 'برنامه ریزی', path: 'dashboard', subMenu: []},
         {title: 'مالی', path: 'dashboard', subMenu: []},
         {title: 'پشتیبانی', path: 'dashboard', subMenu: []},
         {title: 'بازاریابی', path: 'dashboard', subMenu: []},

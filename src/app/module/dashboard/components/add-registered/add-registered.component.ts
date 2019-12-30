@@ -6,6 +6,7 @@ import {FormValidateService} from '../../../../core/services/Form-Validate.servi
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgForm} from '@angular/forms';
+import {HamrazGridModel} from '../../model/hamraz-grid.model';
 
 @Component({
   selector: 'app-add-registered',
@@ -14,15 +15,28 @@ import {NgForm} from '@angular/forms';
 })
 export class AddRegisteredComponent implements OnInit {
   dataAuto = [];
-  keyword = 'code';
+  keyword = 'PersianTitle';
   HozurTypeID = '';
   NeedWarranty = true;
   showFormat = {
     format: 'jYYYY/jMM/jDD'
   };
 
+  gridHamraz = [];
+  formHamraz: HamrazGridModel = {
+    afradNumber: null,
+    BimeGroupID: null,
+    BimeGroupTitle: null,
+    description: null,
+    haghBime: null,
+    lastBimeGarsType: null,
+    lastBimeGarsTypeTitle: null,
+    reshteBime: null,
+    reshteBimeTitle: null,
+    sabeghekhesarat: null
+  };
   MonagheseGozarType = [];
-
+  BimefieldType: [] = [];
   OstansType: DropDownModel[] = [];
   CitiesType: DropDownModel[] = [];
   BimeGarsType: DropDownModel[] = [];
@@ -50,6 +64,7 @@ export class AddRegisteredComponent implements OnInit {
     this.getShohratKhesaratTypes();
     this.getWarrantyTypes();
     this.getPhonePrefixTypes();
+    this.getBimefieldType();
   }
 
   onBack() {
@@ -82,59 +97,67 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   getOstanType() {
-    this.service.getOstanType().subscribe((res: DropDownModel[]) => {
-      this.OstansType = res;
+    this.service.getOstanType().subscribe((res) => {
+      debugger;
+      this.OstansType = res.Items;
     });
   }
 
   getCitiesTypeType() {
-    this.service.getCitiesTypeType().subscribe((res: DropDownModel[]) => {
-      this.CitiesType = res;
+    this.service.getCitiesTypeType().subscribe((res) => {
+      this.CitiesType = res.Items;
     });
   }
 
   getBimeGarsType() {
-    this.service.getBimeGarsType().subscribe((res: DropDownModel[]) => {
-      this.BimeGarsType = res;
+    this.service.getBimeGarsType().subscribe((res: any) => {
+      debugger;
+      this.BimeGarsType = res.Items;
     });
   }
 
   getBimeGroupsType() {
-    this.service.getBimeGroupsType().subscribe((res: DropDownModel[]) => {
-      this.BimeGroupsType = res;
+    this.service.getBimeGroupsType().subscribe((res) => {
+      this.BimeGroupsType = res.Items;
     });
   }
 
   getHozurTypes() {
-    this.service.getHozurTypes().subscribe((res: DropDownModel[]) => {
-      this.HozurTypes = res;
+    this.service.getHozurTypes().subscribe((res) => {
+      this.HozurTypes = res.Items;
     });
   }
 
   getMonagheseGozarTypes() {
-    this.service.getMonagheseGozarTypes().subscribe((res: DropDownModel[]) => {
-      this.MonagheseGozarTypes = res;
+    this.service.getMonagheseGozarTypes().subscribe((res) => {
+      debugger;
+      this.MonagheseGozarTypes = res.Items;
     });
   }
 
   getShohratKhesaratTypes() {
-    this.service.getShohratKhesaratTypes().subscribe((res: DropDownModel[]) => {
-      this.ShohratKhesaratType = res;
+    this.service.getShohratKhesaratTypes().subscribe((res) => {
+      this.ShohratKhesaratType = res.Items;
     });
   }
 
   getWarrantyTypes() {
-    this.service.getWarrantyTypes().subscribe((res: DropDownModel[]) => {
-      this.WarrantyTypes = res;
+    this.service.getWarrantyTypes().subscribe((res) => {
+      this.WarrantyTypes = res.Items;
     });
   }
 
   getPhonePrefixTypes() {
-    this.service.getPhonePrefixTypes().subscribe((res: DropDownModel[]) => {
-      this.PhonePrefixType = res;
+    this.service.getPhonePrefixTypes().subscribe((res) => {
+      this.PhonePrefixType = res.Items;
     });
   }
 
+  getBimefieldType() {
+    this.service.getBimefieldType().subscribe((res) => {
+      this.BimefieldType = res.Items;
+    });
+  }
 
   onChngeNeedWarranty(event) {
     this.NeedWarranty = event;
@@ -142,7 +165,14 @@ export class AddRegisteredComponent implements OnInit {
   }
 
 
-  saveModal(form: NgForm) {
+  saveModal(form: NgForm, modalName) {
+    // if (form.invalid) {
+    //   this.errorService.generateArray(form);
+    // } else {
+    debugger;
+    this.gridHamraz.push(form.value);
+    this.onCloseModal(modalName);
+    // }
   }
 
   onCloseModal(event) {
@@ -151,5 +181,11 @@ export class AddRegisteredComponent implements OnInit {
 
   openModal(event) {
     this.modalService.open(event);
+  }
+
+  onChangeBimeGroup(event) {
+  }
+
+  onChangeReshteBime(event) {
   }
 }

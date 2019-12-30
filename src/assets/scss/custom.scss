@@ -241,3 +241,10 @@ label {
 .dp-picker-input:disabled {
   background-color: #e9ecef;
 }
+.autocomplete-container .input-container .x {
+  right: auto!important;
+  left: 5px;
+}
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+  z-index: 99999 !important;
+}

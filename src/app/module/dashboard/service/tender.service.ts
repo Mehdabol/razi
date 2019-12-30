@@ -16,11 +16,11 @@ sabtUrl = 'SabteDarkhast/';
 
 
   getOstanType() {
-    return this.service.get(this.url + 'OstansType');
+    return this.service.get(this.url + 'Ostans');
   }
 
   getCitiesTypeType() {
-    return this.service.get(this.url + 'CitiesType');
+    return this.service.get(this.url + 'Cities');
   }
 
   getBimeGarsType() {
@@ -29,6 +29,9 @@ sabtUrl = 'SabteDarkhast/';
 
   getBimeGroupsType() {
     return this.service.get(this.url + 'BimeGroups');
+  }
+  getBimefieldType() {
+    return this.service.get(this.url + 'Bimefield');
   }
 
   getHozurTypes() {
@@ -40,7 +43,7 @@ sabtUrl = 'SabteDarkhast/';
   }
 
   getShohratKhesaratTypes() {
-    return this.service.get(this.url + 'ShohratKhesarat');
+    return this.service.get(this.url + 'ShohratKhesarats');
   }
 
   getWarrantyTypes() {
@@ -48,7 +51,7 @@ sabtUrl = 'SabteDarkhast/';
   }
 
   getPhonePrefixTypes() {
-    return this.service.get(this.url + 'PhonePrefix');
+    return this.service.get(this.url + 'PhonePrefixes');
   }
 
   insertData(data) {

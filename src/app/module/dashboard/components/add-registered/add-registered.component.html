@@ -24,7 +24,6 @@
                   <label class="">نوع حضور :</label>
                   <input type="text" class="form-control" name="HozurTypeID"
                          [(ngModel)]="HozurTypeID" disabled>
-
                 </div>
               </div>
 
@@ -37,7 +36,7 @@
                               name="MonagheseGozar" required>
                     <mat-option></mat-option>
                     <mat-option *ngFor="let item of MonagheseGozarType"
-                                [value]="item.id">{{item.title}}</mat-option>
+                                [value]="item.ID">{{item.PersianTitle}}</mat-option>
                   </mat-select>
 
                 </div>
@@ -46,14 +45,8 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="field-require">نام مناقصه گذار :</label>
-                  <!--<input type="text" class="form-control round" name="MonagheseGozar" ngModel-->
-                  <!--required>-->
-                  <mat-select ngModel
-                              name="MonagheseGozar" required>
-                    <mat-option></mat-option>
-                    <mat-option *ngFor="let item of MonagheseGozarType"
-                                [value]="item.id">{{item.title}}</mat-option>
-                  </mat-select>
+                  <input type="text" class="form-control round" name="MonagheseGozar" ngModel
+                  required>
 
                 </div>
               </div>
@@ -85,7 +78,7 @@
                   <mat-select ngModel
                               name="MonagheseGozarTypeID" multiple required>
                     <mat-option *ngFor="let items of MonagheseGozarTypes"
-                                [value]="items.id">{{items.title}}</mat-option>
+                                [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
                 </div>
               </div>
@@ -117,7 +110,7 @@
                               name="AddressOstanID" required>
                     <mat-option>انتخاب کنید</mat-option>
                     <mat-option *ngFor="let items of OstansType"
-                                [value]="items.id">{{items.title}}</mat-option>
+                                [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
 
                 </div>
@@ -129,7 +122,7 @@
                               name="AddressCityID" required>
                     <mat-option>انتخاب کنید</mat-option>
                     <mat-option *ngFor="let items of CitiesType"
-                                [value]="items.id">{{items.title}}</mat-option>
+                                [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
                 </div>
               </div>
@@ -150,7 +143,7 @@
                               name="PhonePrefix" required>
                     <mat-option>انتخاب کنید</mat-option>
                     <mat-option *ngFor="let items of PhonePrefixType"
-                                [value]="items.id">{{items.title}}</mat-option>
+                                [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
                 </div>
               </div>
@@ -204,20 +197,20 @@
               </div>
 
               <!--<div class="col-md-4">-->
-                <!--<div class="form-group ">-->
-                  <!--<label class="field-require">تاریخ گشایش پاکت ها :</label>-->
-                  <!--<dp-date-picker-->
-                    <!--ngModel-->
-                    <!--name="PackatGoshayesheDate"-->
-                    <!--dir="ltr"-->
-                    <!--required-->
-                    <!--class="form-control"-->
-                    <!--mode="day"-->
-                    <!--theme="dp-material"-->
-                    <!--[config]="showFormat">-->
-                  <!--</dp-date-picker>-->
+              <!--<div class="form-group ">-->
+              <!--<label class="field-require">تاریخ گشایش پاکت ها :</label>-->
+              <!--<dp-date-picker-->
+              <!--ngModel-->
+              <!--name="PackatGoshayesheDate"-->
+              <!--dir="ltr"-->
+              <!--required-->
+              <!--class="form-control"-->
+              <!--mode="day"-->
+              <!--theme="dp-material"-->
+              <!--[config]="showFormat">-->
+              <!--</dp-date-picker>-->
 
-                <!--</div>-->
+              <!--</div>-->
               <!--</div>-->
               <div class="col-md-4">
                 <div class="form-group ">
@@ -243,7 +236,7 @@
                   <mat-select ngModel
                               name="ShohratKhesaratMonagheseGozar" multiple required>
                     <mat-option *ngFor="let items of ShohratKhesaratType"
-                                [value]="items.id">{{items.title}}</mat-option>
+                                [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
 
                 </div>
@@ -287,14 +280,14 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                  <tr *ngFor="let item of gridHamraz">
+                    <td>{{item.BimeGroupTitle}}</td>
+                    <td>{{item.afradNumber}}</td>
+                    <td>{{item.reshteBime}}</td>
+                    <td>{{item.haghBime}}</td>
+                    <td>{{item.lastBimeGarsTypeTitle}}</td>
+                    <td>{{item.sabeghekhesarat}}</td>
+                    <td>{{item.description}}</td>
                     <td>
                       <button class="btn btn-action bg-info  mr-1" data-toggle="tooltip" title="ویرایش">
 
@@ -366,7 +359,7 @@
                       <mat-select ngModel
                                   name="WarrantyTypeId" multiple required>
                         <mat-option *ngFor="let items of WarrantyTypes"
-                                    [value]="items.id">{{items.title}}</mat-option>
+                                    [value]="items.ID">{{items.PersianTitle}}</mat-option>
                       </mat-select>
 
                     </div>
@@ -382,8 +375,6 @@
             <div class="panel-shadow">
               <div class="col-md-12">
                 <div class="row">
-
-
 
 
                   <div class="col-md-4">
@@ -483,15 +474,28 @@
     <h4 class="modal-title"> همراز </h4>
   </div>
   <div class="modal-body">
-    <form (ngSubmit)="saveModal(f)" #f=ngForm>
+    <form (ngSubmit)="saveModal(f , content)" #f=ngForm>
       <div class="row">
         <div class="col-md-12">
           <div class="form-group ">
             <label class="field-require">گروه بیمه : </label>
+            <!--<select ngModel class="form-control"-->
+                    <!--(change)="onChangeBimeGroup($event)"-->
+                    <!--name="BimeGroupID" multiple required>-->
+              <!--<option *ngFor="let item of BimeGroupsType"-->
+                      <!--[value]="item.ID">{{item.PersianTitle}}-->
+              <!--</option>-->
+            <!--</select>-->
+            <!--<select class="form-control" ngModel-->
+                    <!--(change)="onChangeBimeGroup($event)">-->
+              <!--<option>ww</option>-->
+              <!--<option>wwss</option>-->
+            <!--</select>-->
             <mat-select ngModel
+                        (selectionChange)="onChangeBimeGroup($event)"
                         name="BimeGroupID" multiple required>
               <mat-option *ngFor="let item of BimeGroupsType"
-                          [value]="item.id">{{item.title}}</mat-option>
+                          [value]="item.ID">{{item.PersianTitle}}</mat-option>
             </mat-select>
           </div>
         </div>
@@ -501,16 +505,16 @@
 
             <input type="text" ngModel required
                    oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                   name="BimeGroup" class="form-control">
+                   name="afradNumber" class="form-control">
           </div>
         </div>
         <div class="col-md-12 mt-1">
           <label>رشته بیمه :</label>
-          <mat-select ngModel
-                      name="reshteBime" required>
+          <mat-select [(ngModel)]="formHamraz.reshteBime"
+                      name="reshteBime" required (selectionChange)="onChangeReshteBime($event)">
             <mat-option>انتخاب کنید</mat-option>
-            <mat-option *ngFor="let items of CitiesType"
-                        [value]="items.id">{{items.title}}</mat-option>
+            <mat-option *ngFor="let items of BimefieldType"
+                        [value]="items.ID">{{items.PersianTitle}}</mat-option>
           </mat-select>
         </div>
         <div class="col-md-12 mt-1">
@@ -534,17 +538,17 @@
         </div>
         <div class="col-md-12 mt-1">
           <label>سابقه خسارت سنوات گذشته مناقصه گذار :</label>
-          <input class="form-control" name="sabeghr" ngModel>
+          <input class="form-control" name="sabeghekhesarat" ngModel>
         </div>
         <div class="col-md-12 mt-1">
           <label>توضیحات :</label>
-          <input class="form-control" name="tozihat" ngModel>
+          <input class="form-control" name="description" ngModel>
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-success m-1">ذخیره</button>
+    <button type="submit" class="btn btn-success m-1" (click)="saveModal(f , content)">ذخیره</button>
     <button type="button" class="btn btn-danger m-1" (click)="onCloseModal(content)">انصراف</button>
   </div>
 </ng-template>
@@ -554,7 +558,7 @@
     <h4 class="modal-title">رقبای اصلی</h4>
   </div>
   <div class="modal-body">
-    <form (ngSubmit)="saveModal(f)" #f=ngForm>
+    <form #f=ngForm>
     </form>
   </div>
   <div class="modal-footer">
@@ -563,9 +567,9 @@
   </div>
 </ng-template>
 <ng-template #itemTemplate let-item>
-  <a [innerHTML]="item.name"></a>
+  <a [innerHTML]="item.PersianTitle"></a>
 </ng-template>
 
 <ng-template #notFoundTemplate let-notFound>
-  <div [innerHTML]="notFound"></div>
+  <div [innerHTML]="'مقدار مورد نظر وجود ندارد'"></div>
 </ng-template>
