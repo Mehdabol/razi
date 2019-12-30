@@ -1,12 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {TokenService} from '../../../../../module/auth/service/token.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
-  menu = [
+export class SidebarComponent implements OnInit, OnDestroy {
+  token;
+  menu = [];
+  menuItemLogin = [
+    {title: 'مناقصات', icon: 'fa fa-home', subMenu: []},
+    {title: 'Issue Tracker', icon: 'fa fa-home', subMenu: []},
+    {title: 'سوالات متداول', icon: 'fa fa-home', subMenu: []},
+  ];
+  menuItem = [
     {
       title: 'اطلاع رسانی', icon: 'fa fa-home', subMenu: [
         {title: 'مراکز درمانی', path: 'dashboard'},
@@ -43,15 +51,15 @@ export class SidebarComponent implements OnInit {
             {title: 'باربری', path: 'dashboard'},
           ]
         },
-        {title: 'فناوری اطلاعات', path: 'dashboard' , subMenu: []},
-        {title: 'مالی', path: 'dashboard' , subMenu: []},
-        {title: 'پشتیبانی', path: 'dashboard' , subMenu: []},
-        {title: 'بازاریابی', path: 'dashboard' , subMenu: []},
-        {title: 'روابط عمومی', path: 'dashboard' , subMenu: []},
-        {title: 'حقوقی', path: 'dashboard' , subMenu: []},
-        {title: 'بازرسی و کنترل های داخلی', path: 'dashboard' , subMenu: []},
-        {title: 'امور نمایندگان', path: 'dashboard' , subMenu: []},
-        {title: 'منابع انسانی', path: 'dashboard' , subMenu: []},
+        {title: 'فناوری اطلاعات', path: 'dashboard', subMenu: []},
+        {title: 'مالی', path: 'dashboard', subMenu: []},
+        {title: 'پشتیبانی', path: 'dashboard', subMenu: []},
+        {title: 'بازاریابی', path: 'dashboard', subMenu: []},
+        {title: 'روابط عمومی', path: 'dashboard', subMenu: []},
+        {title: 'حقوقی', path: 'dashboard', subMenu: []},
+        {title: 'بازرسی و کنترل های داخلی', path: 'dashboard', subMenu: []},
+        {title: 'امور نمایندگان', path: 'dashboard', subMenu: []},
+        {title: 'منابع انسانی', path: 'dashboard', subMenu: []},
 
       ]
     },
@@ -80,24 +88,39 @@ export class SidebarComponent implements OnInit {
       ]
     },
   ];
+  subscribe;
 
-  constructor() {
-    // console.log(this.menu);
-    const  m  = this.menu;
-    debugger;
-    // for (let i = 0; i < this.menu.length; i++) {
-    //   console.log(this.menu[i].subMenu[i].subMenu);
-    // }
+  constructor(private tokenService: TokenService) {
 
   }
 
 
   ngOnInit() {
+    this.getToken();
+    this.token = localStorage.getItem('token');
+    if (this.token === undefined || this.token === null) {
+      this.menu = this.menuItem;
+    } else {
+      this.menu = this.menuItemLogin;
+    }
+  }
 
+  ngOnDestroy(): void {
+    this.subscribe.unsubscribe();
   }
 
   onClick() {
     window.location.href = 'http://faranam.net/';
+  }
+
+  getToken() {
+    this.tokenService.getMessage().subscribe((res) => {
+      if (res === null) {
+        this.menu = this.menuItem;
+      } else {
+        this.menu = this.menuItemLogin;
+      }
+    });
   }
 
 }

@@ -3,6 +3,7 @@ import {FormValidateService} from '../../../core/services/Form-Validate.service'
 import {Router} from '@angular/router';
 import {AuthService} from '../service/auth.service';
 import {AlertService} from '../../../core/services/alert.service';
+import {TokenService} from '../service/token.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private errorService: FormValidateService,
               private alertService: AlertService,
               private service: AuthService,
+              private tokenService: TokenService,
               private router: Router) {
   }
 
@@ -26,6 +28,7 @@ export class LoginComponent implements OnInit {
         this.alertService.success(res.Message);
         this.router.navigate(['/pages/dashboard']);
         localStorage.setItem('token', res.Data);
+        this.tokenService.sendMessage(res.Data);
       });
     } else {
       this.errorService.generateArray(form);
