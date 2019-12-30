@@ -14,7 +14,9 @@ import {FormModel} from '../../model/form.model';
   styleUrls: ['./detail-form1.component.scss']
 })
 export class DetailForm1Component implements OnInit {
-
+  showFormat = {
+    format: 'jYYYY/jMM/jDD'
+  };
   dataAuto = [];
   keyword = 'code';
   HozurTypeID = '';

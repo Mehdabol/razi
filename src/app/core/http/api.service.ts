@@ -23,13 +23,11 @@ export class ApiService<T> {
   };
 
   public get(url: string, params?: any): Observable<T> {
-    debugger;
     const jsonParam = (params) ? JSON.stringify(params) : '';
     const urls = jsonParam ? url + '/' + jsonParam : url;
     return this.http.get<T>(`${this.API_URL}/${urls}`, this.httpOptions)
       .pipe(
         map((r: any) => {
-            debugger;
             return r;
           }
         ),
@@ -58,6 +56,10 @@ export class ApiService<T> {
   public postLogin(url: string, obj: T): Observable<T> {
     return this.http.post<T>(`http://89.32.248.230:80/${url}`, obj, this.httpOptions)
       .pipe(
+        map((r: any) => {
+            return r;
+          }
+        ),
         // retry(1),
         catchError(this.handleError)
       );

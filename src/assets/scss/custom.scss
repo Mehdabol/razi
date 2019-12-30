@@ -165,6 +165,7 @@ label {
 #toast-container > .toast-error:before {
   content: '' !important;
 }
+
 #toast-container > .toast-success:before {
   content: '' !important;
 }
@@ -235,4 +236,8 @@ label {
     }
   }
 
+}
+
+.dp-picker-input:disabled {
+  background-color: #e9ecef;
 }
