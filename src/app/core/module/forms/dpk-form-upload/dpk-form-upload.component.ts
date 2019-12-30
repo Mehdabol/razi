@@ -1,15 +1,16 @@
-import {Component, forwardRef, Input, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, OnInit, Output, QueryList, ViewChildren} from '@angular/core';
 import {FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry} from 'ngx-file-drop';
 import {
   AbstractControl,
   ControlValueAccessor,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
-  NgModel, ValidationErrors,
+  NgModel,
+  ValidationErrors,
   Validator
 } from '@angular/forms';
-import {AlertService} from "../../../services/alert.service";
-import {layoutConfig} from "../../../../config/layout.config";
+import {AlertService} from '../../../services/alert.service';
+import {layoutConfig} from '../../../../config/layout.config';
 
 
 @Component({
@@ -28,10 +29,12 @@ import {layoutConfig} from "../../../../config/layout.config";
     }
   ]
 })
-export class DpkFormUploadComponent implements OnInit , ControlValueAccessor, Validator {
+export class DpkFormUploadComponent implements OnInit, ControlValueAccessor, Validator {
+  static self: DpkFormUploadComponent;
 
   constructor(private alertService: AlertService) {
   }
+
   @ViewChildren(NgModel) public validatedFields!: QueryList<NgModel>;
   value = '';
   newData: any;
@@ -47,12 +50,15 @@ export class DpkFormUploadComponent implements OnInit , ControlValueAccessor, Va
   @Input() allowedFilesUpload: string = null;
 
   onChange: any = () => {
-  }
+  };
   onTouched: any = () => {
-  }
+  };
+
+  @Output() fileData = new EventEmitter<any>();
 
   ngOnInit() {
     this.labelTitle = layoutConfig.dictionary.default[this.label] ? layoutConfig.dictionary.default[this.label] : this.label;
+    DpkFormUploadComponent.self = this;
   }
 
   public writeValue(obj: any) {
@@ -85,15 +91,17 @@ export class DpkFormUploadComponent implements OnInit , ControlValueAccessor, Va
   }
 
 
-
   public dropped(files: NgxFileDropEntry[]) {
+    debugger;
     if (files[0].fileEntry.isFile && this.isFileAllowed(files[0].fileEntry.name)) {
       this.files = files;
       for (const droppedFile of files) {
         if (droppedFile.fileEntry.isFile) {
           const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+          debugger;
           fileEntry.file((file: File) => {
             this.file = file;
+            debugger;
             this.convertToBase64();
           });
         } else {
@@ -137,8 +145,11 @@ export class DpkFormUploadComponent implements OnInit , ControlValueAccessor, Va
         fileByteArray.push(data[i]);
       }
       const base64Data: any = window.btoa(String.fromCharCode(...fileByteArray));
-
-      this.onChange(base64Data);
+      const m = this.file;
+      debugger;
+      const senddata = {FormatFile: DpkFormUploadComponent.self.file.type, FileName: DpkFormUploadComponent.self.file.name, Content: base64Data};
+      this.fileData.emit(senddata);
+      this.onChange(senddata);
     };
     fileReader.readAsArrayBuffer(this.file);
   }

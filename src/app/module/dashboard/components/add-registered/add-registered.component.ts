@@ -98,7 +98,6 @@ export class AddRegisteredComponent implements OnInit {
 
   getOstanType() {
     this.service.getOstanType().subscribe((res) => {
-      debugger;
       this.OstansType = res.Items;
     });
   }
@@ -111,7 +110,6 @@ export class AddRegisteredComponent implements OnInit {
 
   getBimeGarsType() {
     this.service.getBimeGarsType().subscribe((res: any) => {
-      debugger;
       this.BimeGarsType = res.Items;
     });
   }
@@ -130,7 +128,6 @@ export class AddRegisteredComponent implements OnInit {
 
   getMonagheseGozarTypes() {
     this.service.getMonagheseGozarTypes().subscribe((res) => {
-      debugger;
       this.MonagheseGozarTypes = res.Items;
     });
   }
@@ -169,7 +166,6 @@ export class AddRegisteredComponent implements OnInit {
     // if (form.invalid) {
     //   this.errorService.generateArray(form);
     // } else {
-    debugger;
     this.gridHamraz.push(form.value);
     this.onCloseModal(modalName);
     // }
@@ -187,5 +183,12 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   onChangeReshteBime(event) {
+  }
+
+  onUploadFile($event) {
+    debugger
+  }
+  handleFileInput(event) {
+
   }
 }

@@ -455,6 +455,7 @@
               <div class="col-md-12">
                 <app-dpk-form-upload
                   name="upload"
+                  (fileData)="onUploadFile($event)"
                   [label]="'پیوست کلیه صفحات'"
                   [uploadInput]="'حجم فایل نباید بیشتر از 10 مگ باشد'"
                 ></app-dpk-form-upload>
