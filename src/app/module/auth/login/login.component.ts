@@ -35,4 +35,8 @@ export class LoginComponent implements OnInit {
       this.errorService.generateArray(form);
     }
   }
+
+  onRegister() {
+    this.router.navigate(['/pages/auth/register']);
+  }
 }
