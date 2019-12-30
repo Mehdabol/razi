@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
   onSubmitForm(form) {
     if (form.valid) {
       this.service.login(form.value).subscribe((res) => {
+        localStorage.setItem('token', res.Data);
         this.alertService.success(res.Message);
         this.router.navigate(['/pages/dashboard']);
-        localStorage.setItem('token', res.Data);
         this.tokenService.sendMessage(res.Data);
       });
     } else {

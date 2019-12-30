@@ -101,7 +101,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     if (this.token === undefined || this.token === null) {
       this.menu = this.menuItem;
     } else {
-      this.menu = this.menuItemLogin;
+      this.menu = [...this.menuItem, ...this.menuItemLogin];
     }
   }
 
@@ -118,7 +118,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
       if (res === null) {
         this.menu = this.menuItem;
       } else {
-        this.menu = this.menuItemLogin;
+        this.menu = [...this.menuItem, ...this.menuItemLogin];
       }
     });
   }

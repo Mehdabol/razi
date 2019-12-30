@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class TenderService {
-  url = 'Common';
+  url = 'Common/';
   BpUrl = 'BP/';
 
   constructor(private service: ApiService<any>) {

@@ -16,7 +16,7 @@ import {ChangePasswordComponent} from './module/auth/change-password/change-pass
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/pages/login',
+    redirectTo: '/pages/dashboard',
     pathMatch: 'full',
   },
 

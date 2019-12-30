@@ -26,29 +26,11 @@ export class AddRegisteredComponent implements OnInit {
   OstansType: DropDownModel[] = [];
   CitiesType: DropDownModel[] = [];
   BimeGarsType: DropDownModel[] = [];
-  BimeGroupsType: DropDownModel[] = [
-    {id: 1, title: 'درمان تکمیلی'},
-    {id: 2, title: 'عمر و حوادث '},
-    {id: 3, title: 'آتش سوزی'},
-    {id: 4, title: 'مسئولیت'},
-    {id: 5, title: 'اتومبیل'},
-    {id: 6, title: 'مهندسی'},
-    {id: 7, title: 'باربری کشتی و هواپیما'},
-  ];
+  BimeGroupsType: DropDownModel[] = [];
   HozurTypes: DropDownModel[] = [];
   MonagheseGozarTypes: DropDownModel[] = [];
-  ShohratKhesaratType: DropDownModel[] = [
-    {id: 1, title: ' خیلی کم'},
-    {id: 2, title: 'کم '},
-    {id: 3, title: 'متوسط'},
-    {id: 4, title: 'خوب'},
-    {id: 5, title: 'خیلی خوب'},
-  ];
-  WarrantyTypes: DropDownModel[] = [
-    {id: 1, title: 'ضمانت نامه شرکت در مناقصه'},
-    {id: 2, title: 'ضمانت نامه شرکن در فرایند ارجاع کار'},
-    {id: 3, title: 'سپرده/فیش واریزی جهت شرکت در مناقصه'},
-  ];
+  ShohratKhesaratType: DropDownModel[] = [];
+  WarrantyTypes: DropDownModel[] = [];
   PhonePrefixType: DropDownModel[] = [];
 
   constructor(private router: Router,
@@ -59,15 +41,15 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getOstanType();
-    // this.getCitiesTypeType();
-    // this.getBimeGarsType();
-    // this.getBimeGroupsType();
-    // this.getHozurTypes();
-    // this.getMonagheseGozarTypes();
-    // this.getShohratKhesaratTypes();
-    // this.getWarrantyTypes();
-    // this.getPhonePrefixTypes();
+    this.getOstanType();
+    this.getCitiesTypeType();
+    this.getBimeGarsType();
+    this.getBimeGroupsType();
+    this.getHozurTypes();
+    this.getMonagheseGozarTypes();
+    this.getShohratKhesaratTypes();
+    this.getWarrantyTypes();
+    this.getPhonePrefixTypes();
   }
 
   onBack() {
@@ -102,72 +84,54 @@ export class AddRegisteredComponent implements OnInit {
   getOstanType() {
     this.service.getOstanType().subscribe((res: DropDownModel[]) => {
       this.OstansType = res;
-    }, error => {
-      this.alertService.error(error);
     });
   }
 
   getCitiesTypeType() {
     this.service.getCitiesTypeType().subscribe((res: DropDownModel[]) => {
       this.CitiesType = res;
-    }, error => {
-      this.alertService.error(error);
     });
   }
 
   getBimeGarsType() {
     this.service.getBimeGarsType().subscribe((res: DropDownModel[]) => {
       this.BimeGarsType = res;
-    }, error => {
-      this.alertService.error(error);
     });
   }
 
   getBimeGroupsType() {
     this.service.getBimeGroupsType().subscribe((res: DropDownModel[]) => {
       this.BimeGroupsType = res;
-    }, error => {
-      this.alertService.error(error);
     });
   }
 
   getHozurTypes() {
     this.service.getHozurTypes().subscribe((res: DropDownModel[]) => {
       this.HozurTypes = res;
-    }, error => {
-      this.alertService.error(error);
     });
   }
 
   getMonagheseGozarTypes() {
     this.service.getMonagheseGozarTypes().subscribe((res: DropDownModel[]) => {
       this.MonagheseGozarTypes = res;
-    }, error => {
-      this.alertService.error(error);
     });
   }
 
   getShohratKhesaratTypes() {
     this.service.getShohratKhesaratTypes().subscribe((res: DropDownModel[]) => {
       this.ShohratKhesaratType = res;
-    }, error => {
-      this.alertService.error(error);
     });
   }
 
   getWarrantyTypes() {
     this.service.getWarrantyTypes().subscribe((res: DropDownModel[]) => {
       this.WarrantyTypes = res;
-    }, error => {
-      this.alertService.error(error);
     });
   }
 
   getPhonePrefixTypes() {
     this.service.getPhonePrefixTypes().subscribe((res: DropDownModel[]) => {
       this.PhonePrefixType = res;
-    }, error => {
-      this.alertService.error(error);
     });
   }
 

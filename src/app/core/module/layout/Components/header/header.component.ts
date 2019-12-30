@@ -18,9 +18,11 @@ export class HeaderComponent {
 
   onSingOut() {
     localStorage.removeItem('token');
-    this.router.navigate(['/pages/login']);
-    this.token = null;
     this.tokenService.sendMessage(null);
+    this.token = null;
+    // this.router.navigate(['/pages/login']);
+    window.location.href = '/pages/login';
+
   }
 
   onLogin() {
