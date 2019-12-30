@@ -5,11 +5,11 @@ import {AuthService} from '../service/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-change-password',
+  templateUrl: './change-password.component.html',
+  styleUrls: ['./change-password.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class ChangePasswordComponent implements OnInit {
 
 
   constructor(private errorService: FormValidateService,

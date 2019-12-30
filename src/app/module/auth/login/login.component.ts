@@ -39,4 +39,9 @@ export class LoginComponent implements OnInit {
   onRegister() {
     this.router.navigate(['/pages/auth/register']);
   }
+
+  changePassword() {
+    this.router.navigate(['/pages/auth/change-password']);
+
+  }
 }
