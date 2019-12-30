@@ -1,0 +1,235 @@
+.fa {
+  color: #94958e !important;
+}
+
+a {
+  cursor: pointer
+}
+
+.header-btn-lg {
+  padding: 0 !important;
+  margin-left: 0 !important;
+}
+
+.mat-select-trigger {
+  border: 1px solid #e4e6fc;
+  height: 42px;
+  border-radius: 5px;
+}
+
+.mat-option {
+  direction: rtl;
+  text-align: right !important;
+
+  .mat-option-text {
+    padding-right: 15px;
+  }
+}
+
+dp-date-picker {
+  width: 100%;
+
+  .dp-input-container {
+    width: 100%;
+
+    .dp-picker-input {
+      width: 100% !important;
+      border: 1px solid #e4e6fc;
+      border-radius: 5px;
+      height: 42px !important;
+    }
+  }
+}
+
+dp-date-picker.dp-material .dp-picker-input {
+  padding: 0 15px;
+  text-align: right;
+}
+
+.mat-select-value {
+  color: #5a4242 !important;
+  padding: 5px 15px 0 0;
+}
+
+.mat-select-arrow {
+  border-left: 3px solid transparent !important;
+  border-right: 3px solid transparent !important;
+  border-top: 7px solid !important;
+}
+
+
+.mat-option {
+  color: #938282;
+}
+
+.mat-select-panel {
+  background: #fff !important;
+}
+
+
+.field-require:before {
+  color: red;
+  content: '* ';
+}
+
+.form-control.ng-invalid.ng-touched,
+.mat-select.ng-invalid.ng-touched .mat-select-trigger, .ng-autocomplete.ng-invalid.ng-touched input,
+dp-date-picker.ng-invalid.ng-touched input {
+  border-color: #d70b1e !important;
+}
+
+.autocomplete-container .input-container input {
+  border: 1px solid #e4e6fc !important;
+  border-radius: 5px;
+
+}
+
+.autocomplete-container {
+  box-shadow: none !important;
+}
+
+.mat-slide-toggle-bar {
+  border: 1px solid #e4e6fc;
+}
+
+
+label {
+  font-size: 11px !important;
+}
+
+
+.ngx-file-drop__drop-zone {
+  height: 80px !important;
+  border: 1px solid #e4e6fc !important;
+  border-radius: 5px !important;
+}
+
+.ngx-file-drop__content {
+  height: 80px !important;
+
+}
+
+.table th {
+  font-size: 12px;
+  font-weight: 100;
+  vertical-align: middle !important;
+}
+
+
+.form-control-position span {
+  position: absolute;
+  top: 42%;
+  left: 5%;
+}
+
+.btn-select {
+  font-size: 11px;
+  padding: 0.2rem 0.3rem !important;
+}
+
+.form-control-position-input {
+  text-align: left;
+  padding-left: 6% !important;
+}
+
+.card .card-header .btn:not(.note-btn) {
+  border-radius: 4px !important;
+}
+
+.btn .fa {
+  color: #fff !important;
+}
+
+.mat-pseudo-checkbox.mat-pseudo-checkbox-checked, .mat-pseudo-checkbox.mat-pseudo-checkbox-indeterminate {
+  //border-color: #8a7777!important;
+}
+
+.mat-pseudo-checkbox {
+  border-color: #c3c3c3 !important;
+}
+
+.table:not(.table-sm):not(.table-md):not(.dataTable) td, .table:not(.table-sm):not(.table-md):not(.dataTable) th {
+  padding: 0 5px !important;
+}
+
+.mat-option .mat-option-text {
+  color: #685858;
+}
+
+.panel-shadow {
+  width: 100%;
+  border-top: 1px dashed #c5bbbb;
+  padding-top: 25px;
+}
+
+#toast-container > .toast-error:before {
+  content: '' !important;
+}
+
+.bs-tooltip-bottom {
+  display: none !important;
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6 !important;
+}
+
+table-bordered td, .table-bordered th {
+  border: 1px solid #dee2e6 !important;
+}
+
+.panel-shadow .col-md-4 {
+  margin-top: -15px;
+}
+
+label {
+  width: 102%;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-select-disabled {
+  background-color: #e9ecef !important;
+}
+
+.mat-select-arrow {
+  color: rgba(108, 102, 102, 0.7) !important;
+}
+
+.dropdown-list-content {
+  min-height: 70px !important;
+  height: unset !important;
+  max-height: 250px !important;
+}
+
+.settingPanelToggle .fa {
+  color: #fff !important;
+}
+
+.btn-restore-theme {
+  color: #fff !important;
+}
+
+.card-icon .fa {
+  color: #fff !important;
+}
+
+.sidebar-faraname {
+  position: absolute;
+  bottom: 0;
+  z-index: 20;
+  right: 7px;
+  font-size: 12px;
+
+  p {
+    cursor: pointer;
+
+    span {
+      font-size: 10px;
+      color: #f16d6d;
+    }
+  }
+
+}

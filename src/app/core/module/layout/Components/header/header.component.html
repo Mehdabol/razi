@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg main-navbar">
+  <div class="form-inline mr-auto">
+    <ul class="navbar-nav mr-3">
+      <li><a data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i class="fa fa-bars" data-feather="align-justify"></i></a></li>
+      <li><a class="nav-link nav-link-lg fullscreen-btn">
+        <i class="fa fa-window-maximize" data-feather="maximize"></i>
+      </a></li>
+      <li>
+        <form class="form-inline mr-auto">
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="جستجو" aria-label="جستجو کردن" data-width="200">
+            <button class="btn" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </div>
+  <ul class="navbar-nav navbar-right">
+    <li class="dropdown dropdown-list-toggle"><a data-toggle="dropdown"
+                                                 class="nav-link nav-link-lg message-toggle">
+      <i class="fa fa-envelope" data-feather="mail"></i>
+      <span class="badge headerBadge1">
+                6 </span> </a>
+      <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+        <div class="dropdown-header">
+          پیام ها
+          <div class="float-right">
+            <a>خوانده شده</a>
+          </div>
+        </div>
+        <div class="dropdown-list-content dropdown-list-message">
+          <a class="dropdown-item"> <span class="dropdown-item-avatar
+											text-white"> <img alt="image" src="assets/img/users/user-1.png"
+                                        class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">جان</span>
+                    <span class="time messege-text">لطفا ایمیل منو چک کنید.</span>
+                    <span class="time">2 دقیقه قبل</span>
+                  </span>
+          </a> <a class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="assets/img/users/user-2.png" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">سارا</span> <span
+          class="time messege-text">درخواست برای نرم افزار</span>
+                    <span class="time">5 دقیقه قبل</span>
+                  </span>
+        </a> <a class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="assets/img/users/user-5.png" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">محمد</span> <span
+          class="time messege-text">پرداخت فاکتور برنامه.</span> <span
+          class="time">12 دقیقه قبل</span>
+                  </span>
+        </a> <a class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="assets/img/users/user-4.png" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">لینا</span> <span
+          class="time messege-text">سلام جان.من برای شما یک تسک گذاشته ام.</span> <span
+          class="time">30 دقیقه قبل</span>
+                  </span>
+        </a> <a class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="assets/img/users/user-3.png" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">نیلوفر</span> <span
+          class="time messege-text">لورم ایپسوم متن ساختگی با تولید سادگی .</span> <span
+          class="time">1 دقیقه قبل</span>
+                  </span>
+        </a>
+        </div>
+        <div class="dropdown-footer text-center">
+          <a>مشاهده همه <i class="fas fa-chevron-left"></i></a>
+        </div>
+      </div>
+    </li>
+    <app-notification></app-notification>
+    <li class="dropdown">
+      <a data-toggle="dropdown"
+         class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+        <i class="fa fa-user-alt"></i>
+
+        <!--<img alt="تصویر"-->
+        <!--src="assets/img/user.png"-->
+        <!--class="user-img-radious-style">-->
+        <span class="d-sm-none d-lg-inline-block"></span></a>
+      <div class="dropdown-menu dropdown-menu-right pullDown">
+        <a class="dropdown-item has-icon text-danger" (click)="onSingOut()">
+          <i class="fas fa-sign-out-alt"></i>
+          خروج
+        </a>
+      </div>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,20 @@
+<div class="form-group row" >
+    <div class="col-md-8 col-sm-12">
+        <label [ngClass]="{'field-require':required}">{{labelTitle}}</label>
+        <ngx-file-drop (onFileDrop)="dropped($event)"
+                       (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+            <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                {{uploadInput}}
+                <button type="button" style="margin-right: 15px " class="btn btn-primary" (click)="openFileSelector()">
+                    {{buttonLabel}}
+                </button>
+            </ng-template>
+        </ngx-file-drop>
+    </div>
+    <div class="col-md-4 col-sm-12">
+    <span *ngFor="let item of files; let i=index">
+      {{ item.relativePath }}
+    </span>
+    </div>
+</div>
+

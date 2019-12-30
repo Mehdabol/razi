@@ -1,0 +1,33 @@
+export class FormModel {
+  HozurTypeID?: any;
+  MonagheseGozar?: any;
+  MonaghesTopic?: any;
+  PeopleNum?: any;
+  BimeGroupID?: any;
+  BimeGroup?: any;
+  HodudePortofaKoli?: any;
+  SabegheKhesaratPercent?: any;
+  BragorzariDate?: any;
+  PackatGoshayesheDate?: any;
+  MohlatElamHagheBimeDate?: any;
+  ShohratKhesaratMonagheseGozar?: any;
+  rogabaAsli?: any;
+  NeedWarranty?: any;
+  WarrantyAmount?: any;
+  SarresidDate?: any;
+  WarrantyTypeId?: any;
+  MonagheseGozarTypeID?: any;
+  ShenaseMeliInt?: any;
+  EghtesadiCodeInt?: any;
+  AddressOstanID?: any;
+  AddressCityID?: any;
+  AddressDetail?: any;
+  PhonePrefix?: any;
+  Phone?: any;
+  MonagheseGozarBank?: any;
+  BranchCode?: any;
+  BranchName?: any;
+  AccountNumberInt?: any;
+  ShabaNumber?: any;
+  ZinafName?: any;
+}
