@@ -2,14 +2,14 @@
   <div class="form-inline mr-auto">
     <ul class="navbar-nav mr-3">
       <!--<li>-->
-        <!--<a data-toggle="sidebar" class="nav-link nav-link-lg-->
-									<!--collapse-btn"> <i class="fa fa-bars" data-feather="align-justify"></i>-->
-        <!--</a>-->
+      <!--<a data-toggle="sidebar" class="nav-link nav-link-lg-->
+      <!--collapse-btn"> <i class="fa fa-bars" data-feather="align-justify"></i>-->
+      <!--</a>-->
       <!--</li>-->
       <li>
         <a class="nav-link nav-link-lg fullscreen-btn">
-        <i class="fa fa-window-maximize" data-feather="maximize"></i>
-      </a>
+          <i class="fa fa-window-maximize" data-feather="maximize"></i>
+        </a>
       </li>
       <li>
         <form class="form-inline mr-auto">
@@ -86,10 +86,14 @@
         <!--class="user-img-radious-style">-->
         <span class="d-sm-none d-lg-inline-block"></span></a>
       <div class="dropdown-menu dropdown-menu-right pullDown">
-        <a class="dropdown-item has-icon text-danger" (click)="onSingOut()">
+        <a class="dropdown-item has-icon text-danger" (click)="onSingOut()" *ngIf="token !== null">
           <i class="fas fa-sign-out-alt"></i>
           خروج
         </a>
+        <!--<a class="dropdown-item has-icon text-danger" (click)="onLogin()" *ngIf="token === null">-->
+          <!--<i class="fas fa-sign-in-alt"></i>-->
+          <!--ورود-->
+        <!--</a>-->
       </div>
     </li>
   </ul>

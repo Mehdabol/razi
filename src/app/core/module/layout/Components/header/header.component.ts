@@ -7,12 +7,21 @@ import {Router} from '@angular/router';
   styleUrls: ['./header-components.scss']
 })
 export class HeaderComponent {
+  token = '';
 
   constructor(private router: Router) {
+    this.token = localStorage.getItem('token');
+    console.log(this.token);
   }
 
   onSingOut() {
     localStorage.removeItem('token');
-    this.router.navigate(['login']);
+    this.router.navigate(['/pages/auth/login']);
+    this.token = null;
+  }
+
+  onLogin() {
+    this.router.navigate(['/pages/auth/login']);
+
   }
 }

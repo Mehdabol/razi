@@ -22,11 +22,10 @@ export class LoginComponent implements OnInit {
 
   onSubmitForm(form) {
     if (form.valid) {
-      // localStorage.setItem('token', '33334234234qdsadf');
-      // // this.router.navigate(['/pages/dashboard']);
       this.service.login(form.value).subscribe((res) => {
         this.alertService.success(res.Message);
-        window.location.href = '';
+        // window.location.href = '';
+        this.router.navigate(['/pages/dashboard']);
         localStorage.setItem('token', res.Data);
       }, error => {
         this.alertService.error(error);
