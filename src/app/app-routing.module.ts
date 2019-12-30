@@ -14,7 +14,7 @@ import {TimeLineGoComponent} from './module/dashboard/components/time-line-go/ti
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/pages/dashboard',
+    redirectTo: '/pages/auth/login',
     pathMatch: 'full',
   },
 
@@ -22,6 +22,7 @@ const routes: Routes = [
     path: 'pages',
     component: BaseLayoutComponent,
     children: [
+      {path: 'auth' , loadChildren: './module/auth/auth.module#AuthModule'},
       {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
       {path: 'notification/:id', component: GridNotificationComponent, canActivate: [AuthGuard]},
       {path: 'add', component: AddRegisteredComponent, canActivate: [AuthGuard]} ,
@@ -54,13 +55,13 @@ const routes: Routes = [
     path: '',
     component: PagesLayoutComponent,
     children: [
-      {
-        path: 'login',
-        component: LoginComponent,
-        data: {
-          title: 'Login Page'
-        }
-      },
+      // {
+      //   path: 'login',
+      //   component: LoginComponent,
+      //   data: {
+      //     title: 'Login Page'
+      //   }
+      // },
     ]
   },
 ];

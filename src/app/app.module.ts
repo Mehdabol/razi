@@ -49,7 +49,7 @@ import {ChartsModule} from 'ng2-charts';
     BaseLayoutComponent,
     DashboardComponent,
     ThemeSettingComponent,
-    LoginComponent,
+    // LoginComponent,
     SpinnerComponent,
     NotificationComponent,
     GridGridDashboardComponent,
