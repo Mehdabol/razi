@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {TenderService} from '../../service/tender.service';
+import {AlertService} from '../../../../core/services/alert.service';
 
 @Component({
   selector: 'app-grid-grid-dashboard',
@@ -11,10 +13,23 @@ export class GridGridDashboardComponent implements OnInit {
     format: 'jYYYY/jMM/jDD'
   };
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private alertService: AlertService,
+              private service: TenderService) {
   }
 
   ngOnInit() {
+    this.getGrid();
+  }
+
+
+  getGrid() {
+    debugger;
+    this.service.getGrid(0, 100).subscribe((res) => {
+      debugger;
+    }, error => {
+      this.alertService.error(error);
+    });
   }
 
   onAdd() {

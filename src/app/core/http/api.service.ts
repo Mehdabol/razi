@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {catchError, retry} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import * as appSetting from '../../config/app-setting.json';
 
 @Injectable({
@@ -23,11 +23,17 @@ export class ApiService<T> {
   };
 
   public get(url: string, params?: any): Observable<T> {
+    debugger;
     const jsonParam = (params) ? JSON.stringify(params) : '';
     const urls = jsonParam ? url + '/' + jsonParam : url;
     return this.http.get<T>(`${this.API_URL}/${urls}`, this.httpOptions)
       .pipe(
-        retry(1),
+        map((r: any) => {
+            debugger;
+            return r;
+          }
+        ),
+        // retry(1),
         catchError(this.handleError)
       );
   }
@@ -35,7 +41,7 @@ export class ApiService<T> {
   public getById(url: string, id: string): Observable<T> {
     return this.http.get<T>(`${this.API_URL}/${url}+${id}`, this.httpOptions)
       .pipe(
-        retry(1),
+        // retry(1),
         catchError(this.handleError)
       );
   }
@@ -44,7 +50,7 @@ export class ApiService<T> {
   public post(url: string, obj: T): Observable<T> {
     return this.http.post<T>(`${this.API_URL}/${url}`, obj, this.httpOptions)
       .pipe(
-        retry(1),
+        // retry(1),
         catchError(this.handleError)
       );
   }
@@ -52,7 +58,7 @@ export class ApiService<T> {
   public postLogin(url: string, obj: T): Observable<T> {
     return this.http.post<T>(`http://89.32.248.230:80/${url}`, obj, this.httpOptions)
       .pipe(
-        retry(1),
+        // retry(1),
         catchError(this.handleError)
       );
   }
@@ -62,7 +68,7 @@ export class ApiService<T> {
     const jsonParam = (obj) ? JSON.stringify(obj) : '';
     return this.http.put<T>(`${this.API_URL}/${url}`, jsonParam, this.httpOptions)
       .pipe(
-        retry(1),
+        // retry(1),
         catchError(this.handleError)
       );
   }
@@ -70,12 +76,13 @@ export class ApiService<T> {
   public delete(url: string, id: string): Observable<T> {
     return this.http.delete<T>(`${this.API_URL}/${url}/${id}`, this.httpOptions)
       .pipe(
-        retry(1),
+        // retry(1),
         catchError(this.handleError)
       );
   }
 
   handleError(error) {
+    debugger;
     let errorMessage = [];
     if (error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;

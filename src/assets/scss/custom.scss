@@ -165,6 +165,9 @@ label {
 #toast-container > .toast-error:before {
   content: '' !important;
 }
+#toast-container > .toast-success:before {
+  content: '' !important;
+}
 
 .bs-tooltip-bottom {
   display: none !important;
@@ -174,7 +177,7 @@ label {
   border: 1px solid #dee2e6 !important;
 }
 
-table-bordered td, .table-bordered th {
+.table-bordered td, .table-bordered th {
   border: 1px solid #dee2e6 !important;
 }
 
