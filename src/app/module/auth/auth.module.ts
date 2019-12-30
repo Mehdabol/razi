@@ -10,9 +10,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 @NgModule({
   declarations: [
     AuthComponent,
-    LoginComponent,
-    RegisterComponent,
-    ChangePasswordComponent
+    // LoginComponent,
+    // RegisterComponent,
+    // ChangePasswordComponent
   ],
   imports: [
     CommonModule,

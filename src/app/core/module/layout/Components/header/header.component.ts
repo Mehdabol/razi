@@ -16,12 +16,12 @@ export class HeaderComponent {
 
   onSingOut() {
     localStorage.removeItem('token');
-    this.router.navigate(['/pages/auth/login']);
+    this.router.navigate(['/pages/login']);
     this.token = null;
   }
 
   onLogin() {
-    this.router.navigate(['/pages/auth/login']);
+    this.router.navigate(['/pages/login']);
 
   }
 }

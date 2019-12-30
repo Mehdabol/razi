@@ -38,6 +38,8 @@ import {NgxMaskModule} from 'ngx-mask';
 import {DashboardBarChartComponent} from './module/dashboard/components/dashboard-bar-chart/dashboard-bar-chart.component';
 import {TimeLineGoComponent} from './module/dashboard/components/time-line-go/time-line-go.component';
 import {ChartsModule} from 'ng2-charts';
+import {RegisterComponent} from './module/auth/register/register.component';
+import {ChangePasswordComponent} from './module/auth/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,10 @@ import {ChartsModule} from 'ng2-charts';
     DetailForm2Component,
     DashboardBarChartComponent,
     GridNotificationComponent,
-    TimeLineGoComponent
+    TimeLineGoComponent ,
+    LoginComponent,
+    RegisterComponent,
+    ChangePasswordComponent
   ],
   imports: [
     AppRoutingModule,

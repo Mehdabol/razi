@@ -10,11 +10,13 @@ import {DetailForm1Component} from './module/dashboard/components/detail-form1/d
 import {DetailForm2Component} from './module/dashboard/components/detail-form2/detail-form2.component';
 import {GridNotificationComponent} from './core/module/layout/Components/notification/grid-notification/grid-notification.component';
 import {TimeLineGoComponent} from './module/dashboard/components/time-line-go/time-line-go.component';
+import {RegisterComponent} from './module/auth/register/register.component';
+import {ChangePasswordComponent} from './module/auth/change-password/change-password.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/pages/auth/login',
+    redirectTo: '/pages/login',
     pathMatch: 'full',
   },
 
@@ -22,7 +24,9 @@ const routes: Routes = [
     path: 'pages',
     component: BaseLayoutComponent,
     children: [
-      {path: 'auth' , loadChildren: './module/auth/auth.module#AuthModule'},
+      {path: 'login' , component: LoginComponent},
+      {path: 'register' , component: RegisterComponent},
+      {path: 'change-password' , component: ChangePasswordComponent},
       {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
       {path: 'notification/:id', component: GridNotificationComponent, canActivate: [AuthGuard]},
       {path: 'add', component: AddRegisteredComponent, canActivate: [AuthGuard]} ,

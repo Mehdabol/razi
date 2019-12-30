@@ -33,11 +33,11 @@ export class LoginComponent implements OnInit {
   }
 
   onRegister() {
-    this.router.navigate(['/pages/auth/register']);
+    this.router.navigate(['/pages/register']);
   }
 
   changePassword() {
-    this.router.navigate(['/pages/auth/change-password']);
+    this.router.navigate(['/pages/change-password']);
   }
 
 }
