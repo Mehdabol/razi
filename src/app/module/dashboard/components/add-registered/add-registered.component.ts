@@ -15,11 +15,8 @@ import {HamrazGridModel} from '../../model/hamraz-grid.model';
 })
 export class AddRegisteredComponent implements OnInit {
   file;
-  sendDataUploded;
-  base64Data;
-  arrayBuffer;
   hozuriSelect;
-  dataAuto = [];
+  rogabayAsli = [];
   keyword = 'PersianTitle';
   HozurTypeID = '';
   NeedWarranty = true;
@@ -80,7 +77,7 @@ export class AddRegisteredComponent implements OnInit {
 
   onSubmitForm(form: NgForm) {
     // if (form.valid) {
-      this.insertData(form.value);
+    this.insertData(form.value);
     // } else {
     //   this.errorService.generateArray(form);
     // }
@@ -88,27 +85,31 @@ export class AddRegisteredComponent implements OnInit {
 
   insertData(data) {
     debugger;
+    let comment = [];
+    for (let i = 0; i < this.gridHamraz.length; i++) {
+      comment = this.gridHamraz[i].description;
+    }
     const valueInsert = {
       HozurTypeID: data.HozurTypeID,
       MonagheseGozar: data.MonagheseGozar,
       MonaghesTopic: data.MonaghesTopic,
-      Code: 'string',
-      BimeGroupID: 0,
-      PeopleNum: 0,
-      HodudePortofaKoli: 0,
+      Code: data.Code,
+      BimeGroupID: data.BimeGroupID,
+      PeopleNum: data.PeopleNum,
+      HodudePortofaKoli: data.HodudePortofaKoli,
       LastYearHagheBimeAmount: 0,
-      BargorzariDate: data.BragorzariDate,
+      BargorzariDate: data.BaragorzariDate,
       PackatGoshayesheDate: 0,
       MohlatElamHagheBimeDate: data.MohlatElamHagheBimeDate,
-      ShohratKhesaratMonagheseGozar: 'string',
+      ShohratKhesaratMonagheseGozar: data.ShohratKhesaratMonagheseGozar,
       NeedWarranty: data.NeedWarranty,
       WarrantyAmount: data.WarrantyAmount,
       SarresidDate: data.SarresidDate,
-      WarrantyTypeId: 0,
-      MonagheseGozarTypeID: 0,
+      WarrantyTypeId: data.WarrantyTypeId,
+      MonagheseGozarTypeID: data.MonagheseGozarTypeID,
       ShenaseMeli: data.ShenaseMeliInt,
       ShenaseMeliInt: data.ShenaseMeliInt,
-      EghtesadiCode: 'string',
+      EghtesadiCode: data.EghtesadiCodeInt,
       EghtesadiCodeInt: data.EghtesadiCodeInt,
       AddressOstanID: data.AddressOstanID,
       AddressCityID: data.AddressCityID,
@@ -122,27 +123,19 @@ export class AddRegisteredComponent implements OnInit {
       AccountNumberInt: data.AccountNumberInt,
       ShabaNumber: data.ShabaNumber,
       ZinafName: data.ZinafName,
-      SabteDarkhastBimeGroups: [
-        {
-          BimeFieldID: 'string',
-          HagheBimeAmount: 'string',
-          HagheBimeType: 'string',
-          LastYearBimeGarID: 'string',
-          SabegheKhesaratPercent: 'string',
-          Comment: 'string',
-          SabteDarkhastID: 0,
-          ID: 0,
-          Hisdate: 0
-        }
-      ],
-      BPRaghibs: [
-        {
-          BimeGarID: 0,
-          SabteDarkhastID: 0,
-          ID: 0,
-          Hisdate: 0
-        }
-      ],
+      SabteDarkhastBimeGroups: this.gridHamraz,
+      //   [
+      //   {
+      //     BimeFieldID: 'string',
+      //     HagheBimeAmount: 'string',
+      //     HagheBimeType: 'string',
+      //     LastYearBimeGarID: 'string',
+      //     SabegheKhesaratPercent: 'string',
+      //     Comment: comment,
+      //     SabteDarkhastID: 0,
+      //   }
+      // ],
+      BPRaghibs: this.rogabayAsli,
 
     };
     this.service.insertData(data).subscribe(res => {
@@ -263,8 +256,11 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   onChnageChackbox(event) {
+    const data = {BimeGarID: event.value};
+    this.rogabayAsli.push(data);
     debugger;
   }
+
   onChangeHozure(event) {
     this.hozuriSelect = event.value;
   }

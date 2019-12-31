@@ -163,7 +163,7 @@
                 <div class="form-group ">
                   <label class="field-require"> کد پستی : </label>
                   <input type="text" class="form-control round"
-                         name="Phone"
+                         name="Code"
                          ngModel
                          required>
                 </div>
@@ -188,7 +188,7 @@
                   <label class="field-require">تاریخ برگزاری مناقصه : </label>
                   <dp-date-picker
                     ngModel
-                    name="BragorzariDate"
+                    name="BaragorzariDate"
                     dir="ltr"
                     required
                     class="form-control"
@@ -484,18 +484,6 @@
         <div class="col-md-12">
           <div class="form-group ">
             <label class="field-require">گروه بیمه : </label>
-            <!--<select ngModel class="form-control"-->
-            <!--(change)="onChangeBimeGroup($event)"-->
-            <!--name="BimeGroupID" multiple required>-->
-            <!--<option *ngFor="let item of BimeGroupsType"-->
-            <!--[value]="item.ID">{{item.PersianTitle}}-->
-            <!--</option>-->
-            <!--</select>-->
-            <!--<select class="form-control" ngModel-->
-            <!--(change)="onChangeBimeGroup($event)">-->
-            <!--<option>ww</option>-->
-            <!--<option>wwss</option>-->
-            <!--</select>-->
             <mat-select ngModel
                         (selectionChange)="onChangeBimeGroup($event)"
                         name="BimeGroupID" multiple required>
@@ -510,13 +498,13 @@
 
             <input type="text" ngModel required
                    oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                   name="afradNumber" class="form-control">
+                   name="HagheBimeType" class="form-control">
           </div>
         </div>
         <div class="col-md-12 mt-1">
           <label>رشته بیمه :</label>
           <mat-select [(ngModel)]="formHamraz.reshteBime"
-                      name="reshteBime" required (selectionChange)="onChangeReshteBime($event)">
+                      name="BimeFieldID" required (selectionChange)="onChangeReshteBime($event)">
             <mat-option>انتخاب کنید</mat-option>
             <mat-option *ngFor="let items of BimefieldType"
                         [value]="items.ID">{{items.PersianTitle}}</mat-option>
@@ -527,12 +515,13 @@
           <input class="form-control"
                  mask="separator.2" thousandSeparator=","
                  oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                 name="haghBime" ngModel>
+                 name="HagheBimeAmount" ngModel>
         </div>
         <div class="col-md-12 mt-1">
           <label>بیمه گر سال گذشته :</label>
           <ng-autocomplete
             [data]="BimeGarsType"
+            name="LastYearBimeGarID"
             [searchKeyword]="keyword"
             (selected)='selectEvent($event)'
             (inputChanged)='onChangeSearch($event)'
@@ -547,7 +536,7 @@
         </div>
         <div class="col-md-12 mt-1">
           <label>توضیحات :</label>
-          <input class="form-control" name="description" ngModel>
+          <input class="form-control" name="Comment" ngModel>
         </div>
       </div>
     </form>
