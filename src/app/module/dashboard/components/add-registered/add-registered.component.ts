@@ -14,6 +14,11 @@ import {HamrazGridModel} from '../../model/hamraz-grid.model';
   styleUrls: ['./add-registered.component.scss']
 })
 export class AddRegisteredComponent implements OnInit {
+  file;
+  sendDataUploded;
+  base64Data;
+  arrayBuffer;
+  hozuriSelect;
   dataAuto = [];
   keyword = 'PersianTitle';
   HozurTypeID = '';
@@ -46,6 +51,7 @@ export class AddRegisteredComponent implements OnInit {
   ShohratKhesaratType: DropDownModel[] = [];
   WarrantyTypes: DropDownModel[] = [];
   PhonePrefixType: DropDownModel[] = [];
+  HozurType: DropDownModel[] = [];
 
   constructor(private router: Router,
               private service: TenderService,
@@ -65,6 +71,7 @@ export class AddRegisteredComponent implements OnInit {
     this.getWarrantyTypes();
     this.getPhonePrefixTypes();
     this.getBimefieldType();
+    this.getHozurType();
   }
 
   onBack() {
@@ -72,14 +79,72 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   onSubmitForm(form: NgForm) {
-    if (form.valid) {
+    // if (form.valid) {
       this.insertData(form.value);
-    } else {
-      this.errorService.generateArray(form);
-    }
+    // } else {
+    //   this.errorService.generateArray(form);
+    // }
   }
 
   insertData(data) {
+    debugger;
+    const valueInsert = {
+      HozurTypeID: data.HozurTypeID,
+      MonagheseGozar: data.MonagheseGozar,
+      MonaghesTopic: data.MonaghesTopic,
+      Code: 'string',
+      BimeGroupID: 0,
+      PeopleNum: 0,
+      HodudePortofaKoli: 0,
+      LastYearHagheBimeAmount: 0,
+      BargorzariDate: data.BragorzariDate,
+      PackatGoshayesheDate: 0,
+      MohlatElamHagheBimeDate: data.MohlatElamHagheBimeDate,
+      ShohratKhesaratMonagheseGozar: 'string',
+      NeedWarranty: data.NeedWarranty,
+      WarrantyAmount: data.WarrantyAmount,
+      SarresidDate: data.SarresidDate,
+      WarrantyTypeId: 0,
+      MonagheseGozarTypeID: 0,
+      ShenaseMeli: data.ShenaseMeliInt,
+      ShenaseMeliInt: data.ShenaseMeliInt,
+      EghtesadiCode: 'string',
+      EghtesadiCodeInt: data.EghtesadiCodeInt,
+      AddressOstanID: data.AddressOstanID,
+      AddressCityID: data.AddressCityID,
+      AddressDetail: data.AddressDetail,
+      PhonePrefix: data.PhonePrefix,
+      Phone: data.Phone,
+      MonagheseGozarBank: data.MonagheseGozarBank,
+      BranchCode: data.BranchCode,
+      BranchName: data.BranchName,
+      AccountNumber: 0,
+      AccountNumberInt: data.AccountNumberInt,
+      ShabaNumber: data.ShabaNumber,
+      ZinafName: data.ZinafName,
+      SabteDarkhastBimeGroups: [
+        {
+          BimeFieldID: 'string',
+          HagheBimeAmount: 'string',
+          HagheBimeType: 'string',
+          LastYearBimeGarID: 'string',
+          SabegheKhesaratPercent: 'string',
+          Comment: 'string',
+          SabteDarkhastID: 0,
+          ID: 0,
+          Hisdate: 0
+        }
+      ],
+      BPRaghibs: [
+        {
+          BimeGarID: 0,
+          SabteDarkhastID: 0,
+          ID: 0,
+          Hisdate: 0
+        }
+      ],
+
+    };
     this.service.insertData(data).subscribe(res => {
 
     }, error => {
@@ -156,10 +221,10 @@ export class AddRegisteredComponent implements OnInit {
     });
   }
 
-  onChngeNeedWarranty(event) {
-    this.NeedWarranty = event;
-
-  }
+  // onChngeNeedWarranty(event) {
+  //   this.NeedWarranty = event;
+  //
+  // }
 
 
   saveModal(form: NgForm, modalName) {
@@ -185,10 +250,23 @@ export class AddRegisteredComponent implements OnInit {
   onChangeReshteBime(event) {
   }
 
-  onUploadFile($event) {
-    debugger
+  onUploadFile(event) {
+    this.service.DownloadFile(event).subscribe((res) => {
+      debugger;
+    });
   }
-  handleFileInput(event) {
 
+  getHozurType() {
+    this.service.getHozurType().subscribe((res) => {
+      this.HozurType = res.Items;
+    });
   }
+
+  onChnageChackbox(event) {
+    debugger;
+  }
+  onChangeHozure(event) {
+    this.hozuriSelect = event.value;
+  }
+
 }

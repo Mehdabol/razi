@@ -5,7 +5,8 @@ import {Injectable} from '@angular/core';
 export class TenderService {
   url = 'Common/';
   BpUrl = 'BP/';
-sabtUrl = 'SabteDarkhast/';
+  sabtUrl = 'SabteDarkhast/';
+
   constructor(private service: ApiService<any>) {
   }
 
@@ -30,8 +31,9 @@ sabtUrl = 'SabteDarkhast/';
   getBimeGroupsType() {
     return this.service.get(this.url + 'BimeGroups');
   }
+
   getBimefieldType() {
-    return this.service.get(this.url + 'Bimefield');
+    return this.service.get(this.url + 'BimehFields');
   }
 
   getHozurTypes() {
@@ -60,6 +62,12 @@ sabtUrl = 'SabteDarkhast/';
 
   canStart() {
     return this.service.get(this.sabtUrl + 'CanStart');
+  }
+  getHozurType() {
+    return this.service.get(this.url + 'HozurTypes');
+  }
 
+  DownloadFile(data) {
+    return this.service.post('File/Upload', data);
   }
 }

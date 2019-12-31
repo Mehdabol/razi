@@ -22,16 +22,19 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="">نوع حضور :</label>
-                  <input type="text" class="form-control" name="HozurTypeID"
-                         [(ngModel)]="HozurTypeID" disabled>
+                  <mat-select ngModel
+                              name="HozurTypeID" required (selectionChange)="onChangeHozure($event)">
+                    <mat-option></mat-option>
+                    <mat-option *ngFor="let item of HozurType"
+                                [value]="item.ID">{{item.PersianTitle}}</mat-option>
+                  </mat-select>
+
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-4" *ngIf="this.hozuriSelect !== 1">
                 <div class="form-group ">
                   <label class="field-require">معرف :</label>
-                  <!--<input type="text" class="form-control round" name="MonagheseGozar" ngModel-->
-                  <!--required>-->
                   <mat-select ngModel
                               name="MonagheseGozar" required>
                     <mat-option></mat-option>
@@ -46,7 +49,7 @@
                 <div class="form-group ">
                   <label class="field-require">نام مناقصه گذار :</label>
                   <input type="text" class="form-control round" name="MonagheseGozar" ngModel
-                  required>
+                         required>
 
                 </div>
               </div>
@@ -453,6 +456,7 @@
             </div>
             <div class="panel-shadow">
               <div class="col-md-12">
+                <!--<input type="file" (change)="onUploadFile($event)">-->
                 <app-dpk-form-upload
                   name="upload"
                   (fileData)="onUploadFile($event)"
@@ -481,16 +485,16 @@
           <div class="form-group ">
             <label class="field-require">گروه بیمه : </label>
             <!--<select ngModel class="form-control"-->
-                    <!--(change)="onChangeBimeGroup($event)"-->
-                    <!--name="BimeGroupID" multiple required>-->
-              <!--<option *ngFor="let item of BimeGroupsType"-->
-                      <!--[value]="item.ID">{{item.PersianTitle}}-->
-              <!--</option>-->
+            <!--(change)="onChangeBimeGroup($event)"-->
+            <!--name="BimeGroupID" multiple required>-->
+            <!--<option *ngFor="let item of BimeGroupsType"-->
+            <!--[value]="item.ID">{{item.PersianTitle}}-->
+            <!--</option>-->
             <!--</select>-->
             <!--<select class="form-control" ngModel-->
-                    <!--(change)="onChangeBimeGroup($event)">-->
-              <!--<option>ww</option>-->
-              <!--<option>wwss</option>-->
+            <!--(change)="onChangeBimeGroup($event)">-->
+            <!--<option>ww</option>-->
+            <!--<option>wwss</option>-->
             <!--</select>-->
             <mat-select ngModel
                         (selectionChange)="onChangeBimeGroup($event)"
@@ -560,6 +564,12 @@
   </div>
   <div class="modal-body">
     <form #f=ngForm>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let item of BimeGarsType">
+          <input type="checkbox" (change)="onChnageChackbox($event)" value="{{item.ID}}">
+          <label>{{item.PersianTitle}}</label>
+        </div>
+      </div>
     </form>
   </div>
   <div class="modal-footer">

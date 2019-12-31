@@ -92,16 +92,13 @@ export class DpkFormUploadComponent implements OnInit, ControlValueAccessor, Val
 
 
   public dropped(files: NgxFileDropEntry[]) {
-    debugger;
     if (files[0].fileEntry.isFile && this.isFileAllowed(files[0].fileEntry.name)) {
       this.files = files;
       for (const droppedFile of files) {
         if (droppedFile.fileEntry.isFile) {
           const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
-          debugger;
           fileEntry.file((file: File) => {
             this.file = file;
-            debugger;
             this.convertToBase64();
           });
         } else {
@@ -145,8 +142,6 @@ export class DpkFormUploadComponent implements OnInit, ControlValueAccessor, Val
         fileByteArray.push(data[i]);
       }
       const base64Data: any = window.btoa(String.fromCharCode(...fileByteArray));
-      const m = this.file;
-      debugger;
       const senddata = {FormatFile: DpkFormUploadComponent.self.file.type, FileName: DpkFormUploadComponent.self.file.name, Content: base64Data};
       this.fileData.emit(senddata);
       this.onChange(senddata);
