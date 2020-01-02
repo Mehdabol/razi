@@ -68,87 +68,26 @@
         </div>
       </div>
     </div>
-    <div class="table-responsive table-invoice">
-      <table class="table table-striped table-bordered table-scroll">
-        <thead>
-        <tr>
-          <th class="text-center">#</th>
-          <th>کاربر</th>
-          <th>پیشرفت</th>
-          <th>تاریخ ثبت</th>
-          <th>نام مناقصه گذار</th>
-          <th>موضوع مناقصه</th>
-          <th>شماره مناقصه</th>
-          <th>گروه بیمه</th>
-          <th>حق بیمه پیشنهادی</th>
-          <th>تاریخ برگزاری مناقصه</th>
-          <th>تاریخ برگزاری مناقصه</th>
-          <th>وضعیت درخواست</th>
-          <th></th>
-          <th>
-            <button class="btn btn-action bg-success w-100 h-100" data-toggle="tooltip" title="ثبت درخواست" (click)="onAdd()"
-                    *ngIf="canStartButton">
-              <i
-                class="fas fa-plus"></i>
-            </button>
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of gridData; index as i">
-          <td class="p-0 text-center">
-            {{ i + 1}}
-          </td>
-          <td class="text-truncate">
-            <ul class="list-unstyled order-list m-b-0 m-b-0">
-              <li class="team-member team-member-sm">
-                <img class="rounded-circle" src="assets/img/users/user-8.png"
-                     alt="کاربر" data-toggle="tooltip" title=""
-                     data-original-title="Wildan Ahdian"></li>
-              <li class="avatar avatar-sm"><span class="badge badge-primary">+4</span></li>
-            </ul>
-          </td>
-          <td class="align-middle">
-            <div class="progress" style="height: 8%" data-toggle="tooltip" title="30٪">
-              <div class="progress-bar bg-orange" style="width: 30%"></div>
-            </div>
-          </td>
-          <td>{{item.PackatGoshayesheDate}}</td>
-          <td>{{item.MonagheseGozar}}</td>
-          <td class="text-truncate">
-            {{item.MonaghesTopic}}
-          </td>
-          <td class="text-truncate">
-            {{item.Code}}
-          </td>
-          <td class="text-truncate">
-            {{item.BimeGroup}}
-          </td>
-          <td class="text-truncate">
-            {{item.HagheBimeAmount}}
-          </td>
-
-          <td>1398-10-25</td>
-          <td>1398-08-11</td>
-          <td class="text-truncate">
-            {{item.HasAccess ? 'تایید شده' : 'رد شده'}}
-          </td>
-          <td>
-
-            <button class="btn btn-action bg-blue-grey " data-toggle="tooltip" title="گردش کار مناقصه"
-                    (click)="onCliTime()">
-              <i class="fas fa-percent"></i>
-            </button>
-          </td>
-          <td>
-            <button class="btn btn-action bg-purple" data-toggle="tooltip" title="جزئیات" (click)="onDetail()">
-              <i class="fas fa-info"></i>
-            </button>
-          </td>
-        </tr>
-
-        </tbody>
-      </table>
-    </div>
+    <ag-grid-angular
+      style="width: 100%; height:500px;"
+      class="ag-theme-material"
+      id="myAgGridSample"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowModelType]="rowModelType"
+      [animateRows]="false"
+      [debug]="true"
+      [rowData]="rowData"
+      [sideBar]="sideBar"
+      [frameworkComponents]="frameworkComponents"
+      (gridReady)="onGridReady($event)"
+      [maxConcurrentDatasourceRequests]="maxConcurrentDatasourceRequests"
+      [cacheBlockSize]="cacheBlockSize"
+      [enableRtl]="true"
+      [floatingFilter]="false"
+      [localeText]="localeText"
+      (rowClicked)="onRowClicked($event)"
+      (firstDataRendered)="onFirstDataRendered($event)"
+    ></ag-grid-angular>
   </div>
 </div>

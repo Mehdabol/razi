@@ -11,6 +11,11 @@
 @import "assets/fonts/Farsi-Digits/samim.css";
 @import '~ngx-toastr/toastr';
 @import "assets/scss/login";
+@import "assets/scss/custom-grid-theme";
+
+$ag-icons-path: "../node_modules/ag-grid-community/src/styles/ag-theme-material/icons/";
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "~ag-grid-community/dist/styles/ag-theme-material.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

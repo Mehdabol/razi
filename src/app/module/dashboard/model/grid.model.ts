@@ -1,15 +1,20 @@
 export class GridModel {
-  public MonagheseGozar: string;
-  public MonaghesTopic: string;
-  public Code: string;
-  public BimeGroup: string;
-  public HagheBimeAmount: string;
-  public HagheBimeType: string;
-  public BargorzariDate: string;
-  public PackatGoshayesheDate: string;
-  public HasAccess: string;
-  public ControllerName: string;
-  public Starter: boolean;
-  public ID: string;
-  public Hisdate: string;
+  BPID: number;
+  BPIID: number;
+  MonagheseGozar: string;
+  BargorzariDate: any;
+  PackatGoshayesheDate: any;
+  MonaghesTopic: string;
+  LastYearHagheBimeAmount: number;
+  MohlatElamHagheBimeDate: number;
+  BimeGroupID: number;
+  Code: string;
+  BpCode: string;
+  IsOpen: boolean;
+  StateID: number;
+  StateTitle: string;
+  Controllername: string;
+  RoleID: number;
+  HisDate: number;
+
 }

@@ -42,6 +42,10 @@ import {ChangePasswordComponent} from './module/auth/change-password/change-pass
 import {NotificationService} from './core/module/layout/Components/notification/service/notification.service';
 import {ConvertDateService} from './module/dashboard/service/convert-date.service';
 
+import {AgGridModule} from 'ag-grid-angular';
+import {SearchGridService} from './module/dashboard/service/search-grid.service';
+import { GridDetailButtonComponent } from './module/dashboard/components/grid-detail-button/grid-detail-button.component';
+import { TimlineButtonGridComponent } from './module/dashboard/components/timline-button-grid/timline-button-grid.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,10 +68,13 @@ import {ConvertDateService} from './module/dashboard/service/convert-date.servic
     TimeLineGoComponent,
     LoginComponent,
     RegisterComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    GridDetailButtonComponent,
+    TimlineButtonGridComponent
   ],
   imports: [
     AppRoutingModule,
+    AgGridModule.withComponents([GridDetailButtonComponent , TimlineButtonGridComponent]),
     BrowserAnimationsModule,
     MatSelectModule,
     AutocompleteLibModule,

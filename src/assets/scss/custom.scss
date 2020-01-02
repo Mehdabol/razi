@@ -255,6 +255,8 @@ label {
 
 table.table {
   display: block;
+  width: auto !important;
+  table-layout: auto !important;
 
   tbody {
     display: block;
@@ -273,6 +275,7 @@ table.table {
     flex-basis: 100%;
     flex-grow: 2;
     display: block;
+    width: auto !important;
   }
 
   thead {
@@ -281,9 +284,7 @@ table.table {
     width: 100%;
     overflow-y: scroll;
 
+
   }
 }
 
-.table tr th {
-  text-align: right;
-}
