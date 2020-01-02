@@ -13,7 +13,6 @@ export class HeaderComponent {
   constructor(private router: Router,
               private tokenService: TokenService) {
     this.token = localStorage.getItem('token');
-    console.log(this.token);
   }
 
   onSingOut() {

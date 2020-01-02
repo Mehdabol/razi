@@ -31,8 +31,6 @@ export class GridGridDashboardComponent implements OnInit {
   getGrid() {
     this.service.getGrid(0, 100).subscribe((res) => {
       this.gridData = res.Items;
-    }, error => {
-      this.alertService.error(error);
     });
   }
 

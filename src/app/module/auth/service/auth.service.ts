@@ -3,12 +3,12 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class AuthService {
-  url = 'api/Authenticate/';
+  url = 'authenticationwebservice/api/Authenticate/';
 
   constructor(private service: ApiService<any>) {
   }
 
   login(data) {
-   return this.service.postLogin(this.url + 'GetUserToken', data);
+   return this.service.postLogin(this.url + `GetUserToken`, data);
   }
 }
