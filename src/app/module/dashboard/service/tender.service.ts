@@ -57,7 +57,7 @@ export class TenderService {
   }
 
   insertData(data) {
-    return this.service.put(this.BpUrl + 'Insert', data);
+    return this.service.post(this.sabtUrl + 'Start', data);
   }
 
   canStart() {

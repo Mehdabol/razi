@@ -79,7 +79,7 @@
                 <div class="form-group ">
                   <label class="field-require"> نوع مناقصه گذار : </label>
                   <mat-select ngModel
-                              name="MonagheseGozarTypeID" multiple required>
+                              name="MonagheseGozarTypeID" required>
                     <mat-option *ngFor="let items of MonagheseGozarTypes"
                                 [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
@@ -146,7 +146,7 @@
                               name="PhonePrefix" required>
                     <mat-option>انتخاب کنید</mat-option>
                     <mat-option *ngFor="let items of PhonePrefixType"
-                                [value]="items.ID">{{items.PersianTitle}}</mat-option>
+                                [value]="items.ID">{{items.Value}}</mat-option>
                   </mat-select>
                 </div>
               </div>
@@ -237,7 +237,7 @@
                     وضعیت شهرت شرکت مناقصه گذار در زمینه خسارت رشته های مورد نظر :
                   </label>
                   <mat-select ngModel
-                              name="ShohratKhesaratMonagheseGozar" multiple required>
+                              name="ShohratKhesaratMonagheseGozar" required>
                     <mat-option *ngFor="let items of ShohratKhesaratType"
                                 [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
@@ -284,13 +284,13 @@
                   </thead>
                   <tbody>
                   <tr *ngFor="let item of gridHamraz">
-                    <td>{{item.BimeGroupTitle}}</td>
-                    <td>{{item.afradNumber}}</td>
-                    <td>{{item.reshteBime}}</td>
-                    <td>{{item.haghBime}}</td>
-                    <td>{{item.lastBimeGarsTypeTitle}}</td>
-                    <td>{{item.sabeghekhesarat}}</td>
-                    <td>{{item.description}}</td>
+                    <td>{{item.HagheBimeTypeTile}}</td>
+                    <td>{{item.PersonNumber}}</td>
+                    <td>{{item.BimeFieldIDTitle}}</td>
+                    <td>{{item.HagheBimeAmount}}</td>
+                    <td>{{item.LastYearBimeGarIDTitle}}</td>
+                    <td>{{item.SabegheKhesaratPercent}}</td>
+                    <td>{{item.Comment}}</td>
                     <td>
                       <button class="btn btn-action bg-info  mr-1" data-toggle="tooltip" title="ویرایش">
 
@@ -360,7 +360,7 @@
                     <div class="form-group ">
                       <label class="field-require">نوع ضمانت نامه :</label>
                       <mat-select ngModel
-                                  name="WarrantyTypeId" multiple required>
+                                  name="WarrantyTypeId" required>
                         <mat-option *ngFor="let items of WarrantyTypes"
                                     [value]="items.ID">{{items.PersianTitle}}</mat-option>
                       </mat-select>
@@ -486,7 +486,7 @@
             <label class="field-require">گروه بیمه : </label>
             <mat-select ngModel
                         (selectionChange)="onChangeBimeGroup($event)"
-                        name="BimeGroupID" multiple required>
+                        name="HagheBimeType" required>
               <mat-option *ngFor="let item of BimeGroupsType"
                           [value]="item.ID">{{item.PersianTitle}}</mat-option>
             </mat-select>
@@ -495,15 +495,14 @@
         <div class="col-md-12 mt-1">
           <div class="form-group ">
             <label class="field-require">تعداد افراد : </label>
-
             <input type="text" ngModel required
                    oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                   name="HagheBimeType" class="form-control">
+                   name="PersonNumber" class="form-control">
           </div>
         </div>
         <div class="col-md-12 mt-1">
           <label>رشته بیمه :</label>
-          <mat-select [(ngModel)]="formHamraz.reshteBime"
+          <mat-select ngModel
                       name="BimeFieldID" required (selectionChange)="onChangeReshteBime($event)">
             <mat-option>انتخاب کنید</mat-option>
             <mat-option *ngFor="let items of BimefieldType"
@@ -532,7 +531,7 @@
         </div>
         <div class="col-md-12 mt-1">
           <label>سابقه خسارت سنوات گذشته مناقصه گذار :</label>
-          <input class="form-control" name="sabeghekhesarat" ngModel>
+          <input class="form-control" name="SabegheKhesaratPercent" ngModel>
         </div>
         <div class="col-md-12 mt-1">
           <label>توضیحات :</label>

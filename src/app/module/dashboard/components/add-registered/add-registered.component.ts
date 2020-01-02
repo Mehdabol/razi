@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {DropDownModel} from '../../model/drop-down.model';
 import {TenderService} from '../../service/tender.service';
 import {AlertService} from '../../../../core/services/alert.service';
 import {FormValidateService} from '../../../../core/services/Form-Validate.service';
@@ -23,32 +22,26 @@ export class AddRegisteredComponent implements OnInit {
   showFormat = {
     format: 'jYYYY/jMM/jDD'
   };
+  BimeFieldIDTitle;
+  BimeFieldID;
+  HagheBimeTypeTile;
+  HagheBimeType;
+  LastYearBimeGarIDTitle;
 
   gridHamraz = [];
-  formHamraz: HamrazGridModel = {
-    afradNumber: null,
-    BimeGroupID: null,
-    BimeGroupTitle: null,
-    description: null,
-    haghBime: null,
-    lastBimeGarsType: null,
-    lastBimeGarsTypeTitle: null,
-    reshteBime: null,
-    reshteBimeTitle: null,
-    sabeghekhesarat: null
-  };
+  formHamraz: HamrazGridModel = {};
   MonagheseGozarType = [];
-  BimefieldType: [] = [];
-  OstansType: DropDownModel[] = [];
-  CitiesType: DropDownModel[] = [];
-  BimeGarsType: DropDownModel[] = [];
-  BimeGroupsType: DropDownModel[] = [];
-  HozurTypes: DropDownModel[] = [];
-  MonagheseGozarTypes: DropDownModel[] = [];
-  ShohratKhesaratType: DropDownModel[] = [];
-  WarrantyTypes: DropDownModel[] = [];
-  PhonePrefixType: DropDownModel[] = [];
-  HozurType: DropDownModel[] = [];
+  BimefieldType = [];
+  OstansType = [];
+  CitiesType = [];
+  BimeGarsType = [];
+  BimeGroupsType = [];
+  HozurTypes = [];
+  MonagheseGozarTypes = [];
+  ShohratKhesaratType = [];
+  WarrantyTypes = [];
+  PhonePrefixType = [];
+  HozurType = [];
 
   constructor(private router: Router,
               private service: TenderService,
@@ -89,27 +82,25 @@ export class AddRegisteredComponent implements OnInit {
     for (let i = 0; i < this.gridHamraz.length; i++) {
       comment = this.gridHamraz[i].description;
     }
+    //
     const valueInsert = {
       HozurTypeID: data.HozurTypeID,
-      MonagheseGozar: data.MonagheseGozar,
       MonaghesTopic: data.MonaghesTopic,
       Code: data.Code,
-      BimeGroupID: data.BimeGroupID,
       PeopleNum: data.PeopleNum,
       HodudePortofaKoli: data.HodudePortofaKoli,
-      LastYearHagheBimeAmount: 0,
-      BargorzariDate: data.BaragorzariDate,
-      PackatGoshayesheDate: 0,
-      MohlatElamHagheBimeDate: data.MohlatElamHagheBimeDate,
+      BargorzariDate: '13981014',
+      MohlatElamHagheBimeDate: '13981123',
       ShohratKhesaratMonagheseGozar: data.ShohratKhesaratMonagheseGozar,
+      MonagheseGozar: data.MonagheseGozar,
       NeedWarranty: data.NeedWarranty,
       WarrantyAmount: data.WarrantyAmount,
-      SarresidDate: data.SarresidDate,
+      SarresidDate: '13981123',
       WarrantyTypeId: data.WarrantyTypeId,
       MonagheseGozarTypeID: data.MonagheseGozarTypeID,
-      ShenaseMeli: data.ShenaseMeliInt,
+      ShenaseMeli: '222',
       ShenaseMeliInt: data.ShenaseMeliInt,
-      EghtesadiCode: data.EghtesadiCodeInt,
+      EghtesadiCode: '22',
       EghtesadiCodeInt: data.EghtesadiCodeInt,
       AddressOstanID: data.AddressOstanID,
       AddressCityID: data.AddressCityID,
@@ -123,22 +114,17 @@ export class AddRegisteredComponent implements OnInit {
       AccountNumberInt: data.AccountNumberInt,
       ShabaNumber: data.ShabaNumber,
       ZinafName: data.ZinafName,
-      SabteDarkhastBimeGroups: this.gridHamraz,
-      //   [
-      //   {
-      //     BimeFieldID: 'string',
-      //     HagheBimeAmount: 'string',
-      //     HagheBimeType: 'string',
-      //     LastYearBimeGarID: 'string',
-      //     SabegheKhesaratPercent: 'string',
-      //     Comment: comment,
-      //     SabteDarkhastID: 0,
-      //   }
-      // ],
-      BPRaghibs: this.rogabayAsli,
 
+      SabteDarkhastBimeGroups: this.gridHamraz,
+      BPRaghibs: [{BimeGarID: 16}],
+      BPIFiles: [
+        {
+          FileID: 7,
+        }
+      ],
     };
-    this.service.insertData(data).subscribe(res => {
+    this.service.insertData(valueInsert).subscribe(res => {
+      debugger;
 
     }, error => {
       this.alertService.error(error);
@@ -146,6 +132,8 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   selectEvent(item) {
+    debugger;
+    this.LastYearBimeGarIDTitle = item.PersianTitle;
   }
 
   onChangeSearch(val: string) {
@@ -221,10 +209,22 @@ export class AddRegisteredComponent implements OnInit {
 
 
   saveModal(form: NgForm, modalName) {
+    this.resetForm();
     // if (form.invalid) {
     //   this.errorService.generateArray(form);
     // } else {
-    this.gridHamraz.push(form.value);
+    debugger;
+    this.formHamraz.PersonNumber = form.value.PersonNumber;
+    this.formHamraz.HagheBimeAmount = form.value.HagheBimeAmount;
+    this.formHamraz.Comment = form.value.Comment;
+    this.formHamraz.SabegheKhesaratPercent = form.value.SabegheKhesaratPercent;
+    this.formHamraz.BimeFieldIDTitle = this.BimeFieldIDTitle;
+    this.formHamraz.BimeFieldID = this.BimeFieldID;
+    this.formHamraz.HagheBimeTypeTile = this.HagheBimeTypeTile;
+    this.formHamraz.HagheBimeType = this.HagheBimeType;
+    this.formHamraz.LastYearBimeGarIDTitle = this.LastYearBimeGarIDTitle;
+    const data = this.formHamraz;
+    this.gridHamraz.push(data);
     this.onCloseModal(modalName);
     // }
   }
@@ -238,12 +238,22 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   onChangeBimeGroup(event) {
+    const data = event.value;
+    const value = this.BimeGroupsType.filter(x => x.ID === data);
+    this.HagheBimeType = value[0].ID;
+    this.HagheBimeTypeTile = value[0].PersianTitle;
   }
 
   onChangeReshteBime(event) {
+    const data = event.value;
+    const value = this.BimefieldType.filter(x => x.ID === data);
+    this.BimeFieldID = value[0].ID;
+    this.BimeFieldIDTitle = value[0].PersianTitle;
+
   }
 
   onUploadFile(event) {
+    debugger;
     this.service.DownloadFile(event).subscribe((res) => {
       debugger;
     });
@@ -263,6 +273,26 @@ export class AddRegisteredComponent implements OnInit {
 
   onChangeHozure(event) {
     this.hozuriSelect = event.value;
+  }
+
+  resetForm() {
+    this.BimeFieldIDTitle = null;
+    this.BimeFieldID = null;
+    this.HagheBimeTypeTile = null;
+    this.HagheBimeType = null;
+    this.LastYearBimeGarIDTitle = null;
+    this.formHamraz = {
+      LastYearBimeGarIDTitle: null,
+      BimeFieldIDTitle: null,
+      HagheBimeTypeTile: null,
+      Comment: null,
+      BimeFieldID: null,
+      HagheBimeAmount: null,
+      HagheBimeType: null,
+      LastYearBimeGarID: null,
+      PersonNumber: null,
+      SabegheKhesaratPercent: null
+    };
   }
 
 }

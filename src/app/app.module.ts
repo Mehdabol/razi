@@ -37,9 +37,9 @@ import {GridNotificationComponent} from './core/module/layout/Components/notific
 import {NgxMaskModule} from 'ngx-mask';
 import {DashboardBarChartComponent} from './module/dashboard/components/dashboard-bar-chart/dashboard-bar-chart.component';
 import {TimeLineGoComponent} from './module/dashboard/components/time-line-go/time-line-go.component';
-import {ChartsModule} from 'ng2-charts';
 import {RegisterComponent} from './module/auth/register/register.component';
 import {ChangePasswordComponent} from './module/auth/change-password/change-password.component';
+import {NotificationService} from './core/module/layout/Components/notification/service/notification.service';
 
 @NgModule({
   declarations: [
@@ -88,6 +88,7 @@ import {ChangePasswordComponent} from './module/auth/change-password/change-pass
 
   ],
   providers: [AuthService, AuthGuard, FormValidateService,
+    NotificationService,
     TenderService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},

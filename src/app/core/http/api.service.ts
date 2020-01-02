@@ -23,6 +23,11 @@ export class ApiService<T> {
       'Content-Type': 'application/json'
     })
   };
+  httpOptionsInsert = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    })
+  };
 
   public get(url: string, params?: any): Observable<T> {
     const jsonParam = (params) ? JSON.stringify(params) : '';
