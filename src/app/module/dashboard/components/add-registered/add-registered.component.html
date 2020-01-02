@@ -254,7 +254,7 @@
                       </button>
                     </div>
                     <div class="col-md-9">
-                      <input class="form-control" disabled>
+                      <input class="form-control" disabled [(ngModel)]="rogabaAsliTitleInput" name="ragib">
 
                     </div>
                   </div>
@@ -560,8 +560,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-success m-1">ذخیره</button>
-    <button type="button" class="btn btn-danger m-1" (click)="onCloseModal(modal2)">انصراف</button>
+    <button type="button" class="btn btn-danger m-1 w-100" (click)="onCloseModal(modal2)">بستن</button>
   </div>
 </ng-template>
 <ng-template #itemTemplate let-item>

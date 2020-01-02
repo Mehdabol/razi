@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgForm} from '@angular/forms';
 import {HamrazGridModel} from '../../model/hamraz-grid.model';
+import {ConvertDateService} from '../../service/convert-date.service';
 
 @Component({
   selector: 'app-add-registered',
@@ -22,6 +23,8 @@ export class AddRegisteredComponent implements OnInit {
   showFormat = {
     format: 'jYYYY/jMM/jDD'
   };
+  rogabaAsliTitle = [];
+  rogabaAsliTitleInput = '';
   BimeFieldIDTitle;
   BimeFieldID;
   HagheBimeTypeTile;
@@ -48,6 +51,7 @@ export class AddRegisteredComponent implements OnInit {
               private service: TenderService,
               private alertService: AlertService,
               private errorService: FormValidateService,
+              private convertDaate: ConvertDateService,
               private modalService: NgbModal) {
   }
 
@@ -78,19 +82,22 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   insertData(data) {
+    data.BaragorzariDate = this.convertDaate.convertToIntDate(data.BaragorzariDate, '/');
+    data.MohlatElamHagheBimeDate = this.convertDaate.convertToIntDate(data.MohlatElamHagheBimeDate, '/');
+    data.SarresidDate = this.convertDaate.convertToIntDate(data.SarresidDate, '/');
     const valueInsert = {
       HozurTypeID: data.HozurTypeID,
       MonaghesTopic: data.MonaghesTopic,
       Code: data.Code,
       PeopleNum: data.PeopleNum,
       HodudePortofaKoli: data.HodudePortofaKoli,
-      BargorzariDate: '13981014',
-      MohlatElamHagheBimeDate: '13981123',
+      BargorzariDate: data.BaragorzariDate,
+      MohlatElamHagheBimeDate: data.MohlatElamHagheBimeDate,
       ShohratKhesaratMonagheseGozar: data.ShohratKhesaratMonagheseGozar,
       MonagheseGozar: data.MonagheseGozar,
       NeedWarranty: data.NeedWarranty,
       WarrantyAmount: data.WarrantyAmount,
-      SarresidDate: '13981123',
+      SarresidDate: data.SarresidDate,
       WarrantyTypeId: data.WarrantyTypeId,
       MonagheseGozarTypeID: data.MonagheseGozarTypeID,
       ShenaseMeli: '222',
@@ -111,7 +118,7 @@ export class AddRegisteredComponent implements OnInit {
       ZinafName: data.ZinafName,
 
       SabteDarkhastBimeGroups: this.gridHamraz,
-      BPRaghibs: [{BimeGarID: 16}],
+      BPRaghibs: this.rogabayAsli,
       BPIFiles: this.file
     };
     this.postData(valueInsert);
@@ -119,7 +126,7 @@ export class AddRegisteredComponent implements OnInit {
 
   postData(data) {
     this.service.insertData(data).subscribe(res => {
-      debugger;
+      this.alertService.success('ثبت با موفقیت انجام شد');
     }, error => {
       this.alertService.error(error);
     });
@@ -249,7 +256,6 @@ export class AddRegisteredComponent implements OnInit {
 
   onUploadFile(event) {
     this.service.DownloadFile(event).subscribe((res) => {
-      debugger;
       const data = {FileID: res.Item.ID};
       this.file.push(data);
     });
@@ -262,10 +268,28 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   onChnageChackbox(event) {
-    const data = {BimeGarID: event.value};
-    this.rogabayAsli.push(data);
-    debugger;
+    const data = {BimeGarID: event.target.value};
+    const obj = this.rogabayAsli.filter(x => x.BimeGarID === data.BimeGarID);
+    const index = this.rogabayAsli.indexOf(obj[0]);
+
+    if (index !== -1) {
+      this.rogabayAsli.splice(index, 1);
+    } else {
+      this.rogabayAsli.push(data);
+    }
+    const title = this.BimeGarsType.filter(x => x.ID === Number(data.BimeGarID));
+    const objTitle = this.rogabaAsliTitle.filter(x => x === title[0].PersianTitle);
+    const indexTitle = this.rogabaAsliTitle.indexOf(objTitle[0]);
+    if (indexTitle !== -1) {
+      this.rogabaAsliTitle.splice(indexTitle, 1);
+    } else {
+      this.rogabaAsliTitle.push(title[0].PersianTitle);
+    }
+    for (let i = 0; i < this.rogabaAsliTitle.length; i++) {
+      this.rogabaAsliTitleInput += this.rogabaAsliTitle[i] + ',';
+    }
   }
+
 
   onChangeHozure(event) {
     this.hozuriSelect = event.value;

@@ -40,6 +40,7 @@ import {TimeLineGoComponent} from './module/dashboard/components/time-line-go/ti
 import {RegisterComponent} from './module/auth/register/register.component';
 import {ChangePasswordComponent} from './module/auth/change-password/change-password.component';
 import {NotificationService} from './core/module/layout/Components/notification/service/notification.service';
+import {ConvertDateService} from './module/dashboard/service/convert-date.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import {NotificationService} from './core/module/layout/Components/notification/
     DetailForm2Component,
     DashboardBarChartComponent,
     GridNotificationComponent,
-    TimeLineGoComponent ,
+    TimeLineGoComponent,
     LoginComponent,
     RegisterComponent,
     ChangePasswordComponent
@@ -88,6 +89,7 @@ import {NotificationService} from './core/module/layout/Components/notification/
 
   ],
   providers: [AuthService, AuthGuard, FormValidateService,
+    ConvertDateService,
     NotificationService,
     TenderService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
