@@ -26,6 +26,7 @@ export class AddRegisteredComponent implements OnInit {
   BimeFieldID;
   HagheBimeTypeTile;
   HagheBimeType;
+  LastYearBimeGarID;
   LastYearBimeGarIDTitle;
 
   gridHamraz = [];
@@ -134,6 +135,7 @@ export class AddRegisteredComponent implements OnInit {
   selectEvent(item) {
     debugger;
     this.LastYearBimeGarIDTitle = item.PersianTitle;
+    this.LastYearBimeGarID = item.ID;
   }
 
   onChangeSearch(val: string) {
@@ -223,6 +225,7 @@ export class AddRegisteredComponent implements OnInit {
     this.formHamraz.HagheBimeTypeTile = this.HagheBimeTypeTile;
     this.formHamraz.HagheBimeType = this.HagheBimeType;
     this.formHamraz.LastYearBimeGarIDTitle = this.LastYearBimeGarIDTitle;
+    this.formHamraz.LastYearBimeGarID = this.LastYearBimeGarID;
     const data = this.formHamraz;
     this.gridHamraz.push(data);
     this.onCloseModal(modalName);
@@ -234,6 +237,12 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   openModal(event) {
+    this.BimeFieldIDTitle = null;
+    this.BimeFieldID = null;
+    this.HagheBimeTypeTile = null;
+    this.HagheBimeType = null;
+    this.LastYearBimeGarIDTitle = null;
+    this.LastYearBimeGarID = null;
     this.modalService.open(event);
   }
 
@@ -276,11 +285,7 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   resetForm() {
-    this.BimeFieldIDTitle = null;
-    this.BimeFieldID = null;
-    this.HagheBimeTypeTile = null;
-    this.HagheBimeType = null;
-    this.LastYearBimeGarIDTitle = null;
+
     this.formHamraz = {
       LastYearBimeGarIDTitle: null,
       BimeFieldIDTitle: null,
