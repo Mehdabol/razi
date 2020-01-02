@@ -18,7 +18,7 @@
     <ul class="sidebar-menu">
       <li *ngFor="let item of menu ;index as i" class="dropdown">
         <a class="nav-link " [routerLink]="item?.path"
-           [ngClass]="{'has-dropdown': item?.subMenu.length > 0}"
+           [ngClass]="{'has-dropdown': item.hasChile === true}"
 
            [routerLinkActive]="'active'">
           <i class="{{item.icon}}"></i>
@@ -27,7 +27,8 @@
         <ul class="dropdown-menu sidebar-menu">
           <li *ngFor="let sub of item.subMenu" class="dropdown">
             <a [routerLink]="sub?.path"
-               [routerLinkActive]="'active'" class="nav-link has-dropdown sec-hasDrop">{{sub.title}}
+               [routerLinkActive]="'active'" [ngClass]="{'has-dropdown': sub.hasChile === true}"
+               class="nav-link  sec-hasDrop">{{sub.title}}
             </a>
             <ul class="dropdown-menu">
               <li *ngFor="let subs of sub?.subMenu">

@@ -248,3 +248,7 @@ label {
 .cdk-global-overlay-wrapper, .cdk-overlay-container {
   z-index: 99999 !important;
 }
+
+.main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
+  color: #0978ea!important;
+}
