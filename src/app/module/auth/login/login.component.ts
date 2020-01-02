@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
       this.service.login(form.value).subscribe((res) => {
         localStorage.setItem('token', res.Data);
         this.alertService.success(res.Message);
-        this.router.navigate(['/pages/dashboard']);
+        // this.router.navigate(['/pages/dashboard']);
+        window.location.href = 'pages/dashboard';
         this.tokenService.sendMessage(res.Data);
       });
     } else {

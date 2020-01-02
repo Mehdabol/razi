@@ -20,7 +20,7 @@ export class HeaderComponent {
     this.tokenService.sendMessage(null);
     this.token = null;
     // this.router.navigate(['/pages/login']);
-    window.location.href = '#/pages/login';
+    window.location.href = 'pages/login';
 
   }
 
