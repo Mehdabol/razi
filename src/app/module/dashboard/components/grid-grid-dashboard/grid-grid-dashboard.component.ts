@@ -15,7 +15,6 @@ import {TimlineButtonGridComponent} from '../timline-button-grid/timline-button-
 export class GridGridDashboardComponent implements OnInit {
   static self: GridGridDashboardComponent;
 
-  gridData: GridModel[] = [];
   canStartButton: boolean = false;
 
 
@@ -133,7 +132,7 @@ export class GridGridDashboardComponent implements OnInit {
         headerName: 'وضعیت درخواست',
         field: 'StateTitle',
         enableRowGroup: true,
-        minWidth: 150
+        minWidth: 180
       },
       {
         headerName: '',
