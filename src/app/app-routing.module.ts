@@ -12,6 +12,8 @@ import {GridNotificationComponent} from './core/module/layout/Components/notific
 import {TimeLineGoComponent} from './module/dashboard/components/time-line-go/time-line-go.component';
 import {RegisterComponent} from './module/auth/register/register.component';
 import {ChangePasswordComponent} from './module/auth/change-password/change-password.component';
+import {PageInsuranceInsuredComponent} from './module/Insurance/insurance-insured/page/page-insurance-insured/page-insurance-insured.component';
+import {PageInsuranceTransporterComponent} from './module/Insurance/Insurance-transporter/page/page-insurance-transporter/page-insurance-transporter.component';
 
 const routes: Routes = [
   {
@@ -24,49 +26,24 @@ const routes: Routes = [
     path: 'pages',
     component: BaseLayoutComponent,
     children: [
-      {path: 'login' , component: LoginComponent},
-      {path: 'register' , component: RegisterComponent},
-      {path: 'change-password' , component: ChangePasswordComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent},
+      {path: 'change-password', component: ChangePasswordComponent},
       {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
       {path: 'notification/:id', component: GridNotificationComponent, canActivate: [AuthGuard]},
-      {path: 'add', component: AddRegisteredComponent, canActivate: [AuthGuard]} ,
-      {path: 'time', component: TimeLineGoComponent, canActivate: [AuthGuard]} ,
-      {path: 'detail1/:id', component: DetailForm1Component, canActivate: [AuthGuard]} ,
-      {path: 'detail2/:id', component: DetailForm2Component, canActivate: [AuthGuard]} ,
-      // {
-      //     path: 'tender',
-      //     loadChildren: './module/tender_Offer/tender.module#TenderModule',
-      //     data: {extraParameter: 'elementsMenu'}
-      // },
-      // {
-      //     path: 'tenders-result',
-      //     loadChildren: './module/tenders-result/tenders-result.module#TendersResultModule',
-      //     data: {extraParameter: 'elementsMenu'}
-      // },
-      // {
-      //     path: 'dashboard',
-      //     loadChildren: './module/dashboard/dashboard.module#DashboardModule',
-      //     data: {extraParameter: 'elementsMenu'}
-      // },
-      // {
-      //   path: 'registered',
-      //   loadChildren: './module/registred-requestes/registered.module#RegisteredModule',
-      //   data: {extraParameter: 'elementsMenu'}
-      // },
+      {path: 'add', component: AddRegisteredComponent, canActivate: [AuthGuard]},
+      {path: 'time', component: TimeLineGoComponent, canActivate: [AuthGuard]},
+      {path: 'detail1/:id', component: DetailForm1Component, canActivate: [AuthGuard]},
+      {path: 'detail2/:id', component: DetailForm2Component, canActivate: [AuthGuard]},
+      {path: 'insurance-insured', component: PageInsuranceInsuredComponent, canActivate: [AuthGuard]},
+      {path: 'insurance-transporter', component: PageInsuranceTransporterComponent, canActivate: [AuthGuard]},
+
     ]
   },
   {
     path: '',
     component: PagesLayoutComponent,
-    children: [
-      // {
-      //   path: 'login',
-      //   component: LoginComponent,
-      //   data: {
-      //     title: 'Login Page'
-      //   }
-      // },
-    ]
+    children: []
   },
 ];
 

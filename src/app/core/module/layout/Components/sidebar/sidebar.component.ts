@@ -21,6 +21,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
     },
     {
       title: 'خدمات بیمه ای', icon: 'fa fa-home', hasChile: true, subMenu: [
+        {title: 'بیمه های یک بیمه شده', path: 'insurance-insured', hasChile: false},
+        {title: 'بیمه نامه های یک بیمه گذار', path: 'insurance-transporter', hasChile: false},
+        {title: 'کل خسارات درمان', path: 'dashboard', hasChile: false},
         {title: 'بیمه های من', path: 'dashboard', hasChile: false},
         {title: 'بررسی اصالت بیمه', path: 'dashboard', hasChile: false},
         {title: 'صدور بیمه نامه های آنلاین', path: 'dashboard', hasChile: false},
@@ -84,7 +87,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
         {title: 'درخواست ملزومات اداری', path: 'dashboard', hasChile: false},
       ]
     },
-    {title: 'مناقصات', icon: 'fa fa-home', subMenu: [], hasChile: false},
+    {title: 'مناقصات', icon: 'fa fa-home', path: 'dashboard' , subMenu: [], hasChile: false},
     {title: 'Issue Tracker', icon: 'fa fa-home', subMenu: [], hasChile: false},
     {title: 'سوالات متداول', icon: 'fa fa-home', subMenu: [], hasChile: false},
   ];

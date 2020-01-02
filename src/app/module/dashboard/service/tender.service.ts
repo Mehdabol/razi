@@ -3,9 +3,9 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class TenderService {
-  url = 'Common/';
-  BpUrl = 'BP/';
-  sabtUrl = 'SabteDarkhast/';
+  url = 'razitender/api/Common/';
+  BpUrl = 'razitender/api/BP/';
+  sabtUrl = 'razitender/api/SabteDarkhast/';
 
   constructor(private service: ApiService<any>) {
   }

@@ -43,9 +43,15 @@ import {NotificationService} from './core/module/layout/Components/notification/
 import {ConvertDateService} from './module/dashboard/service/convert-date.service';
 
 import {AgGridModule} from 'ag-grid-angular';
-import {SearchGridService} from './module/dashboard/service/search-grid.service';
-import { GridDetailButtonComponent } from './module/dashboard/components/grid-detail-button/grid-detail-button.component';
-import { TimlineButtonGridComponent } from './module/dashboard/components/timline-button-grid/timline-button-grid.component';
+import {GridDetailButtonComponent} from './module/dashboard/components/grid-detail-button/grid-detail-button.component';
+import {TimlineButtonGridComponent} from './module/dashboard/components/timline-button-grid/timline-button-grid.component';
+import {PageInsuranceInsuredComponent} from './module/Insurance/insurance-insured/page/page-insurance-insured/page-insurance-insured.component';
+import {GridInsuranceInsuredComponent} from './module/Insurance/insurance-insured/component/grid-insurance-insured/grid-insurance-insured.component';
+import {InsuranceInsuredService} from './module/Insurance/insurance-insured/service/insurance-insured.service';
+import { GridInsuranceTransporterComponent } from './module/Insurance/Insurance-transporter/component/grid-insurance-transporter/grid-insurance-transporter.component';
+import { PageInsuranceTransporterComponent } from './module/Insurance/Insurance-transporter/page/page-insurance-transporter/page-insurance-transporter.component';
+import {InsuranceTransporterService} from './module/Insurance/Insurance-transporter/service/Insurance-transporter.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,11 +76,15 @@ import { TimlineButtonGridComponent } from './module/dashboard/components/timlin
     RegisterComponent,
     ChangePasswordComponent,
     GridDetailButtonComponent,
-    TimlineButtonGridComponent
+    TimlineButtonGridComponent,
+    PageInsuranceInsuredComponent,
+    GridInsuranceInsuredComponent,
+    GridInsuranceTransporterComponent,
+    PageInsuranceTransporterComponent
   ],
   imports: [
     AppRoutingModule,
-    AgGridModule.withComponents([GridDetailButtonComponent , TimlineButtonGridComponent]),
+    AgGridModule.withComponents([GridDetailButtonComponent, TimlineButtonGridComponent]),
     BrowserAnimationsModule,
     MatSelectModule,
     AutocompleteLibModule,
@@ -97,7 +107,9 @@ import { TimlineButtonGridComponent } from './module/dashboard/components/timlin
   ],
   providers: [AuthService, AuthGuard, FormValidateService,
     ConvertDateService,
+    InsuranceTransporterService,
     NotificationService,
+    InsuranceInsuredService,
     TenderService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},

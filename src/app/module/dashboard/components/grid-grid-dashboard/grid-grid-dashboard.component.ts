@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {TenderService} from '../../service/tender.service';
 import {AlertService} from '../../../../core/services/alert.service';
-import {GridModel} from '../../model/grid.model';
 import {LocalText} from '../../../../core/grid/ag-grid_fa';
 import {GridDetailButtonComponent} from '../grid-detail-button/grid-detail-button.component';
 import {TimlineButtonGridComponent} from '../timline-button-grid/timline-button-grid.component';
