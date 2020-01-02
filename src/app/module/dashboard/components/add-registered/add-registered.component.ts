@@ -13,7 +13,7 @@ import {HamrazGridModel} from '../../model/hamraz-grid.model';
   styleUrls: ['./add-registered.component.scss']
 })
 export class AddRegisteredComponent implements OnInit {
-  file;
+  file = [];
   hozuriSelect;
   rogabayAsli = [];
   keyword = 'PersianTitle';
@@ -70,20 +70,14 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   onSubmitForm(form: NgForm) {
-    // if (form.valid) {
-    this.insertData(form.value);
-    // } else {
-    //   this.errorService.generateArray(form);
-    // }
+    if (form.valid) {
+      this.insertData(form.value);
+    } else {
+      this.errorService.generateArray(form);
+    }
   }
 
   insertData(data) {
-    debugger;
-    let comment = [];
-    for (let i = 0; i < this.gridHamraz.length; i++) {
-      comment = this.gridHamraz[i].description;
-    }
-    //
     const valueInsert = {
       HozurTypeID: data.HozurTypeID,
       MonaghesTopic: data.MonaghesTopic,
@@ -118,22 +112,20 @@ export class AddRegisteredComponent implements OnInit {
 
       SabteDarkhastBimeGroups: this.gridHamraz,
       BPRaghibs: [{BimeGarID: 16}],
-      BPIFiles: [
-        {
-          FileID: 7,
-        }
-      ],
+      BPIFiles: this.file
     };
-    this.service.insertData(valueInsert).subscribe(res => {
-      debugger;
+    this.postData(valueInsert);
+  }
 
+  postData(data) {
+    this.service.insertData(data).subscribe(res => {
+      debugger;
     }, error => {
       this.alertService.error(error);
     });
   }
 
   selectEvent(item) {
-    debugger;
     this.LastYearBimeGarIDTitle = item.PersianTitle;
     this.LastYearBimeGarID = item.ID;
   }
@@ -204,32 +196,26 @@ export class AddRegisteredComponent implements OnInit {
     });
   }
 
-  // onChngeNeedWarranty(event) {
-  //   this.NeedWarranty = event;
-  //
-  // }
-
 
   saveModal(form: NgForm, modalName) {
     this.resetForm();
-    // if (form.invalid) {
-    //   this.errorService.generateArray(form);
-    // } else {
-    debugger;
-    this.formHamraz.PersonNumber = form.value.PersonNumber;
-    this.formHamraz.HagheBimeAmount = form.value.HagheBimeAmount;
-    this.formHamraz.Comment = form.value.Comment;
-    this.formHamraz.SabegheKhesaratPercent = form.value.SabegheKhesaratPercent;
-    this.formHamraz.BimeFieldIDTitle = this.BimeFieldIDTitle;
-    this.formHamraz.BimeFieldID = this.BimeFieldID;
-    this.formHamraz.HagheBimeTypeTile = this.HagheBimeTypeTile;
-    this.formHamraz.HagheBimeType = this.HagheBimeType;
-    this.formHamraz.LastYearBimeGarIDTitle = this.LastYearBimeGarIDTitle;
-    this.formHamraz.LastYearBimeGarID = this.LastYearBimeGarID;
-    const data = this.formHamraz;
-    this.gridHamraz.push(data);
-    this.onCloseModal(modalName);
-    // }
+    if (form.invalid) {
+      this.errorService.generateArray(form);
+    } else {
+      this.formHamraz.PersonNumber = form.value.PersonNumber;
+      this.formHamraz.HagheBimeAmount = form.value.HagheBimeAmount;
+      this.formHamraz.Comment = form.value.Comment;
+      this.formHamraz.SabegheKhesaratPercent = form.value.SabegheKhesaratPercent;
+      this.formHamraz.BimeFieldIDTitle = this.BimeFieldIDTitle;
+      this.formHamraz.BimeFieldID = this.BimeFieldID;
+      this.formHamraz.HagheBimeTypeTile = this.HagheBimeTypeTile;
+      this.formHamraz.HagheBimeType = this.HagheBimeType;
+      this.formHamraz.LastYearBimeGarIDTitle = this.LastYearBimeGarIDTitle;
+      this.formHamraz.LastYearBimeGarID = this.LastYearBimeGarID;
+      const data = this.formHamraz;
+      this.gridHamraz.push(data);
+      this.onCloseModal(modalName);
+    }
   }
 
   onCloseModal(event) {
@@ -262,9 +248,10 @@ export class AddRegisteredComponent implements OnInit {
   }
 
   onUploadFile(event) {
-    debugger;
     this.service.DownloadFile(event).subscribe((res) => {
       debugger;
+      const data = {FileID: res.Item.ID};
+      this.file.push(data);
     });
   }
 
