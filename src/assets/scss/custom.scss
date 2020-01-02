@@ -252,3 +252,38 @@ label {
 .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
   color: #0978ea!important;
 }
+
+table.table {
+  display: block;
+
+  tbody {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow-y: scroll;
+    height: 300px;
+  }
+
+  tr {
+    width: 100%;
+    display: flex;
+  }
+
+  td, th {
+    flex-basis: 100%;
+    flex-grow: 2;
+    display: block;
+  }
+
+  thead {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow-y: scroll;
+
+  }
+}
+
+.table tr th {
+  text-align: right;
+}
