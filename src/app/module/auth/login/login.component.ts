@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.Data);
         this.alertService.success(res.Message);
         // this.router.navigate(['/pages/dashboard']);
-        window.location.href = 'pages/dashboard';
+        window.location.href = '';
         this.tokenService.sendMessage(res.Data);
       });
     } else {

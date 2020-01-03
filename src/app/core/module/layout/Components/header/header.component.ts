@@ -26,8 +26,7 @@ export class HeaderComponent implements OnInit{
     localStorage.removeItem('token');
     this.tokenService.sendMessage(null);
     this.token = null;
-    // this.router.navigate(['/pages/login']);
-    window.location.href = 'pages/login';
+    window.location.href = '';
 
   }
 

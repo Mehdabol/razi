@@ -20,7 +20,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SpinnerComponent} from './core/module/spinner/spinner.component';
 import {NotificationComponent} from './core/module/layout/Components/notification/notification.component';
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {GridGridDashboardComponent} from './module/dashboard/components/grid-grid-dashboard/grid-grid-dashboard.component';
 import {AddRegisteredComponent} from './module/dashboard/components/add-registered/add-registered.component';
 import {TenderService} from './module/dashboard/service/tender.service';
@@ -121,7 +121,8 @@ import { ResetPasswordComponent } from './module/auth/reset-password/reset-passw
     TenderService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},
-    {provide: LocationStrategy, useClass: HashLocationStrategy}],
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    { provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
