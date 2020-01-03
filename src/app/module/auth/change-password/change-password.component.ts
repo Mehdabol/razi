@@ -23,18 +23,18 @@ export class ChangePasswordComponent implements OnInit {
 
   onSubmitForm(form) {
     this.router.navigate(['pages/login']);
-    // if (form.valid) {
-    //   // localStorage.setItem('token', '33334234234qdsadf');
-    //   // // this.router.navigate(['/pages/dashboard']);
-    //   this.service.login(form.value).subscribe((res) => {
-    //     this.alertService.success(res.Message);
-    //     window.location.href = '';
-    //     localStorage.setItem('token', res.Data);
-    //   }, error => {
-    //     this.alertService.error(error);
-    //   });
-    // } else {
-    //   this.errorService.generateArray(form);
-    // }
+    if (form.valid) {
+      this.service.changePassword(form.value).subscribe((res) => {
+        debugger;
+        this.alertService.success(res.Message);
+        this.onBack();
+      });
+    } else {
+      this.errorService.generateArray(form);
+    }
+  }
+
+  onBack() {
+    this.router.navigate(['pages/dashboard']);
   }
 }

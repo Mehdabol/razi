@@ -13,6 +13,12 @@ export class AuthService {
   }
   resetPassword(data) {
     return this.service.postLogin(this.url + `ResetPassword`, data);
+  }
 
+  register(data) {
+    return this.service.postLogin(this.url + `CreateUser`, data);
+  }
+  changePassword(data) {
+    return this.service.postLogin(this.url + `ChangePassword`, data);
   }
 }

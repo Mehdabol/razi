@@ -320,3 +320,12 @@ table.table {
 .custom-text-alert {
   color: #2f8a75 !important
 }
+.btn-danger-back{
+  background-image: linear-gradient(-90deg, #ff7884 0, #fe3b32 50%, #ff9778 100%);
+  border-color: unset;
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
+}
+
