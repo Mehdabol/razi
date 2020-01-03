@@ -6,11 +6,11 @@
       <a> <img alt="تصویر" style="height: 45px" src="../../../../../../assets/image/hamRaz.jpeg" class="header-logo">
       </a>
     </div>
-    <div class="sidebar-user">
-      <div class="sidebar-user-picture ">
+    <div class="sidebar-user" >
+      <div class="sidebar-user-picture " *ngIf="hasLogin">
         <i class="fa fa-user"></i>
       </div>
-      <div class="sidebar-user-details">
+      <div class="sidebar-user-details" *ngIf="hasLogin">
         <div class="user-name">کاربر شماره یک</div>
         <div class="user-role">مدیر</div>
       </div>
@@ -18,6 +18,7 @@
     <ul class="sidebar-menu">
       <li *ngFor="let item of menu ;index as i" class="dropdown" >
         <a class="nav-link " [routerLink]="item?.path"
+           [routerLinkActive]="'active'"
            [ngClass]="{'has-dropdown': item.hasChile === true}"
           >
           <i class="{{item.icon}}"></i>

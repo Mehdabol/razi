@@ -9,10 +9,11 @@ import {TokenService} from '../../../../../module/auth/service/token.service';
 export class SidebarComponent implements OnInit, OnDestroy {
   token;
   menu = [];
+  hasLogin = '';
   menuItemLogin = [
 
     {
-      title: 'اطلاع رسانی', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'اطلاع رسانی', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'مراکز درمانی', path: 'dashboard1', hasChile: false},
         {title: 'نمایندگان', path: 'dashboard1', hasChile: false},
         {title: 'شعب', path: 'dashboard1', hasChile: false},
@@ -20,7 +21,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      title: 'خدمات بیمه ای', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'خدمات بیمه ای', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'بیمه های یک بیمه شده', path: 'insurance-insured', hasChile: false},
         {title: 'بیمه نامه های یک بیمه گذار', path: 'insurance-transporter', hasChile: false},
         {title: 'کل خسارات درمان', path: 'total-damage-treatment', hasChile: false},
@@ -32,7 +33,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      title: 'فایل ها و برنامه ها', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'فایل ها و برنامه ها', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'دانلود فرمهای پیشنهاد', path: 'dashboard1', hasChile: false},
         {title: 'دانلود نیازمندیهای سیستم جامع', path: 'dashboard1', hasChile: false},
         {title: 'دریافت اپلیکشن همراز', path: 'dashboard1', hasChile: false},
@@ -40,9 +41,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      title: 'سوالات متداول', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'سوالات متداول', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {
-          title: 'فنی', hasChile: true, subMenu: [
+          title: 'فنی', path: 'dashboard1' ,  hasChile: true, subMenu: [
             {title: 'آتش سوزی', path: 'dashboard1', hasChile: false},
             {title: 'اتومبیل', path: 'dashboard1', hasChile: false},
             {title: 'عمر و زندگی', path: 'dashboard1', hasChile: false},
@@ -64,36 +65,36 @@ export class SidebarComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      title: 'اطلاعات پایه', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'اطلاعات پایه', icon: 'fa fa-home', path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'مدیریت دسترسی', path: 'dashboard1', hasChile: false},
         {title: 'تعریف اشخاص (حقیقی/حقوقی) ', path: 'dashboard1', hasChile: false},
       ]
     },
     {
-      title: 'ویژه نمایندگان', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'ویژه نمایندگان', icon: 'fa fa-home', path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'کارمزد نمایندگان', path: 'dashboard1', hasChile: false},
         {title: 'بارگذاری کارمزد نمایندگان', path: 'dashboard1', hasChile: false},
         {title: 'قرارداد نمایندگان', path: 'dashboard1', hasChile: false},
       ]
     },
     {
-      title: 'ویژه شعب', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'ویژه شعب', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'خلاصه عملکرد شعب', path: 'dashboard1', hasChile: false},
       ]
     },
     {
-      title: 'در خواست ها', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'در خواست ها', icon: 'fa fa-home', path: 'dashboard1', hasChile: true, subMenu: [
         {title: 'سئوالات فنی(بیمه ای)', path: 'dashboard1', hasChile: false},
         {title: 'درخواست ملزومات اداری', path: 'dashboard1', hasChile: false},
       ]
     },
-    {title: 'مناقصات', icon: 'fa fa-home', path: 'dashboard' , subMenu: [], hasChile: false},
-    {title: 'Issue Tracker', icon: 'fa fa-home', subMenu: [], hasChile: false},
-    {title: 'سوالات متداول', icon: 'fa fa-home', subMenu: [], hasChile: false},
+    {title: 'مناقصات', icon: 'fa fa-home', path: 'dashboard', subMenu: [], hasChile: false},
+    {title: 'Issue Tracker', icon: 'fa fa-home', path: 'dashboard1', subMenu: [], hasChile: false},
+    {title: 'سوالات متداول', icon: 'fa fa-home', path: 'dashboard1', subMenu: [], hasChile: false},
   ];
   menuItem = [
     {
-      title: 'اطلاع رسانی', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'اطلاع رسانی', icon: 'fa fa-home', path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'مراکز درمانی', path: 'dashboard1', hasChile: false},
         {title: 'نمایندگان', path: 'dashboard1', hasChile: false},
         {title: 'شعب', path: 'dashboard1', hasChile: false},
@@ -101,7 +102,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      title: 'خدمات بیمه ای', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'خدمات بیمه ای', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'بررسی اصالت بیمه', path: 'dashboard1', hasChile: false},
         {title: 'صدور بیمه نامه های آنلاین', path: 'dashboard1', hasChile: false},
         {title: 'پرداخت اقساط اعلامیه بدهکار', path: 'dashboard1', hasChile: false},
@@ -109,7 +110,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      title: 'فایل ها و برنامه ها', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'فایل ها و برنامه ها', icon: 'fa fa-home', path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'دانلود فرمهای پیشنهاد', path: 'dashboard1', hasChile: false},
         {title: 'دانلود نیازمندیهای سیستم جامع', path: 'dashboard1', hasChile: false},
         {title: 'دریافت اپلیکشن همراز', path: 'dashboard1', hasChile: false},
@@ -117,9 +118,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      title: 'سوالات متداول', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'سوالات متداول', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {
-          title: 'فنی', hasChile: true, subMenu: [
+          title: 'فنی', hasChile: true,  path: 'dashboard1' ,  subMenu: [
             {title: 'آتش سوزی', path: 'dashboard1', hasChile: false},
             {title: 'اتومبیل', path: 'dashboard1', hasChile: false},
             {title: 'عمر و زندگی', path: 'dashboard1', hasChile: false},
@@ -141,25 +142,25 @@ export class SidebarComponent implements OnInit, OnDestroy {
       ]
     },
     {
-      title: 'اطلاعات پایه', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'اطلاعات پایه', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'مدیریت دسترسی', path: 'dashboard1', hasChile: false},
         {title: 'تعریف اشخاص (حقیقی/حقوقی) ', path: 'dashboard1', hasChile: false},
       ]
     },
     {
-      title: 'ویژه نمایندگان', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'ویژه نمایندگان', icon: 'fa fa-home' ,  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'کارمزد نمایندگان', path: 'dashboard1', hasChile: false},
         {title: 'بارگذاری کارمزد نمایندگان', path: 'dashboard1', hasChile: false},
         {title: 'قرارداد نمایندگان', path: 'dashboard1', hasChile: false},
       ]
     },
     {
-      title: 'ویژه شعب', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'ویژه شعب', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'خلاصه عملکرد شعب', path: 'dashboard1', hasChile: false},
       ]
     },
     {
-      title: 'در خواست ها', icon: 'fa fa-home', hasChile: true, subMenu: [
+      title: 'در خواست ها', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'سئوالات فنی(بیمه ای)', path: 'dashboard1', hasChile: false},
         {title: 'درخواست ملزومات اداری', path: 'dashboard1', hasChile: false},
       ]
@@ -175,6 +176,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getToken();
     this.token = localStorage.getItem('token');
+    this.hasLogin = this.token;
     if (this.token === undefined || this.token === null) {
       this.menu = [...this.menuItem];
     } else {
@@ -192,6 +194,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   getToken() {
     this.tokenService.getMessage().subscribe((res) => {
+      this.hasLogin = res;
+
       if (res === null) {
         this.menu = [...this.menuItem];
       } else {

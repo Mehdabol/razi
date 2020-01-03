@@ -138,7 +138,7 @@ export class GridGridDashboardComponent implements OnInit {
         cellRenderer: 'timeLine',
         minWidth: 90,
         cellRendererParams: {
-          onClick: this.onDetailButton.bind(this),
+          onClick: this.onCliTime.bind(this),
           label: 'گردش کار مناقصه',
           icon: 'fa fa-percent'
         }
@@ -195,7 +195,7 @@ export class GridGridDashboardComponent implements OnInit {
   //   this.getGrid();
   // }
 
-  onDetailButton(e) {
+  onDetailButton(event) {
     this.router.navigate(['pages/detail2/2']);
   }
 
@@ -213,7 +213,7 @@ export class GridGridDashboardComponent implements OnInit {
   onSearch() {
   }
 
-  onCliTime() {
+  onCliTime(event) {
     this.router.navigate(['pages/time']);
   }
 }
