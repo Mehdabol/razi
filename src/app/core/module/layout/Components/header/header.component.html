@@ -35,16 +35,23 @@
         <!--src="assets/img/user.png"-->
         <!--class="user-img-radious-style">-->
         <span class="d-sm-none d-lg-inline-block"></span></a>
-      <div class="dropdown-menu dropdown-menu-right pullDown">
-        <a class="dropdown-item has-icon text-danger" (click)="onSingOut()" >
+      <div class="dropdown-menu dropdown-menu-right pullDown" *ngIf="hasLogin">
+        <a class="dropdown-item has-icon custom-text-alert" (click)="onchangePass()" >
+          <i class="fas fa-key"></i>
+          تغییر رمز عبور
+        </a>
+        <a class="dropdown-item has-icon custom-text-alert" (click)="onSingOut()" >
           <i class="fas fa-sign-out-alt"></i>
           خروج
         </a>
-        <!--<a class="dropdown-item has-icon text-danger" (click)="onLogin()" *ngIf="token === null">-->
-          <!--<i class="fas fa-sign-in-alt"></i>-->
-          <!--ورود-->
-        <!--</a>-->
       </div>
+      <div class="dropdown-menu dropdown-menu-right pullDown" *ngIf="!hasLogin">
+      <a class="dropdown-item has-icon custom-text-alert" (click)="onSingOut()" >
+        <i class="fas fa-sign-in-alt"></i>
+        ورود به سامانه
+      </a>
+
+    </div>
     </li>
   </ul>
 </nav>

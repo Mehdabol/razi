@@ -295,21 +295,28 @@ table.table {
   color: #fff !important;
 
   &:before {
-    color: #ebecec!important;
+    color: #ebecec !important;
   }
+
   .fa {
     color: #e7e8dc !important;
   }
+
   .main-sidebar .sidebar-menu li:hover {
     a span {
-      color: #c9c9c9!important;
+      color: #c9c9c9 !important;
     }
   }
 }
 
 .main-sidebar .sidebar-menu li ul.dropdown-menu {
-  background-color: #e0e0e0c7!important;
+  background-color: #e0e0e0c7 !important;
 }
+
 .main-sidebar .sidebar-user {
   min-height: 55px;
+}
+
+.custom-text-alert {
+  color: #2f8a75 !important
 }
