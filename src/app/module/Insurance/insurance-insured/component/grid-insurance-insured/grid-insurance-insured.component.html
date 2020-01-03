@@ -1,7 +1,13 @@
 <div class="card">
   <div class="card-header">
-    <!--<h4>جزئیات پروژه</h4>-->
-  </div>
+      <div class="col-md-9">
+        <label>کد ملی</label>
+        <input type="text" class="form-control round" [(ngModel)]="nationalCode">
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-info float-left" (click)="onSearch()">جستجو</button>
+      </div>
+    </div>
   <div class="card-body">
     <ag-grid-angular
       style="width: 100%; height:500px;"

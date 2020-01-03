@@ -8,7 +8,7 @@ export const LocalText = {
     last: 'صفحه اخرین',
     first: 'صفحه ابتدا',
     previous: 'صفحه پیشین',
-    loadingOoo: 'بارگذاری ..',
+    loadingOoo: '   ',
 
     // for set filter
     selectAll: 'انتخاب تمام موارد',

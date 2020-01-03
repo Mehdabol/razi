@@ -12,8 +12,8 @@ import {TotalDamageTreatmentService} from '../../service/total-damage-treatment.
 export class GridTotalDamageTreatmentComponent implements OnInit {
 
   static self: GridTotalDamageTreatmentComponent;
-
-  canStartButton = false;
+  paramGrid;
+  nationalCode = '';
 
 
   showFormat = {
@@ -43,26 +43,32 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
     GridTotalDamageTreatmentComponent.self = this;
   }
 
+  onSearch() {
+    this.onGridReady(this.paramGrid);
+  }
 
   onRowClicked(event: any) {
   }
 
   onGridReady(params) {
+    this.paramGrid = params;
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        const filter = JSON.stringify('0057901015');
-        GridTotalDamageTreatmentComponent.self.service.getGridData(filter).subscribe((res: any) => {
-          if (data) {
-            params.successCallback(res.Data, res.Data.length);
-            (res.Data.length === 0 || res.Data == null) ? GridTotalDamageTreatmentComponent.self.gridApi.showNoRowsOverlay() :
-              GridTotalDamageTreatmentComponent.self.gridApi.hideOverlay();
-          } else {
-            params.failCallback();
-          }
-        });
+        const filter = GridTotalDamageTreatmentComponent.self.nationalCode;
+        if (GridTotalDamageTreatmentComponent.self.nationalCode !== '' && GridTotalDamageTreatmentComponent.self.nationalCode !== null) {
+          GridTotalDamageTreatmentComponent.self.service.getGridData(filter).subscribe((res: any) => {
+            if (data) {
+              params.successCallback(res.Data, res.Data.length);
+              (res.Data.length === 0 || res.Data == null) ? GridTotalDamageTreatmentComponent.self.gridApi.showNoRowsOverlay() :
+                GridTotalDamageTreatmentComponent.self.gridApi.hideOverlay();
+            } else {
+              params.failCallback();
+            }
+          });
+        }
       }
     };
     params.api.setServerSideDatasource(dataSource);

@@ -12,9 +12,8 @@ import {InsuranceInsuredService} from '../../service/insurance-insured.service';
 export class GridInsuranceInsuredComponent implements OnInit {
   static self: GridInsuranceInsuredComponent;
 
-  canStartButton = false;
-
-
+  nationalCode = ''; // '0057901015';
+  paramGrid;
   showFormat = {
     format: 'jYYYY/jMM/jDD'
   };
@@ -46,23 +45,30 @@ export class GridInsuranceInsuredComponent implements OnInit {
   onRowClicked(event: any) {
   }
 
+  onSearch() {
+    this.onGridReady(this.paramGrid);
+  }
+
   onGridReady(params) {
+    this.paramGrid = params;
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        const filter = JSON.stringify('0057901015');
-        GridInsuranceInsuredComponent.self.service.getGridData(filter)
-          .subscribe((res: any) => {
-            if (data) {
-              params.successCallback(res.Data, res.Data.length);
-              (res.Data.length === 0 || res.Data == null) ? GridInsuranceInsuredComponent.self.gridApi.showNoRowsOverlay() :
-                GridInsuranceInsuredComponent.self.gridApi.hideOverlay();
-            } else {
-              params.failCallback();
-            }
-          });
+        const filter = GridInsuranceInsuredComponent.self.nationalCode;
+        if (GridInsuranceInsuredComponent.self.nationalCode !== '' && GridInsuranceInsuredComponent.self.nationalCode !== null) {
+          GridInsuranceInsuredComponent.self.service.getGridData(filter)
+            .subscribe((res: any) => {
+              if (data) {
+                params.successCallback(res.Data, res.Data.length);
+                (res.Data.length === 0 || res.Data == null) ? GridInsuranceInsuredComponent.self.gridApi.showNoRowsOverlay() :
+                  GridInsuranceInsuredComponent.self.gridApi.hideOverlay();
+              } else {
+                params.failCallback();
+              }
+            });
+        }
       }
     };
     params.api.setServerSideDatasource(dataSource);

@@ -12,8 +12,8 @@ import {InsuranceTransporterService} from '../../service/Insurance-transporter.s
 export class GridInsuranceTransporterComponent implements OnInit {
   static self: GridInsuranceTransporterComponent;
 
-  canStartButton = false;
-
+  nationalCode = '';
+  paramGrid;
 
   showFormat = {
     format: 'jYYYY/jMM/jDD'
@@ -42,18 +42,25 @@ export class GridInsuranceTransporterComponent implements OnInit {
     GridInsuranceTransporterComponent.self = this;
   }
 
+  onSearch() {
+    this.onGridReady(this.paramGrid);
+  }
 
   onRowClicked(event: any) {
   }
 
   onGridReady(params) {
+    this.paramGrid = params;
+
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        const filter = JSON.stringify('0057901015');
-        GridInsuranceTransporterComponent.self.service.getGridData(filter).subscribe((res: any) => {
+        const filter = GridInsuranceTransporterComponent.self.nationalCode;
+
+        if (GridInsuranceTransporterComponent.self.nationalCode !== '' && GridInsuranceTransporterComponent.self.nationalCode !== null) {
+          GridInsuranceTransporterComponent.self.service.getGridData(filter).subscribe((res: any) => {
             if (data) {
               params.successCallback(res.Data, res.Data.length);
               (res.Data.length === 0 || res.Data == null) ? GridInsuranceTransporterComponent.self.gridApi.showNoRowsOverlay() :
@@ -62,6 +69,7 @@ export class GridInsuranceTransporterComponent implements OnInit {
               params.failCallback();
             }
           });
+        }
       }
     };
     params.api.setServerSideDatasource(dataSource);
