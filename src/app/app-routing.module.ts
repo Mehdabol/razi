@@ -15,6 +15,7 @@ import {ChangePasswordComponent} from './module/auth/change-password/change-pass
 import {PageInsuranceInsuredComponent} from './module/Insurance/insurance-insured/page/page-insurance-insured/page-insurance-insured.component';
 import {PageInsuranceTransporterComponent} from './module/Insurance/Insurance-transporter/page/page-insurance-transporter/page-insurance-transporter.component';
 import {PageTotalDamageTreatmentComponent} from './module/Insurance/total-damage-treatment/page/page-total-damage-treatment/page-total-damage-treatment.component';
+import {ResetPasswordComponent} from './module/auth/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
     children: [
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
+      {path: 'reset-password', component: ResetPasswordComponent},
       {path: 'change-password', component: ChangePasswordComponent},
       {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
       {path: 'notification/:id', component: GridNotificationComponent, canActivate: [AuthGuard]},

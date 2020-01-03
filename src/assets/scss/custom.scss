@@ -241,16 +241,18 @@ label {
 .dp-picker-input:disabled {
   background-color: #e9ecef;
 }
+
 .autocomplete-container .input-container .x {
-  right: auto!important;
+  right: auto !important;
   left: 5px;
 }
+
 .cdk-global-overlay-wrapper, .cdk-overlay-container {
   z-index: 99999 !important;
 }
 
 .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
-  color: #0978ea!important;
+  color: #0978ea !important;
 }
 
 table.table {
@@ -288,3 +290,15 @@ table.table {
   }
 }
 
+.active {
+  background-color: #f20606;
+  color: #fff !important;
+
+  &:before {
+    color: #ebecec!important;
+  }
+}
+
+.main-sidebar .sidebar-menu li ul.dropdown-menu {
+  background-color: #e0e0e0c7!important;
+}

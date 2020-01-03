@@ -16,11 +16,10 @@
       </div>
     </div>
     <ul class="sidebar-menu">
-      <li *ngFor="let item of menu ;index as i" class="dropdown">
+      <li *ngFor="let item of menu ;index as i" class="dropdown" >
         <a class="nav-link " [routerLink]="item?.path"
            [ngClass]="{'has-dropdown': item.hasChile === true}"
-
-           [routerLinkActive]="'active'">
+          >
           <i class="{{item.icon}}"></i>
           <span>{{item.title}}</span>
         </a>

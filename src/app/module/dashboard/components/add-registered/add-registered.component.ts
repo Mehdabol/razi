@@ -311,4 +311,9 @@ export class AddRegisteredComponent implements OnInit {
     };
   }
 
+
+  removeFromSabtGrid(index) {
+    this.gridHamraz.splice(index, 1);
+  }
+
 }

@@ -11,4 +11,8 @@ export class AuthService {
   login(data) {
    return this.service.postLogin(this.url + `GetUserToken`, data);
   }
+  resetPassword(data) {
+    return this.service.postLogin(this.url + `ResetPassword`, data);
+
+  }
 }
