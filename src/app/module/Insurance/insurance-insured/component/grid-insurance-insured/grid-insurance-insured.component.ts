@@ -90,12 +90,12 @@ export class GridInsuranceInsuredComponent implements OnInit {
         enableRowGroup: true,
         minWidth: 150
       }, {
-        headerName: 'شماره بیمه',
+        headerName: 'کد بیمه‌گزار',
         field: 'insurerCode',
         enableRowGroup: true,
         minWidth: 150
       }, {
-        headerName: 'beginDate',
+        headerName: 'تاریخ شروع بیمه‌نامه',
         field: 'beginDate',
         enableRowGroup: true,
         minWidth: 150
@@ -105,23 +105,23 @@ export class GridInsuranceInsuredComponent implements OnInit {
         enableRowGroup: true,
         minWidth: 150
       }, {
-        headerName: 'nid',
+        headerName: 'کد ملی بیمه‌گزار',
         field: 'nid',
         enableRowGroup: true,
         minWidth: 150
       }, {
-        headerName: 'issueDate',
+        headerName: ' تاریخ صدور ',
         field: 'issueDate',
         enableRowGroup: true,
         minWidth: 150
       },
       {
-        headerName: 'policyTypeCode',
+        headerName: 'کد رشته بیمه',
         field: 'policyTypeCode',
         enableRowGroup: true,
         minWidth: 150
       }, {
-        headerName: 'policyType',
+        headerName: 'رشته بیمه',
         field: 'policyType',
         enableRowGroup: true,
         minWidth: 150

@@ -2,15 +2,16 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../../../core/services/alert.service';
 import {LocalText} from '../../../../../core/grid/ag-grid_fa';
-import {InsuranceTransporterService} from '../../service/Insurance-transporter.service';
+import {TotalDamageTreatmentService} from '../../service/total-damage-treatment.service';
 
 @Component({
-  selector: 'app-grid-insurance-transporter',
-  templateUrl: './grid-insurance-transporter.component.html',
-  styleUrls: ['./grid-insurance-transporter.component.scss']
+  selector: 'app-grid-total-damage-treatment',
+  templateUrl: './grid-total-damage-treatment.component.html',
+  styleUrls: ['./grid-total-damage-treatment.component.scss']
 })
-export class GridInsuranceTransporterComponent implements OnInit {
-  static self: GridInsuranceTransporterComponent;
+export class GridTotalDamageTreatmentComponent implements OnInit {
+
+  static self: GridTotalDamageTreatmentComponent;
 
   canStartButton = false;
 
@@ -34,12 +35,12 @@ export class GridInsuranceTransporterComponent implements OnInit {
 
   constructor(private router: Router,
               private alertService: AlertService,
-              private service: InsuranceTransporterService) {
+              private service: TotalDamageTreatmentService) {
     this.GridOption();
   }
 
   ngOnInit() {
-    GridInsuranceTransporterComponent.self = this;
+    GridTotalDamageTreatmentComponent.self = this;
   }
 
 
@@ -53,15 +54,15 @@ export class GridInsuranceTransporterComponent implements OnInit {
       getRows(params) {
         const data = params.request;
         const filter = JSON.stringify('0057901015');
-        GridInsuranceTransporterComponent.self.service.getGridData(filter).subscribe((res: any) => {
-            if (data) {
-              params.successCallback(res.Data, res.Data.length);
-              (res.Data.length === 0 || res.Data == null) ? GridInsuranceTransporterComponent.self.gridApi.showNoRowsOverlay() :
-                GridInsuranceTransporterComponent.self.gridApi.hideOverlay();
-            } else {
-              params.failCallback();
-            }
-          });
+        GridTotalDamageTreatmentComponent.self.service.getGridData(filter).subscribe((res: any) => {
+          if (data) {
+            params.successCallback(res.Data, res.Data.length);
+            (res.Data.length === 0 || res.Data == null) ? GridTotalDamageTreatmentComponent.self.gridApi.showNoRowsOverlay() :
+              GridTotalDamageTreatmentComponent.self.gridApi.hideOverlay();
+          } else {
+            params.failCallback();
+          }
+        });
       }
     };
     params.api.setServerSideDatasource(dataSource);
@@ -74,93 +75,81 @@ export class GridInsuranceTransporterComponent implements OnInit {
     this.columnDefs = [
       {
         headerName: 'id',
-        field: 'bid',
+        field: 'insuredId',
         hide: true
       },
       {
-        headerName: 'نام بیمه',
-        field: 'insurerName',
-        enableRowGroup: true,
-        minWidth: 150
-      },
-      {
-        headerName: 'کد بیمه‌گزار ',
-        field: 'insurerCode',
-        enableRowGroup: true,
-        minWidth: 150
-      },
-      {
-        headerName: 'تاریخ صدور بیمه‌نام',
-        field: 'issuanceDate',
+        headerName: 'شماره بیمه نامه',
+        field: 'bno',
         enableRowGroup: true,
         minWidth: 150
       }, {
-        headerName: 'حق بیمه کل',
-        field: 'premium',
+        headerName: 'بیمه شده',
+        field: 'insuredName',
+        enableRowGroup: true,
+        minWidth: 150
+      },
+      {
+        headerName: 'بیماری',
+        field: 'disease',
+        enableRowGroup: true,
+        minWidth: 150
+      },
+      {
+        headerName: 'تاریخ بستری',
+        field: 'hospitalizationDate',
         enableRowGroup: true,
         minWidth: 150
       }, {
-        headerName: ' تاریخ اتمام بیمه‌نامه',
-        field: 'endDate',
+        headerName: 'تاریخ حواله',
+        field: 'indemnityDate',
         enableRowGroup: true,
         minWidth: 150
       }, {
-        headerName: 'تاریخ شروع بیمه‌نامه ',
-        field: 'beginDate',
+        headerName: ' مرکز درمانی',
+        field: 'healthCenter',
         enableRowGroup: true,
         minWidth: 150
       }, {
-        headerName: 'نام نمایندگی',
-        field: 'agentDesc',
+        headerName: 'سریال معرفی نامه',
+        field: 'indemnitySerial',
+        enableRowGroup: true,
+        minWidth: 170
+      }, {
+        headerName: ' وضعیت پرونده',
+        field: 'documentStatus',
         enableRowGroup: true,
         minWidth: 150
       },
       {
-        headerName: 'کد نماینده',
-        field: 'agentCode',
-        enableRowGroup: true,
-        minWidth: 150
-      },
-      {
-        headerName: 'کد صدور بیمه‌نامه',
-        field: 'issuerCode',
-        enableRowGroup: true,
-        minWidth: 150
-      },
-      {
-        headerName: ' موبایل',
-        field: 'mobile',
+        headerName: 'مبلغ درخواستی',
+        field: 'requestedAmount',
         enableRowGroup: true,
         minWidth: 150
       }, {
-        headerName: 'کد ملی بیمه‌گزار',
-        field: 'insurerNid',
+        headerName: 'مبلغ پرداختی',
+        field: 'paidAmount',
         enableRowGroup: true,
         minWidth: 150
       },
       {
-        headerName: 'تاریخ صدور ',
-        field: 'issueDate',
+        headerName: 'نوع',
+        field: 'damageKindText',
         enableRowGroup: true,
         minWidth: 150
+      },
+      {
+        headerName: 'مبلغ مورد تایید کارشناس',
+        field: 'confirmAmount',
+        enableRowGroup: true,
+        minWidth: 200
       }, {
-        headerName: ' بیمه شده',
-        field: 'insured',
+        headerName: 'مبلغ فرانشیز',
+        field: 'franshiz',
         enableRowGroup: true,
         minWidth: 150
       },
-      {
-        headerName: 'کد رشته بیمه ای',
-        field: 'policyTypeCode',
-        enableRowGroup: true,
-        minWidth: 150
-      },
-      {
-        headerName: 'رشته بیمه',
-        field: 'policyType',
-        enableRowGroup: true,
-        minWidth: 150
-      },
+
     ];
     this.cacheBlockSize = 100;
     this.localeText = LocalText;
@@ -195,4 +184,5 @@ export class GridInsuranceTransporterComponent implements OnInit {
   onFirstDataRendered(params) {
     params.api.sizeColumnsToFit();
   }
+
 }
