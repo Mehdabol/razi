@@ -31,6 +31,7 @@ import {layoutConfig} from '../../../../config/layout.config';
 })
 export class DpkFormUploadComponent implements OnInit, ControlValueAccessor, Validator {
   static self: DpkFormUploadComponent;
+  fileLabel = [];
 
   constructor(private alertService: AlertService) {
   }
@@ -142,7 +143,12 @@ export class DpkFormUploadComponent implements OnInit, ControlValueAccessor, Val
         fileByteArray.push(data[i]);
       }
       const base64Data: any = window.btoa(String.fromCharCode(...fileByteArray));
-      const senddata = {FormatFile: DpkFormUploadComponent.self.file.type, FileName: DpkFormUploadComponent.self.file.name, Content: base64Data};
+      const senddata = {
+        FormatFile: DpkFormUploadComponent.self.file.type,
+        FileName: DpkFormUploadComponent.self.file.name,
+        Content: base64Data
+      };
+      this.fileLabel.push(...this.files)
       this.fileData.emit(senddata);
       this.onChange(senddata);
     };

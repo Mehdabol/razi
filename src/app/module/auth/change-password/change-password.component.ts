@@ -22,10 +22,8 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onSubmitForm(form) {
-    this.router.navigate(['pages/login']);
     if (form.valid) {
       this.service.changePassword(form.value).subscribe((res) => {
-        debugger;
         this.alertService.success(res.Message);
         this.onBack();
       });

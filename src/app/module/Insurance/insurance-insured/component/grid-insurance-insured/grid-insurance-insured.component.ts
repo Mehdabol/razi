@@ -56,7 +56,7 @@ export class GridInsuranceInsuredComponent implements OnInit {
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        const filter = GridInsuranceInsuredComponent.self.nationalCode;
+        const filter = JSON.stringify({nationalCode: GridInsuranceInsuredComponent.self.nationalCode});
         if (GridInsuranceInsuredComponent.self.nationalCode !== '' && GridInsuranceInsuredComponent.self.nationalCode !== null) {
           GridInsuranceInsuredComponent.self.service.getGridData(filter)
             .subscribe((res: any) => {

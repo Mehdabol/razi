@@ -25,7 +25,7 @@ export class ResetPasswordComponent implements OnInit {
     if (form.valid) {
       this.service.resetPassword(form.value).subscribe((res) => {
         this.alertService.success(res.Message);
-        this.router.navigate(['pages/login']);
+        this.onBack();
       });
     } else {
       this.errorService.generateArray(form);

@@ -57,7 +57,7 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        const filter = GridTotalDamageTreatmentComponent.self.nationalCode;
+        const filter = JSON.stringify({nationalCode: GridTotalDamageTreatmentComponent.self.nationalCode});
         if (GridTotalDamageTreatmentComponent.self.nationalCode !== '' && GridTotalDamageTreatmentComponent.self.nationalCode !== null) {
           GridTotalDamageTreatmentComponent.self.service.getGridData(filter).subscribe((res: any) => {
             if (data) {

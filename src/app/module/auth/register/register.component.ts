@@ -23,13 +23,9 @@ export class RegisterComponent implements OnInit {
 
   onSubmitForm(form) {
     if (form.valid) {
-      // localStorage.setItem('token', '33334234234qdsadf');
-      // // this.router.navigate(['/pages/dashboard']);
       this.service.register(form.value).subscribe((res) => {
-        debugger;
+        this.onBack();
         this.alertService.success(res.Message);
-        // window.location.href = '';
-        // localStorage.setItem('token', res.Data);
       });
     } else {
       this.errorService.generateArray(form);
