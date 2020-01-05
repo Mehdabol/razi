@@ -18,7 +18,6 @@
     <ul class="sidebar-menu">
       <li *ngFor="let item of menu ;index as i" class="dropdown" >
         <a class="nav-link " [routerLink]="item?.path"
-           [routerLinkActive]="'active'"
            [ngClass]="{'has-dropdown': item.hasChile === true}"
           >
           <i class="{{item.icon}}"></i>

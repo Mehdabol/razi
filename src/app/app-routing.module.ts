@@ -15,6 +15,7 @@ import {ChangePasswordComponent} from './module/auth/change-password/change-pass
 import {PageInsuranceInsuredComponent} from './module/Insurance/insurance-insured/page/page-insurance-insured/page-insurance-insured.component';
 import {PageTotalDamageTreatmentComponent} from './module/Insurance/total-damage-treatment/page/page-total-damage-treatment/page-total-damage-treatment.component';
 import {ResetPasswordComponent} from './module/auth/reset-password/reset-password.component';
+import {PageUniqueCodeInsuranceComponent} from './module/Insurance/unique-code-insurance/page/page-unique-code-insurance/page-unique-code-insurance.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,7 @@ const routes: Routes = [
       {path: 'detail1/:id', component: DetailForm1Component, canActivate: [AuthGuard]},
       {path: 'detail2/:id', component: DetailForm2Component, canActivate: [AuthGuard]},
       {path: 'insurance-insured', component: PageInsuranceInsuredComponent, canActivate: [AuthGuard]},
+      {path: 'unic-insurance', component: PageUniqueCodeInsuranceComponent, canActivate: [AuthGuard]},
       {path: 'total-damage-treatment', component: PageTotalDamageTreatmentComponent, canActivate: [AuthGuard]},
 
     ]

@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header">
+
+      <div class="col-md-10">
+        <label> کد یکتای بیمه نامه در بیمه مرکزی</label>
+        <input class="form-control" [(ngModel)]="policyId" name="policyId">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-info" (click)="onSearch()">جستجو</button>
+      </div>
+  </div>
+  <div class="card-body">
+    <ag-grid-angular
+      style="width: 100%; height:500px;"
+      class="ag-theme-material"
+      id="myAgGridSample"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowModelType]="rowModelType"
+      [animateRows]="false"
+      [debug]="true"
+      [rowData]="rowData"
+      [sideBar]="sideBar"
+      [frameworkComponents]="frameworkComponents"
+      (gridReady)="onGridReady($event)"
+      [maxConcurrentDatasourceRequests]="maxConcurrentDatasourceRequests"
+      [cacheBlockSize]="cacheBlockSize"
+      [enableRtl]="true"
+      [floatingFilter]="false"
+      [localeText]="localeText"
+      (rowClicked)="onRowClicked($event)"
+      (firstDataRendered)="onFirstDataRendered($event)"
+    ></ag-grid-angular>
+  </div>
+</div>

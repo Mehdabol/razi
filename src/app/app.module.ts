@@ -52,6 +52,8 @@ import {GridTotalDamageTreatmentComponent} from './module/Insurance/total-damage
 import {PageTotalDamageTreatmentComponent} from './module/Insurance/total-damage-treatment/page/page-total-damage-treatment/page-total-damage-treatment.component';
 import {TotalDamageTreatmentService} from './module/Insurance/total-damage-treatment/service/total-damage-treatment.service';
 import { ResetPasswordComponent } from './module/auth/reset-password/reset-password.component';
+import { GridUniqueCodeInsuranceComponent } from './module/Insurance/unique-code-insurance/components/grid-unique-code-insurance/grid-unique-code-insurance.component';
+import { PageUniqueCodeInsuranceComponent } from './module/Insurance/unique-code-insurance/page/page-unique-code-insurance/page-unique-code-insurance.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { ResetPasswordComponent } from './module/auth/reset-password/reset-passw
     GridInsuranceInsuredComponent,
     GridTotalDamageTreatmentComponent,
     PageTotalDamageTreatmentComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    GridUniqueCodeInsuranceComponent,
+    PageUniqueCodeInsuranceComponent
   ],
   imports: [
     AppRoutingModule,

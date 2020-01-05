@@ -9,7 +9,12 @@ export class InsuranceInsuredService {
   }
 
   getGridData() {
-    return this.service.post(this.url + 'GetAllInsurance','' );
+    return this.service.post(this.url + 'GetAllInsurance', '');
+  }
+
+  getUnicCodeGrid(data) {
+    return this.service.post(this.url + 'GetAllPolicyInq', '');
+
   }
 }
 

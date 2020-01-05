@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../../../core/services/alert.service';
+import {InsuranceInsuredService} from '../../../insurance-insured/service/insurance-insured.service';
 import {LocalText} from '../../../../../core/grid/ag-grid_fa';
-import {InsuranceInsuredService} from '../../service/insurance-insured.service';
 
 @Component({
-  selector: 'app-grid-insurance-insured',
-  templateUrl: './grid-insurance-insured.component.html',
-  styleUrls: ['./grid-insurance-insured.component.scss']
+  selector: 'app-grid-unique-code-insurance',
+  templateUrl: './grid-unique-code-insurance.component.html',
+  styleUrls: ['./grid-unique-code-insurance.component.scss']
 })
-export class GridInsuranceInsuredComponent implements OnInit {
-  static self: GridInsuranceInsuredComponent;
+export class GridUniqueCodeInsuranceComponent implements OnInit {
+  static self: GridUniqueCodeInsuranceComponent;
 
-  nationalCode = ''; // '0057901015';
+  policyId = ''; // '0057901015';
   paramGrid;
   showFormat = {
     format: 'jYYYY/jMM/jDD'
@@ -38,7 +38,7 @@ export class GridInsuranceInsuredComponent implements OnInit {
   }
 
   ngOnInit() {
-    GridInsuranceInsuredComponent.self = this;
+    GridUniqueCodeInsuranceComponent.self = this;
   }
 
 
@@ -56,19 +56,20 @@ export class GridInsuranceInsuredComponent implements OnInit {
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        GridInsuranceInsuredComponent.self.service.getGridData()
-          .subscribe((res: any) => {
-            if (data) {
-              for (let i = 0; i < res.Data.length; i++) {
-                res.Data[i].firstName = res.Data[i].firstName + res.Data[i].lastName;
+        const filterValue = {policyId: GridUniqueCodeInsuranceComponent.self.policyId};
+        if (GridUniqueCodeInsuranceComponent.self.policyId !== '') {
+          GridUniqueCodeInsuranceComponent.self.service.getUnicCodeGrid(filterValue)
+            .subscribe((res: any) => {
+              debugger;
+              if (data) {
+                params.successCallback(res.Data, res.Data.length);
+                (res.Data.length === 0 || res.Data == null) ? GridUniqueCodeInsuranceComponent.self.gridApi.showNoRowsOverlay() :
+                  GridUniqueCodeInsuranceComponent.self.gridApi.hideOverlay();
+              } else {
+                params.failCallback();
               }
-              params.successCallback(res.Data, res.Data.length);
-              (res.Data.length === 0 || res.Data == null) ? GridInsuranceInsuredComponent.self.gridApi.showNoRowsOverlay() :
-                GridInsuranceInsuredComponent.self.gridApi.hideOverlay();
-            } else {
-              params.failCallback();
-            }
-          });
+            });
+        }
       }
     };
     params.api.setServerSideDatasource(dataSource);
@@ -88,54 +89,54 @@ export class GridInsuranceInsuredComponent implements OnInit {
         field: '',
         hide: false
       }, {
-        headerName: 'نام و نام خانوادگی',
-        field: 'firstName',
+        headerName: 'بيمه ملت',
+        field: 'companyName',
         enableRowGroup: true,
         minWidth: 130
       }, {
-        headerName: 'رشته بیمه',
-        field: 'policyType',
+        headerName: 'شخص ثالث',
+        field: 'fieldName',
         enableRowGroup: true,
         minWidth: 130
       }, {
-        headerName: 'کد رشته بیمه ای',
-        field: 'policyTypeCode',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: ' بیمه شده',
-        field: 'insured',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'تاریخ صدور ',
+        headerName: 'تاریخ صدور',
         field: 'issueDate',
         enableRowGroup: true,
         minWidth: 130
       }, {
+        headerName: 'تاریخ شروع بیمه نامه',
+        field: 'startDate',
+        enableRowGroup: true,
+        minWidth: 130
+      }, {
+        headerName: 'تاریخ پایان بیمه نامه',
+        field: 'endDate',
+        enableRowGroup: true,
+        minWidth: 130
+      }, {
+        headerName: 'تاریخ صدور میلادی',
+        field: 'gregorianIssueDate',
+        enableRowGroup: true,
+        minWidth: 130
+      }, {
+        headerName: 'محمد قریشی',
+        field: 'name',
+        enableRowGroup: true,
+        minWidth: 130
+      }, {
         headerName: 'کد ملی بیمه‌گزار',
-        field: 'insurerNid',
+        field: 'nid',
         enableRowGroup: true,
         minWidth: 130
       }, {
-        headerName: ' موبایل',
-        field: 'mobile',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'کد صدور بیمه‌نامه',
-        field: 'issuerCode',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'issuerDesc',
-        field: 'issuerDesc',
+        headerName: 'شماره چاپی بیمه نامه',
+        field: 'fullBNo',
         enableRowGroup: true,
         minWidth: 130
       },
       {
-        headerName: 'کد نماینده',
-        field: 'agentCode',
+        headerName: 'کد یکتای بیمه نامه در بیمه مرکزی',
+        field: 'policyId',
         enableRowGroup: true,
         minWidth: 130
       }, {
@@ -187,21 +188,6 @@ export class GridInsuranceInsuredComponent implements OnInit {
     ];
     this.cacheBlockSize = 100;
     this.localeText = LocalText;
-    // this.sideBar = {
-    //   toolPanels: [
-    //     {
-    //       id: 'appSearch',
-    //       labelDefault: 'جستجو',
-    //       labelKey: 'appSearch',
-    //       iconKey: 'app-search',
-    //       toolPanel: 'searchComponent'
-    //     }
-    //   ],
-    //   defaultToolPanel: 'appSearch'
-    // };
-    // this.frameworkComponents = {detailButton: GridDetailButtonComponent, timeLine: TimlineButtonGridComponent};
-
-
     this.defaultColDef = {
       width: 260,
       sortable: true,
@@ -218,4 +204,5 @@ export class GridInsuranceInsuredComponent implements OnInit {
   onFirstDataRendered(params) {
     params.api.sizeColumnsToFit();
   }
+
 }
