@@ -57,18 +57,15 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        const filter = JSON.stringify({nationalCode: GridTotalDamageTreatmentComponent.self.nationalCode});
-        if (GridTotalDamageTreatmentComponent.self.nationalCode !== '' && GridTotalDamageTreatmentComponent.self.nationalCode !== null) {
-          GridTotalDamageTreatmentComponent.self.service.getGridData(filter).subscribe((res: any) => {
-            if (data) {
-              params.successCallback(res.Data, res.Data.length);
-              (res.Data.length === 0 || res.Data == null) ? GridTotalDamageTreatmentComponent.self.gridApi.showNoRowsOverlay() :
-                GridTotalDamageTreatmentComponent.self.gridApi.hideOverlay();
-            } else {
-              params.failCallback();
-            }
-          });
-        }
+        GridTotalDamageTreatmentComponent.self.service.getGridData().subscribe((res: any) => {
+          if (data) {
+            params.successCallback(res.Data, res.Data.length);
+            (res.Data.length === 0 || res.Data == null) ? GridTotalDamageTreatmentComponent.self.gridApi.showNoRowsOverlay() :
+              GridTotalDamageTreatmentComponent.self.gridApi.hideOverlay();
+          } else {
+            params.failCallback();
+          }
+        });
       }
     };
     params.api.setServerSideDatasource(dataSource);
@@ -88,72 +85,59 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
         headerName: 'شماره بیمه نامه',
         field: 'bno',
         enableRowGroup: true,
-        minWidth: 150
       }, {
         headerName: 'بیمه شده',
         field: 'insuredName',
         enableRowGroup: true,
-        minWidth: 150
       },
       {
         headerName: 'بیماری',
         field: 'disease',
         enableRowGroup: true,
-        minWidth: 150
       },
       {
         headerName: 'تاریخ بستری',
         field: 'hospitalizationDate',
         enableRowGroup: true,
-        minWidth: 150
       }, {
         headerName: 'تاریخ حواله',
         field: 'indemnityDate',
         enableRowGroup: true,
-        minWidth: 150
       }, {
         headerName: ' مرکز درمانی',
         field: 'healthCenter',
         enableRowGroup: true,
-        minWidth: 150
       }, {
         headerName: 'سریال معرفی نامه',
         field: 'indemnitySerial',
         enableRowGroup: true,
-        minWidth: 170
       }, {
         headerName: ' وضعیت پرونده',
         field: 'documentStatus',
         enableRowGroup: true,
-        minWidth: 150
       },
       {
         headerName: 'مبلغ درخواستی',
         field: 'requestedAmount',
         enableRowGroup: true,
-        minWidth: 150
       }, {
         headerName: 'مبلغ پرداختی',
         field: 'paidAmount',
         enableRowGroup: true,
-        minWidth: 150
       },
       {
         headerName: 'نوع',
         field: 'damageKindText',
         enableRowGroup: true,
-        minWidth: 150
       },
       {
         headerName: 'مبلغ مورد تایید کارشناس',
         field: 'confirmAmount',
         enableRowGroup: true,
-        minWidth: 200
       }, {
         headerName: 'مبلغ فرانشیز',
         field: 'franshiz',
         enableRowGroup: true,
-        minWidth: 150
       },
 
     ];

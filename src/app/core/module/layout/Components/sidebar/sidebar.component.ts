@@ -23,7 +23,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
     {
       title: 'خدمات بیمه ای', icon: 'fa fa-home',  path: 'dashboard1' ,  hasChile: true, subMenu: [
         {title: 'بیمه های یک بیمه شده', path: 'insurance-insured', hasChile: false},
-        {title: 'بیمه نامه های یک بیمه گذار', path: 'insurance-transporter', hasChile: false},
         {title: 'کل خسارات درمان', path: 'total-damage-treatment', hasChile: false},
         {title: 'بیمه های من', path: 'dashboard1', hasChile: false},
         {title: 'بررسی اصالت بیمه', path: 'dashboard1', hasChile: false},

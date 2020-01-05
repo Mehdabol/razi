@@ -8,7 +8,7 @@ export class TotalDamageTreatmentService {
   constructor(private service: ApiService<any>) {
   }
 
-  getGridData(data) {
-    return this.service.post(this.url + 'GetAllTotalTreatmentLosses', data);
+  getGridData() {
+    return this.service.post(this.url + 'GetAllTotalTreatmentLosses', '');
   }
 }

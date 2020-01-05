@@ -56,19 +56,16 @@ export class GridInsuranceInsuredComponent implements OnInit {
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        const filter = JSON.stringify({nationalCode: GridInsuranceInsuredComponent.self.nationalCode});
-        if (GridInsuranceInsuredComponent.self.nationalCode !== '' && GridInsuranceInsuredComponent.self.nationalCode !== null) {
-          GridInsuranceInsuredComponent.self.service.getGridData(filter)
-            .subscribe((res: any) => {
-              if (data) {
-                params.successCallback(res.Data, res.Data.length);
-                (res.Data.length === 0 || res.Data == null) ? GridInsuranceInsuredComponent.self.gridApi.showNoRowsOverlay() :
-                  GridInsuranceInsuredComponent.self.gridApi.hideOverlay();
-              } else {
-                params.failCallback();
-              }
-            });
-        }
+        GridInsuranceInsuredComponent.self.service.getGridData()
+          .subscribe((res: any) => {
+            if (data) {
+              params.successCallback(res.Data, res.Data.length);
+              (res.Data.length === 0 || res.Data == null) ? GridInsuranceInsuredComponent.self.gridApi.showNoRowsOverlay() :
+                GridInsuranceInsuredComponent.self.gridApi.hideOverlay();
+            } else {
+              params.failCallback();
+            }
+          });
       }
     };
     params.api.setServerSideDatasource(dataSource);
@@ -83,54 +80,111 @@ export class GridInsuranceInsuredComponent implements OnInit {
         headerName: 'id',
         field: 'bid',
         hide: true
-      },
-      {
+      },  {
+        headerName: '#',
+        field: '',
+        hide: false
+      }, {
         headerName: 'نام',
         field: 'firstName',
         enableRowGroup: true,
-        minWidth: 150
-      },
-      {
+       minWidth: 100
+      }, {
         headerName: 'نام خانوادگی',
         field: 'lastName',
         enableRowGroup: true,
-        minWidth: 150
-      }, {
-        headerName: 'کد بیمه‌گزار',
-        field: 'insurerCode',
-        enableRowGroup: true,
-        minWidth: 150
-      }, {
-        headerName: 'تاریخ شروع بیمه‌نامه',
-        field: 'beginDate',
-        enableRowGroup: true,
-        minWidth: 150
-      }, {
-        headerName: 'موبایل',
-        field: 'mobile',
-        enableRowGroup: true,
-        minWidth: 150
-      }, {
-        headerName: 'کد ملی بیمه‌گزار',
-        field: 'nid',
-        enableRowGroup: true,
-        minWidth: 150
-      }, {
-        headerName: ' تاریخ صدور ',
-        field: 'issueDate',
-        enableRowGroup: true,
-        minWidth: 150
-      },
-      {
-        headerName: 'کد رشته بیمه',
-        field: 'policyTypeCode',
-        enableRowGroup: true,
-        minWidth: 150
+       minWidth: 100
       }, {
         headerName: 'رشته بیمه',
         field: 'policyType',
         enableRowGroup: true,
-        minWidth: 150
+       minWidth: 100
+      }, {
+        headerName: 'کد رشته بیمه ای',
+        field: 'policyTypeCode',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: ' بیمه شده',
+        field: 'insured',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'تاریخ صدور ',
+        field: 'issueDate',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'کد ملی بیمه‌گزار',
+        field: 'insurerNid',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: ' موبایل',
+        field: 'mobile',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'کد صدور بیمه‌نامه',
+        field: 'issuerCode',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'issuerDesc',
+        field: 'issuerDesc',
+        enableRowGroup: true,
+       minWidth: 100
+      },
+      {
+        headerName: 'کد نماینده',
+        field: 'agentCode',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'نام نمایندگی',
+        field: 'agentDesc',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'تاریخ شروع بیمه‌نامه ',
+        field: 'beginDate',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: ' تاریخ اتمام بیمه‌نامه',
+        field: 'endDate',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'تاریخ صدور بیمه‌نام',
+        field: 'issuanceDate',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'کد بیمه‌گزار ',
+        field: 'insurerCode',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'نام بیمه',
+        field: 'insurerName',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'حق بیمه کل',
+        field: 'premium',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'کد ملی بیمه‌گزار',
+        field: 'nid',
+        enableRowGroup: true,
+       minWidth: 100
+      }, {
+        headerName: 'isBimeGozar',
+        field: 'isBimeGozar',
+        enableRowGroup: true,
+       minWidth: 100
       },
     ];
     this.cacheBlockSize = 100;

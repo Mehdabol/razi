@@ -8,8 +8,8 @@ export class InsuranceInsuredService {
   constructor(private service: ApiService<any>) {
   }
 
-  getGridData(data) {
-    return this.service.post(this.url + 'GetAllInsuranceInsured', data);
+  getGridData() {
+    return this.service.post(this.url + 'GetAllInsurance','' );
   }
 }
 

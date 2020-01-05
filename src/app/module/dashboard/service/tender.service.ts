@@ -63,11 +63,17 @@ export class TenderService {
   canStart() {
     return this.service.get(this.sabtUrl + 'CanStart');
   }
+
   getHozurType() {
     return this.service.get(this.url + 'HozurTypes');
   }
 
   DownloadFile(data) {
     return this.service.post('File/Upload', data);
+  }
+
+  getEditData(id) {
+    return this.service.getById(this.sabtUrl + 'Get?BPId=', id);
+
   }
 }

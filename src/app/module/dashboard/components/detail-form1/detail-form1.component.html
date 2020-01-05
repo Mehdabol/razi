@@ -30,22 +30,24 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="">نوع حضور :</label>
-                  <input type="text" class="form-control" name="HozurTypeID"
-                         [(ngModel)]="DataModel.HozurTypeID" disabled>
+                  <mat-select ngModel
+                              name="HozurTypeID" required (selectionChange)="onChangeHozure($event)">
+                    <mat-option></mat-option>
+                    <mat-option *ngFor="let item of HozurType"
+                                [value]="item.ID">{{item.PersianTitle}}</mat-option>
+                  </mat-select>
 
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-4" *ngIf="this.hozuriSelect !== 1">
                 <div class="form-group ">
                   <label class="field-require">معرف :</label>
-                  <!--<input type="text" class="form-control round" name="MonagheseGozar" ngModel-->
-                  <!--required>-->
-                  <mat-select [(ngModel)]="DataModel.MonagheseGozar" disabled
+                  <mat-select ngModel
                               name="MonagheseGozar" required>
                     <mat-option></mat-option>
                     <mat-option *ngFor="let item of MonagheseGozarType"
-                                [value]="item.id">{{item.title}}</mat-option>
+                                [value]="item.ID">{{item.PersianTitle}}</mat-option>
                   </mat-select>
 
                 </div>
@@ -54,14 +56,8 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="field-require">نام مناقصه گذار :</label>
-                  <!--<input type="text" class="form-control round" name="MonagheseGozar" ngModel-->
-                  <!--required>-->
-                  <mat-select [(ngModel)]="DataModel.MonagheseGozar" disabled
-                              name="MonagheseGozar" required>
-                    <mat-option></mat-option>
-                    <mat-option *ngFor="let item of MonagheseGozarType"
-                                [value]="item.id">{{item.title}}</mat-option>
-                  </mat-select>
+                  <input type="text" class="form-control round" name="MonagheseGozar" ngModel
+                         required>
 
                 </div>
               </div>
@@ -70,8 +66,7 @@
                 <div class="form-group ">
                   <label class="field-require">موضوع مناقصه : </label>
 
-                  <input type="text" class="form-control round" name="MonaghesTopic"
-                         [(ngModel)]="DataModel.MonaghesTopic" disabled
+                  <input type="text" class="form-control round" name="MonaghesTopic" ngModel
                          required>
 
                 </div>
@@ -83,7 +78,7 @@
                   <label class="field-require">شماره مناقصه : </label>
                   <input type="text" class="form-control round"
                          oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                         name="PeopleNum" [(ngModel)]="DataModel.PeopleNum" disabled
+                         name="PeopleNum" ngModel
                          required>
 
                 </div>
@@ -91,10 +86,10 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="field-require"> نوع مناقصه گذار : </label>
-                  <mat-select [(ngModel)]="DataModel.MonagheseGozarTypeID" disabled
-                              name="MonagheseGozarTypeID" multiple required>
+                  <mat-select ngModel
+                              name="MonagheseGozarTypeID" required>
                     <mat-option *ngFor="let items of MonagheseGozarTypes"
-                                [value]="items.id">{{items.title}}</mat-option>
+                                [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
                 </div>
               </div>
@@ -103,8 +98,7 @@
                   <label class="field-require">شناسه ملی :</label>
                   <input type="text"
                          oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                         class="form-control round" name="ShenaseMeliInt"
-                         [(ngModel)]="DataModel.ShenaseMeliInt" disabled
+                         class="form-control round" name="ShenaseMeliInt" ngModel
                          required>
 
 
@@ -115,8 +109,7 @@
                   <label class="field-require"> کد اقتصادی : </label>
                   <input type="text"
                          oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                         class="form-control round" name="EghtesadiCodeInt"
-                         [(ngModel)]="DataModel.EghtesadiCodeInt" disabled
+                         class="form-control round" name="EghtesadiCodeInt" ngModel
                          required>
                 </div>
               </div>
@@ -124,11 +117,11 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="field-require">استان :</label>
-                  <mat-select [(ngModel)]="DataModel.AddressOstanID" disabled
+                  <mat-select ngModel
                               name="AddressOstanID" required>
                     <mat-option>انتخاب کنید</mat-option>
                     <mat-option *ngFor="let items of OstansType"
-                                [value]="items.id">{{items.title}}</mat-option>
+                                [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
 
                 </div>
@@ -136,11 +129,11 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="field-require"> شهر : </label>
-                  <mat-select [(ngModel)]="DataModel.AddressCityID" disabled
+                  <mat-select ngModel
                               name="AddressCityID" required>
                     <mat-option>انتخاب کنید</mat-option>
                     <mat-option *ngFor="let items of CitiesType"
-                                [value]="items.id">{{items.title}}</mat-option>
+                                [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
                 </div>
               </div>
@@ -148,8 +141,8 @@
                 <div class="form-group ">
                   <label class="field-require"> آدرس : </label>
                   <input type="text" class="form-control round"
-                         name="HozurTypeID"
-                         [(ngModel)]="DataModel.HozurTypeID" disabled
+                         name="AddressDetail"
+                         ngModel
                          required>
                 </div>
               </div>
@@ -157,11 +150,11 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="field-require">پیش شماره :</label>
-                  <mat-select [(ngModel)]="DataModel.PhonePrefix" disabled
+                  <mat-select ngModel
                               name="PhonePrefix" required>
                     <mat-option>انتخاب کنید</mat-option>
                     <mat-option *ngFor="let items of PhonePrefixType"
-                                [value]="items.id">{{items.title}}</mat-option>
+                                [value]="items.ID">{{items.Value}}</mat-option>
                   </mat-select>
                 </div>
               </div>
@@ -170,7 +163,7 @@
                   <label class="field-require"> تلفن : </label>
                   <input type="text" class="form-control round"
                          name="Phone"
-                         [(ngModel)]="DataModel.Phone" disabled
+                         ngModel
                          required>
                 </div>
               </div>
@@ -178,8 +171,8 @@
                 <div class="form-group ">
                   <label class="field-require"> کد پستی : </label>
                   <input type="text" class="form-control round"
-                         name="Phone"
-                         [(ngModel)]="DataModel.Phone" disabled
+                         name="Code"
+                         ngModel
                          required>
                 </div>
               </div>
@@ -191,8 +184,7 @@
                   <input type="text"
                          oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                          mask="separator.2" thousandSeparator=","
-                         class="form-control round" name="HodudePortofaKoli"
-                         [(ngModel)]="DataModel.HodudePortofaKoli" disabled
+                         class="form-control round" name="HodudePortofaKoli" ngModel
                          required>
 
                 </div>
@@ -202,22 +194,16 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="field-require">تاریخ برگزاری مناقصه : </label>
-                  <!--<dp-date-picker-->
-                    <!--ngModel-->
-                    <!--name="BragorzariDate"-->
-                    <!--dir="ltr"-->
-                    <!--required-->
-                    <!--class="form-control"-->
-                    <!--mode="day"-->
-                    <!--theme="dp-material"-->
-                    <!--[config]="showFormat">-->
-                  <!--</dp-date-picker>-->
-                  <input type="text"
-                         oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                         mask="separator.2" thousandSeparator=","
-                         class="form-control round" name="HodudePortofaKoli"
-                         [(ngModel)]="DataModel.HodudePortofaKoli" disabled
-                         required>
+                  <dp-date-picker
+                    ngModel
+                    name="BaragorzariDate"
+                    dir="ltr"
+                    required
+                    class="form-control"
+                    mode="day"
+                    theme="dp-material"
+                    [config]="showFormat">
+                  </dp-date-picker>
                 </div>
               </div>
 
@@ -240,22 +226,16 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="field-require"> مهلت نهایی اعلام حق بیمه : </label>
-                  <!--<dp-date-picker-->
-                    <!--ngModel-->
-                    <!--name="MohlatElamHagheBimeDate"-->
-                    <!--dir="ltr"-->
-                    <!--required-->
-                    <!--class="form-control"-->
-                    <!--mode="day"-->
-                    <!--theme="dp-material"-->
-                    <!--[config]="showFormat">-->
-                  <!--</dp-date-picker>-->
-                  <input type="text"
-                         oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                         mask="separator.2" thousandSeparator=","
-                         class="form-control round" name="HodudePortofaKoli"
-                         [(ngModel)]="DataModel.HodudePortofaKoli" disabled
-                         required>
+                  <dp-date-picker
+                    ngModel
+                    name="MohlatElamHagheBimeDate"
+                    dir="ltr"
+                    required
+                    class="form-control"
+                    mode="day"
+                    theme="dp-material"
+                    [config]="showFormat">
+                  </dp-date-picker>
                 </div>
               </div>
 
@@ -264,10 +244,10 @@
                   <label class="field-require">
                     وضعیت شهرت شرکت مناقصه گذار در زمینه خسارت رشته های مورد نظر :
                   </label>
-                  <mat-select [(ngModel)]="DataModel.ShohratKhesaratMonagheseGozar" disabled
-                              name="ShohratKhesaratMonagheseGozar" multiple required>
+                  <mat-select ngModel
+                              name="ShohratKhesaratMonagheseGozar" required>
                     <mat-option *ngFor="let items of ShohratKhesaratType"
-                                [value]="items.id">{{items.title}}</mat-option>
+                                [value]="items.ID">{{items.PersianTitle}}</mat-option>
                   </mat-select>
 
                 </div>
@@ -282,7 +262,7 @@
                       </button>
                     </div>
                     <div class="col-md-9">
-                      <input class="form-control" disabled>
+                      <input class="form-control" disabled [(ngModel)]="rogabaAsliTitleInput" name="ragib">
 
                     </div>
                   </div>
@@ -311,21 +291,16 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                  <tr *ngFor="let item of gridHamraz; let i = index ">
+                    <td>{{item.HagheBimeTypeTile}}</td>
+                    <td>{{item.PersonNumber}}</td>
+                    <td>{{item.BimeFieldIDTitle}}</td>
+                    <td>{{item.HagheBimeAmount}}</td>
+                    <td>{{item.LastYearBimeGarIDTitle}}</td>
+                    <td>{{item.SabegheKhesaratPercent}}</td>
+                    <td>{{item.Comment}}</td>
                     <td>
-                      <button class="btn btn-action bg-info  mr-1" data-toggle="tooltip" title="ویرایش">
-
-                        <i class="fa fa-edit"></i>
-                      </button>
-                      <button class="btn btn-action bg-danger  mr-1" data-toggle="tooltip" title="حذف">
-
+                      <button class="btn btn-action bg-danger  mr-1" data-toggle="tooltip" title="حذف" (click)="removeFromSabtGrid(i)">
                         <i class="fa fa-trash-alt"></i>
                       </button>
                     </td>
@@ -343,13 +318,13 @@
           <div class="col-md-12">
             <div class="form-group row ">
               <label class="field-require mr-3">نیاز به ضمانت نامه/سپرده دارد :</label>
-              <mat-slide-toggle name="NeedWarranty" [(ngModel)]="DataModel.NeedWarranty" disabled>
+              <mat-slide-toggle name="NeedWarranty" [(ngModel)]="NeedWarranty">
               </mat-slide-toggle>
             </div>
           </div>
         </div>
 
-        <div class="col-md-12" *ngIf="DataModel.NeedWarranty">
+        <div class="col-md-12" *ngIf="NeedWarranty">
           <div class="row">
             <div class="col-md-12 two">
               <label>اطلاعات ضمانت مناقصه</label>
@@ -363,8 +338,7 @@
                       <input type="text"
                              oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                              mask="separator.2" thousandSeparator=","
-                             class="form-control round" name="WarrantyAmount"
-                             [(ngModel)]="DataModel.WarrantyAmount" disabled
+                             class="form-control round" name="WarrantyAmount" ngModel
                              required>
                     </div>
                   </div>
@@ -372,11 +346,10 @@
                     <div class="form-group ">
                       <label class="field-require"> تاریخ سررسید : </label>
                       <dp-date-picker
-                        [(ngModel)]="DataModel.SarresidDate"
+                        ngModel
                         name="SarresidDate"
                         dir="ltr"
                         required
-                        disabled
                         class="form-control"
                         mode="day"
                         theme="dp-material"
@@ -389,10 +362,10 @@
                   <div class="col-md-4">
                     <div class="form-group ">
                       <label class="field-require">نوع ضمانت نامه :</label>
-                      <mat-select [(ngModel)]="DataModel.WarrantyTypeId" disabled
-                                  name="WarrantyTypeId" multiple required>
+                      <mat-select ngModel
+                                  name="WarrantyTypeId" required>
                         <mat-option *ngFor="let items of WarrantyTypes"
-                                    [value]="items.id">{{items.title}}</mat-option>
+                                    [value]="items.ID">{{items.PersianTitle}}</mat-option>
                       </mat-select>
 
                     </div>
@@ -410,15 +383,13 @@
                 <div class="row">
 
 
-
-
                   <div class="col-md-4">
                     <div class="form-group ">
                       <label class="field-require">نام بانک مناقصه گذار
                         :</label>
                       <input type="text" class="form-control round"
                              name="MonagheseGozarBank"
-                             [(ngModel)]="DataModel.MonagheseGozarBank" disabled
+                             ngModel
                              required>
 
                     </div>
@@ -430,7 +401,7 @@
                       <input type="text" class="form-control round"
                              oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                              name="BranchCode"
-                             [(ngModel)]="DataModel.BranchCode" disabled required>
+                             ngModel required>
                     </div>
                   </div>
 
@@ -438,8 +409,8 @@
                     <div class="form-group ">
                       <label class="field-require">نام شعبه :</label>
                       <input type="text" class="form-control round"
-                             name="BranchName" disabled
-                             [(ngModel)]="DataModel.BranchName"
+                             name="BranchName"
+                             ngModel
                              required>
 
                     </div>
@@ -450,7 +421,7 @@
                       <input type="text" class="form-control round"
                              oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                              name="AccountNumberInt"
-                             [(ngModel)]="DataModel.AccountNumberInt" disabled required>
+                             ngModel required>
                     </div>
                   </div>
 
@@ -460,7 +431,7 @@
                       <input type="text" class="form-control form-control-position-input"
                              oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                              name="ShabaNumber"
-                             [(ngModel)]="DataModel.ShabaNumber" disabled
+                             ngModel
                              required>
                       <div class="form-control-position">
                         <span>-IR</span>
@@ -473,7 +444,7 @@
                       <label class="field-require"> به نام : </label>
                       <input type="text" class="form-control round"
                              name="ZinafName"
-                             [(ngModel)]="DataModel.ZinafName" disabled required>
+                             ngModel required>
                     </div>
                   </div>
                 </div>
@@ -490,6 +461,7 @@
               <div class="col-md-12">
                 <app-dpk-form-upload
                   name="upload"
+                  (fileData)="onUploadFile($event)"
                   [label]="'پیوست کلیه صفحات'"
                   [uploadInput]="'حجم فایل نباید بیشتر از 10 مگ باشد'"
                 ></app-dpk-form-upload>
@@ -509,34 +481,34 @@
     <h4 class="modal-title"> همراز </h4>
   </div>
   <div class="modal-body">
-    <form (ngSubmit)="saveModal(f)" #f=ngForm>
+    <form (ngSubmit)="saveModal(f , content)" #f=ngForm>
       <div class="row">
         <div class="col-md-12">
           <div class="form-group ">
             <label class="field-require">گروه بیمه : </label>
-            <mat-select [(ngModel)]="DataModel.HozurTypeID" disabled
-                        name="BimeGroupID" multiple required>
+            <mat-select ngModel
+                        (selectionChange)="onChangeBimeGroup($event)"
+                        name="HagheBimeType" required>
               <mat-option *ngFor="let item of BimeGroupsType"
-                          [value]="item.id">{{item.title}}</mat-option>
+                          [value]="item.ID">{{item.PersianTitle}}</mat-option>
             </mat-select>
           </div>
         </div>
         <div class="col-md-12 mt-1">
           <div class="form-group ">
             <label class="field-require">تعداد افراد : </label>
-
-            <input type="text" [(ngModel)]="DataModel.HozurTypeID" disabled required
+            <input type="text" ngModel required
                    oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                   name="BimeGroup" class="form-control">
+                   name="PersonNumber" class="form-control">
           </div>
         </div>
         <div class="col-md-12 mt-1">
           <label>رشته بیمه :</label>
-          <mat-select [(ngModel)]="DataModel.HozurTypeID" disabled
-                      name="reshteBime" required>
+          <mat-select ngModel
+                      name="BimeFieldID" required (selectionChange)="onChangeReshteBime($event)">
             <mat-option>انتخاب کنید</mat-option>
-            <mat-option *ngFor="let items of CitiesType"
-                        [value]="items.id">{{items.title}}</mat-option>
+            <mat-option *ngFor="let items of BimefieldType"
+                        [value]="items.ID">{{items.PersianTitle}}</mat-option>
           </mat-select>
         </div>
         <div class="col-md-12 mt-1">
@@ -544,12 +516,13 @@
           <input class="form-control"
                  mask="separator.2" thousandSeparator=","
                  oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                 name="haghBime" [(ngModel)]="DataModel.HozurTypeID" disabled>
+                 name="HagheBimeAmount" ngModel>
         </div>
         <div class="col-md-12 mt-1">
           <label>بیمه گر سال گذشته :</label>
           <ng-autocomplete
-            [data]="dataAuto"
+            [data]="BimeGarsType"
+            name="LastYearBimeGarID"
             [searchKeyword]="keyword"
             (selected)='selectEvent($event)'
             (inputChanged)='onChangeSearch($event)'
@@ -560,17 +533,17 @@
         </div>
         <div class="col-md-12 mt-1">
           <label>سابقه خسارت سنوات گذشته مناقصه گذار :</label>
-          <input class="form-control" name="sabeghr" [(ngModel)]="DataModel.HozurTypeID" disabled>
+          <input class="form-control" name="SabegheKhesaratPercent" ngModel>
         </div>
         <div class="col-md-12 mt-1">
           <label>توضیحات :</label>
-          <input class="form-control" name="tozihat" [(ngModel)]="DataModel.HozurTypeID" disabled>
+          <input class="form-control" name="Comment" ngModel>
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-success m-1">ذخیره</button>
+    <button type="submit" class="btn btn-success m-1" (click)="saveModal(f , content)">ذخیره</button>
     <button type="button" class="btn btn-danger m-1" (click)="onCloseModal(content)">انصراف</button>
   </div>
 </ng-template>
@@ -580,18 +553,23 @@
     <h4 class="modal-title">رقبای اصلی</h4>
   </div>
   <div class="modal-body">
-    <form (ngSubmit)="saveModal(f)" #f=ngForm>
+    <form #f=ngForm>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let item of BimeGarsType">
+          <input type="checkbox" (change)="onChnageChackbox($event)" value="{{item.ID}}">
+          <label>{{item.PersianTitle}}</label>
+        </div>
+      </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-success m-1">ذخیره</button>
-    <button type="button" class="btn btn-danger m-1" (click)="onCloseModal(modal2)">انصراف</button>
+    <button type="button" class="btn btn-danger m-1 w-100" (click)="onCloseModal(modal2)">بستن</button>
   </div>
 </ng-template>
 <ng-template #itemTemplate let-item>
-  <a [innerHTML]="item.name"></a>
+  <a [innerHTML]="item.PersianTitle"></a>
 </ng-template>
 
 <ng-template #notFoundTemplate let-notFound>
-  <div [innerHTML]="notFound"></div>
+  <div [innerHTML]="'مقدار مورد نظر وجود ندارد'"></div>
 </ng-template>

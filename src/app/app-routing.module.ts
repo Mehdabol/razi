@@ -13,7 +13,6 @@ import {TimeLineGoComponent} from './module/dashboard/components/time-line-go/ti
 import {RegisterComponent} from './module/auth/register/register.component';
 import {ChangePasswordComponent} from './module/auth/change-password/change-password.component';
 import {PageInsuranceInsuredComponent} from './module/Insurance/insurance-insured/page/page-insurance-insured/page-insurance-insured.component';
-import {PageInsuranceTransporterComponent} from './module/Insurance/Insurance-transporter/page/page-insurance-transporter/page-insurance-transporter.component';
 import {PageTotalDamageTreatmentComponent} from './module/Insurance/total-damage-treatment/page/page-total-damage-treatment/page-total-damage-treatment.component';
 import {ResetPasswordComponent} from './module/auth/reset-password/reset-password.component';
 
@@ -39,7 +38,6 @@ const routes: Routes = [
       {path: 'detail1/:id', component: DetailForm1Component, canActivate: [AuthGuard]},
       {path: 'detail2/:id', component: DetailForm2Component, canActivate: [AuthGuard]},
       {path: 'insurance-insured', component: PageInsuranceInsuredComponent, canActivate: [AuthGuard]},
-      {path: 'insurance-transporter', component: PageInsuranceTransporterComponent, canActivate: [AuthGuard]},
       {path: 'total-damage-treatment', component: PageTotalDamageTreatmentComponent, canActivate: [AuthGuard]},
 
     ]

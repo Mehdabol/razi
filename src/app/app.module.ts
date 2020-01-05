@@ -48,9 +48,6 @@ import {TimlineButtonGridComponent} from './module/dashboard/components/timline-
 import {PageInsuranceInsuredComponent} from './module/Insurance/insurance-insured/page/page-insurance-insured/page-insurance-insured.component';
 import {GridInsuranceInsuredComponent} from './module/Insurance/insurance-insured/component/grid-insurance-insured/grid-insurance-insured.component';
 import {InsuranceInsuredService} from './module/Insurance/insurance-insured/service/insurance-insured.service';
-import {GridInsuranceTransporterComponent} from './module/Insurance/Insurance-transporter/component/grid-insurance-transporter/grid-insurance-transporter.component';
-import {PageInsuranceTransporterComponent} from './module/Insurance/Insurance-transporter/page/page-insurance-transporter/page-insurance-transporter.component';
-import {InsuranceTransporterService} from './module/Insurance/Insurance-transporter/service/Insurance-transporter.service';
 import {GridTotalDamageTreatmentComponent} from './module/Insurance/total-damage-treatment/component/grid-total-damage-treatment/grid-total-damage-treatment.component';
 import {PageTotalDamageTreatmentComponent} from './module/Insurance/total-damage-treatment/page/page-total-damage-treatment/page-total-damage-treatment.component';
 import {TotalDamageTreatmentService} from './module/Insurance/total-damage-treatment/service/total-damage-treatment.service';
@@ -83,8 +80,6 @@ import { ResetPasswordComponent } from './module/auth/reset-password/reset-passw
     TimlineButtonGridComponent,
     PageInsuranceInsuredComponent,
     GridInsuranceInsuredComponent,
-    GridInsuranceTransporterComponent,
-    PageInsuranceTransporterComponent,
     GridTotalDamageTreatmentComponent,
     PageTotalDamageTreatmentComponent,
     ResetPasswordComponent
@@ -114,7 +109,6 @@ import { ResetPasswordComponent } from './module/auth/reset-password/reset-passw
   ],
   providers: [AuthService, AuthGuard, FormValidateService,
     ConvertDateService,
-    InsuranceTransporterService,
     NotificationService,
     InsuranceInsuredService,
     TotalDamageTreatmentService,

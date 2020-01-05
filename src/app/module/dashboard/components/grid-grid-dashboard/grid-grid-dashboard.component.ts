@@ -46,8 +46,6 @@ export class GridGridDashboardComponent implements OnInit {
   }
 
 
-  onRowClicked(event: any) {
-  }
 
   onGridReady(params) {
     this.gridApi = params.api;
@@ -196,7 +194,7 @@ export class GridGridDashboardComponent implements OnInit {
   // }
 
   onDetailButton(event) {
-    this.router.navigate(['pages/detail2/2']);
+    this.router.navigate([`pages/detail1/${event.rowData.BPID}`]);
   }
 
   onAdd() {
