@@ -127,60 +127,56 @@ export class GridInsurancePrintedPolicyNumberComponent implements OnInit {
         field: 'bid',
         hide: true
       }, {
-        headerName: '#',
-        field: '',
-        hide: false
-      }, {
         headerName: 'نام شرکت',
         field: 'companyName',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
-        headerName: 'شخص ثالث',
+        headerName: 'نام فیلد',
         field: 'fieldName',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'تاریخ صدور',
         field: 'issueDate',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'تاریخ شروع بیمه نامه',
         field: 'startDate',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'تاریخ پایان بیمه نامه',
         field: 'endDate',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'تاریخ صدور میلادی',
         field: 'gregorianIssueDate',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'نام',
         field: 'name',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'کد ملی بیمه‌گزار',
         field: 'nid',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'شماره چاپی بیمه نامه',
         field: 'fullBNo',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       },
       {
         headerName: 'کد یکتای بیمه نامه ',
         field: 'policyId',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       },
     ];
     this.cacheBlockSize = 100;

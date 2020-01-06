@@ -60,9 +60,6 @@ export class GridUniqueCodeInsuranceComponent implements OnInit {
         if (GridUniqueCodeInsuranceComponent.self.policyId !== '') {
           GridUniqueCodeInsuranceComponent.self.service.getUnicCodeGrid(filterValue)
             .subscribe((res: any) => {
-              for (let i = 0; i < res.Data.length; i++) {
-                res.Data[i].isBimeGozar = res.Data[i].isBimeGozar ? 'بیمه گذار' : 'بیمه شده';
-              }
               if (data) {
                 params.successCallback(res.Data, res.Data.length);
                 (res.Data.length === 0 || res.Data == null) ? GridUniqueCodeInsuranceComponent.self.gridApi.showNoRowsOverlay() :
@@ -91,12 +88,12 @@ export class GridUniqueCodeInsuranceComponent implements OnInit {
         field: '',
         hide: false
       }, {
-        headerName: 'بيمه ملت',
+        headerName: 'نام شرکت',
         field: 'companyName',
         enableRowGroup: true,
         minWidth: 130
       }, {
-        headerName: 'شخص ثالث',
+        headerName: 'نام فیلد',
         field: 'fieldName',
         enableRowGroup: true,
         minWidth: 130
@@ -121,7 +118,7 @@ export class GridUniqueCodeInsuranceComponent implements OnInit {
         enableRowGroup: true,
         minWidth: 130
       }, {
-        headerName: 'محمد قریشی',
+        headerName: 'نام',
         field: 'name',
         enableRowGroup: true,
         minWidth: 130
@@ -139,51 +136,6 @@ export class GridUniqueCodeInsuranceComponent implements OnInit {
       {
         headerName: 'کد یکتای بیمه نامه در بیمه مرکزی',
         field: 'policyId',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'نام نمایندگی',
-        field: 'agentDesc',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'تاریخ شروع بیمه‌نامه ',
-        field: 'beginDate',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: ' تاریخ اتمام بیمه‌نامه',
-        field: 'endDate',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'تاریخ صدور بیمه‌نام',
-        field: 'issuanceDate',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'کد بیمه‌گزار ',
-        field: 'insurerCode',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'نام بیمه',
-        field: 'insurerName',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'حق بیمه کل',
-        field: 'premium',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'کد ملی بیمه‌گزار',
-        field: 'nid',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'نوع بیمه شده',
-        field: 'isBimeGozar',
         enableRowGroup: true,
         minWidth: 130
       },

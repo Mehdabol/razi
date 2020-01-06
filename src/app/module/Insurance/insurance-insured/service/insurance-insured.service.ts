@@ -17,7 +17,7 @@ export class InsuranceInsuredService {
   }
 
   getPolicyInsuranceGrid(data) {
-    return this.service.post(this.url + 'GetAllPolicyInq', data);
+    return this.service.post(this.url + 'GetAllCompanyPolicyInq', data);
   }
 }
 
