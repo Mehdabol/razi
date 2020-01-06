@@ -36,7 +36,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     {
       title: 'فایل ها و برنامه ها', icon: 'fa fa-home', hasChile: true, subMenu: [
         {title: 'دانلود فرمهای پیشنهاد', path: 'dashboard1', hasChile: false},
-        {title: 'دانلود نیازمندیهای سیستم جامع', path: 'dashboard1', hasChile: false},
+        {title: 'دانلود نیازمندیهای سیستم جامع', path: 'download-necessity-files', hasChile: false},
         {title: 'دریافت اپلیکشن همراز', path: 'dashboard1', hasChile: false},
         {title: 'اتوماسیون های اداری', path: 'dashboard1', hasChile: false},
       ]

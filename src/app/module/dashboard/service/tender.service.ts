@@ -75,6 +75,20 @@ export class TenderService {
 
   getEditData(id) {
     return this.service.get(this.development + `Get/${id}`);
+  }
+
+  approve(data) {
+    return this.service.post(this.development + 'Approve', data);
+
+  }
+
+  reject(data) {
+    return this.service.post(this.development + 'Reject', data);
+
+  }
+
+  close(data) {
+    return this.service.post(this.development + 'Close' , data);
 
   }
 }

@@ -4,16 +4,28 @@
       <i class="fa fa-arrow-right"></i>
       <span class="ml-2">بازگشت</span>
     </button>
-    <button class="btn btn-success ml-2 " (click)="onSubmitForm(f)">
-      <span class="mr-2"> اطلاعات مورد تایید است</span>
+    <button class="btn btn-success ml-2 " *ngIf="permisson.CanApprove" (click)="onApprove()">
+      <span class="mr-2">  تایید </span>
       <i class="fa fa-check"></i>
     </button>
-    <button class="btn btn-warning ml-2 " (click)="onSubmitForm(f)">
-      <span class="mr-2"> نیاز به اصلاح دارد</span>
+    <button class="btn btn-warning ml-2 " *ngIf="permisson.CanClose" (click)="onClose()">
+      <span class="mr-2">  close</span>
       <i class="fa fa-check"></i>
     </button>
-    <button class="btn btn-danger ml-2 " (click)="onSubmitForm(f)">
-      <span class="mr-2"> مورد قبول نیست</span>
+    <button class="btn btn-primary ml-2 " *ngIf="permisson.CanEdit" >
+      <span class="mr-2"> edit</span>
+      <i class="fa fa-check"></i>
+    </button>
+    <button class="btn btn-info ml-2 " *ngIf="permisson.CanFinalize" >
+      <span class="mr-2"> Finalize</span>
+      <i class="fa fa-check"></i>
+    </button>
+    <button class="btn btn-danger ml-2 " *ngIf="permisson.CanReject" (click)="CanReject()">
+      <span class="mr-2">Reject</span>
+      <i class="fa fa-check"></i>
+    </button>
+    <button class="btn btn-success ml-2 " *ngIf="permisson.CanStart">
+      <span class="mr-2"> Start</span>
       <i class="fa fa-check"></i>
     </button>
   </div>
@@ -288,7 +300,8 @@
                     <td>{{item.SabegheKhesaratPercent}}</td>
                     <td>{{item.Comment}}</td>
                     <td>
-                      <button class="btn btn-action bg-danger  mr-1" disabled data-toggle="tooltip" title="حذف" (click)="removeFromSabtGrid(i)">
+                      <button class="btn btn-action bg-danger  mr-1" disabled data-toggle="tooltip" title="حذف"
+                              (click)="removeFromSabtGrid(i)">
                         <i class="fa fa-trash-alt"></i>
                       </button>
                     </td>
@@ -449,10 +462,10 @@
             <div class="panel-shadow">
               <div class="col-md-12">
                 <app-dpk-form-upload disabled
-                  name="upload"
-                  (fileData)="onUploadFile($event)"
-                  [label]="'پیوست کلیه صفحات'"
-                  [uploadInput]="'حجم فایل نباید بیشتر از 10 مگ باشد'"
+                                     name="upload"
+                                     (fileData)="onUploadFile($event)"
+                                     [label]="'پیوست کلیه صفحات'"
+                                     [uploadInput]="'حجم فایل نباید بیشتر از 10 مگ باشد'"
                 ></app-dpk-form-upload>
               </div>
             </div>

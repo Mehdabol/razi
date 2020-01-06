@@ -1,7 +1,11 @@
 export class FormModel {
-  HozurTypeID?: any; MonagheseGozar?: any; MonaghesTopic?: any;
-  Code?: any; LastYearHagheBimeAmount?: any;
-  PeopleNum?: any; BargorzariDate?: any;
+  HozurTypeID?: any;
+  MonagheseGozar?: any;
+  MonaghesTopic?: any;
+  Code?: any;
+  LastYearHagheBimeAmount?: any;
+  PeopleNum?: any;
+  BargorzariDate?: any;
   BimeGroupID?: any;
   BimeGroup?: any;
   HodudePortofaKoli?: any;
@@ -33,5 +37,15 @@ export class FormModel {
   AccountNumberInt?: any;
   ShabaNumber?: any;
   ZinafName?: any;
+}
+
+export class Permission {
+  public CanApprove?: boolean;
+  public CanReject?: boolean;
+  public CanStart?: boolean;
+  public CanClose?: boolean;
+  public CanFinalize?: boolean;
+  public CanEdit?: boolean;
+
 }
 

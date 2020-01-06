@@ -7,7 +7,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgForm} from '@angular/forms';
 import {HamrazGridModel} from '../../model/hamraz-grid.model';
 import {ConvertDateService} from '../../service/convert-date.service';
-import {FormModel} from '../../model/form.model';
+import {FormModel, Permission} from '../../model/form.model';
 
 @Component({
   selector: 'app-detail-form1',
@@ -50,6 +50,7 @@ export class DetailForm1Component implements OnInit {
   id = '';
 
   DataModel: FormModel = {};
+  permisson: Permission = {};
 
   constructor(private router: Router,
               private service: TenderService,
@@ -80,6 +81,25 @@ export class DetailForm1Component implements OnInit {
     this.service.getEditData(this.id).subscribe((res) => {
       debugger;
       this.DataModel = res.Item;
+      this.permisson = res.Premissions;
+    });
+  }
+
+  onApprove() {
+    this.service.approve(this.DataModel).subscribe((res) => {
+
+    });
+  }
+
+  onClose() {
+    this.service.close(this.DataModel).subscribe((res) => {
+
+    });
+  }
+
+  CanReject() {
+    this.service.reject(this.DataModel).subscribe((res) => {
+
     });
   }
 
