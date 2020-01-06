@@ -6,6 +6,7 @@ export class TenderService {
   url = 'razitender/api/Common/';
   BpUrl = 'razitender/api/BP/';
   sabtUrl = 'razitender/api/SabteDarkhast/';
+  development = 'razitender/api/DevelopmentManagerTopicCondsReview/';
 
   constructor(private service: ApiService<any>) {
   }
@@ -73,7 +74,7 @@ export class TenderService {
   }
 
   getEditData(id) {
-    return this.service.getById(this.sabtUrl + 'Get?BPId=', id);
+    return this.service.get(this.development + `Get/${id}`);
 
   }
 }

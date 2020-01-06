@@ -1,8 +1,7 @@
 export class FormModel {
-  HozurTypeID?: any;
-  MonagheseGozar?: any;
-  MonaghesTopic?: any;
-  PeopleNum?: any;
+  HozurTypeID?: any; MonagheseGozar?: any; MonaghesTopic?: any;
+  Code?: any; LastYearHagheBimeAmount?: any;
+  PeopleNum?: any; BargorzariDate?: any;
   BimeGroupID?: any;
   BimeGroup?: any;
   HodudePortofaKoli?: any;
@@ -11,6 +10,7 @@ export class FormModel {
   PackatGoshayesheDate?: any;
   MohlatElamHagheBimeDate?: any;
   ShohratKhesaratMonagheseGozar?: any;
+  BaragorzariDate?: any;
   rogabaAsli?: any;
   NeedWarranty?: any;
   WarrantyAmount?: any;
@@ -18,6 +18,8 @@ export class FormModel {
   WarrantyTypeId?: any;
   MonagheseGozarTypeID?: any;
   ShenaseMeliInt?: any;
+  ShenaseMeli?: any;
+  EghtesadiCode?: any;
   EghtesadiCodeInt?: any;
   AddressOstanID?: any;
   AddressCityID?: any;
@@ -27,7 +29,9 @@ export class FormModel {
   MonagheseGozarBank?: any;
   BranchCode?: any;
   BranchName?: any;
+  AccountNumber?: any;
   AccountNumberInt?: any;
   ShabaNumber?: any;
   ZinafName?: any;
 }
+
