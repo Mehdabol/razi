@@ -5,13 +5,14 @@ import {InsuranceInsuredService} from '../../../insurance-insured/service/insura
 import {LocalText} from '../../../../../core/grid/ag-grid_fa';
 
 @Component({
-  selector: 'app-grid-unique-code-insurance',
-  templateUrl: './grid-unique-code-insurance.component.html',
-  styleUrls: ['./grid-unique-code-insurance.component.scss']
+  selector: 'app-grid-insurance-printed-policy-number',
+  templateUrl: './grid-insurance-printed-policy-number.component.html',
+  styleUrls: ['./grid-insurance-printed-policy-number.component.scss']
 })
-export class GridUniqueCodeInsuranceComponent implements OnInit {
-  static self: GridUniqueCodeInsuranceComponent;
+export class GridInsurancePrintedPolicyNumberComponent implements OnInit {
 
+  static self: GridInsurancePrintedPolicyNumberComponent;
+  compony = null;
   policyId = ''; // '0057901015';
   paramGrid;
   showFormat = {
@@ -30,6 +31,44 @@ export class GridUniqueCodeInsuranceComponent implements OnInit {
   cacheBlockSize;
   localeText;
   frameworkComponents;
+  componyType = [
+    {id: '4', title: 'بيمه دي'},
+    {id: '2', title: 'بيمه ايران'},
+    {id: '3', title: 'بيمه آسیا'},
+    {id: '6', title: 'بيمه البرز'},
+    {id: '1', title: 'بيمه دانا'},
+    {id: '7', title: 'بيمه معلم'},
+    {id: '8', title: 'بيمه پارسیان'},
+    {id: '9', title: 'بيمه کار آفرین'},
+    {id: '11', title: 'بيمه رازی'},
+    {id: '12', title: 'بيمه توسعه'},
+    {id: '10', title: 'بيمه سینا'},
+    {id: '13', title: 'بيمه ملت'},
+    {id: '15', title: 'بيمه سامان'},
+    {id: '16', title: 'بيمه نوین'},
+    {id: '17', title: 'بيمه پاسارگاد'},
+    {id: '5', title: 'بيمه میهن'},
+    {id: '18', title: 'بيمه کوثر'},
+    {id: '19', title: 'بيمه ما'},
+    {id: '21', title: 'بيمه آرمان'},
+    {id: '29', title: 'بيمه تعاون'},
+    {id: '33', title: 'بيمه سرمد'},
+    {id: '30', title: 'بيمه اتکایی امین'},
+    {id: '24', title: 'بيمه امید'},
+    {id: '23', title: 'بيمه حافظ'},
+    {id: '25', title: 'بيمه ایران معین'},
+    {id: '31', title: 'بيمه آسماری'},
+    {id: '32', title: 'بيمه متقابل اطمينان متحد قشم'},
+    {id: '28', title: 'بيمه اتكايي ايرانيان'},
+    {id: '26', title: 'بيمه متقابل کیش'},
+    {id: '22', title: 'دانا(شركت هاي ادغامي)'},
+    {id: '34', title: 'بيمه تجارت نو'},
+    {id: '50', title: 'اتکایی بیمه مرکزی ج.ا.ا'},
+    {id: '51', title: 'حساب اتكايي ويژه'},
+    {id: '52', title: 'بیمه حكمت صبا'},
+    {id: '35', title: 'بيمه زندگي خاورميانه'},
+    {id: '27', title: 'بيمه زندگي باران'},
+  ];
 
   constructor(private router: Router,
               private alertService: AlertService,
@@ -38,7 +77,7 @@ export class GridUniqueCodeInsuranceComponent implements OnInit {
   }
 
   ngOnInit() {
-    GridUniqueCodeInsuranceComponent.self = this;
+    GridInsurancePrintedPolicyNumberComponent.self = this;
   }
 
 
@@ -56,17 +95,18 @@ export class GridUniqueCodeInsuranceComponent implements OnInit {
     const dataSource = {
       getRows(params) {
         const data = params.request;
-        const filterValue = {policyId: GridUniqueCodeInsuranceComponent.self.policyId};
-        if (GridUniqueCodeInsuranceComponent.self.policyId !== '') {
-          GridUniqueCodeInsuranceComponent.self.service.getUnicCodeGrid(filterValue)
+        const filterValue = {
+          companyCode: GridInsurancePrintedPolicyNumberComponent.self.compony,
+          policyIdfullBNo: GridInsurancePrintedPolicyNumberComponent.self.policyId
+        };
+        if (GridInsurancePrintedPolicyNumberComponent.self.policyId !== '' ||
+          GridInsurancePrintedPolicyNumberComponent.self.compony !== null) {
+          GridInsurancePrintedPolicyNumberComponent.self.service.getPolicyInsuranceGrid(filterValue)
             .subscribe((res: any) => {
-              for (let i = 0; i < res.Data.length; i++) {
-                res.Data[i].isBimeGozar = res.Data[i].isBimeGozar ? 'بیمه گذار' : 'بیمه شده';
-              }
               if (data) {
                 params.successCallback(res.Data, res.Data.length);
-                (res.Data.length === 0 || res.Data == null) ? GridUniqueCodeInsuranceComponent.self.gridApi.showNoRowsOverlay() :
-                  GridUniqueCodeInsuranceComponent.self.gridApi.hideOverlay();
+                (res.Data.length === 0 || res.Data == null) ? GridInsurancePrintedPolicyNumberComponent.self.gridApi.showNoRowsOverlay() :
+                  GridInsurancePrintedPolicyNumberComponent.self.gridApi.hideOverlay();
               } else {
                 params.failCallback();
               }
@@ -91,7 +131,7 @@ export class GridUniqueCodeInsuranceComponent implements OnInit {
         field: '',
         hide: false
       }, {
-        headerName: 'بيمه ملت',
+        headerName: 'نام شرکت',
         field: 'companyName',
         enableRowGroup: true,
         minWidth: 130
@@ -121,7 +161,7 @@ export class GridUniqueCodeInsuranceComponent implements OnInit {
         enableRowGroup: true,
         minWidth: 130
       }, {
-        headerName: 'محمد قریشی',
+        headerName: 'نام',
         field: 'name',
         enableRowGroup: true,
         minWidth: 130
@@ -137,53 +177,8 @@ export class GridUniqueCodeInsuranceComponent implements OnInit {
         minWidth: 130
       },
       {
-        headerName: 'کد یکتای بیمه نامه در بیمه مرکزی',
+        headerName: 'کد یکتای بیمه نامه ',
         field: 'policyId',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'نام نمایندگی',
-        field: 'agentDesc',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'تاریخ شروع بیمه‌نامه ',
-        field: 'beginDate',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: ' تاریخ اتمام بیمه‌نامه',
-        field: 'endDate',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'تاریخ صدور بیمه‌نام',
-        field: 'issuanceDate',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'کد بیمه‌گزار ',
-        field: 'insurerCode',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'نام بیمه',
-        field: 'insurerName',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'حق بیمه کل',
-        field: 'premium',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'کد ملی بیمه‌گزار',
-        field: 'nid',
-        enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'نوع بیمه شده',
-        field: 'isBimeGozar',
         enableRowGroup: true,
         minWidth: 130
       },

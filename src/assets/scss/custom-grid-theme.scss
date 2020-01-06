@@ -5,7 +5,17 @@
   float: left;
 }
 
+.ag-theme-material .ag-header-cell-label .ag-header-cell-text {
+  white-space: normal !important;
+}
 
+.ag-theme-material .ag-header-cell, .ag-theme-material .ag-header-group-cell {
+  line-height: normal !important;
+}
+
+.ag-theme-material .ag-header-cell-label {
+  height: auto !important;
+}
 
 .ag-theme-material .ag-rtl .ag-side-bar, .ag-theme-material .ag-rtl .ag-tool-panel-wrapper{
   border-right: 1px solid #BDC3C7!important;
@@ -57,4 +67,7 @@
 }
 .ag-header-cell {
   border-left: 1px solid #c4c4c4!important;
+}
+.ag-header-icon.ag-header-cell-menu-button {
+  display: none;
 }

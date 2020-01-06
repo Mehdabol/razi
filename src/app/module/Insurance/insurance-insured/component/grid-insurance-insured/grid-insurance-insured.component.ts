@@ -61,6 +61,7 @@ export class GridInsuranceInsuredComponent implements OnInit {
             if (data) {
               for (let i = 0; i < res.Data.length; i++) {
                 res.Data[i].firstName = res.Data[i].firstName + res.Data[i].lastName;
+                res.Data[i].isBimeGozar = res.Data[i].isBimeGozar ? 'بیمه گذار' : 'بیمه شده';
               }
               params.successCallback(res.Data, res.Data.length);
               (res.Data.length === 0 || res.Data == null) ? GridInsuranceInsuredComponent.self.gridApi.showNoRowsOverlay() :
@@ -91,116 +92,97 @@ export class GridInsuranceInsuredComponent implements OnInit {
         headerName: 'نام و نام خانوادگی',
         field: 'firstName',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'رشته بیمه',
         field: 'policyType',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'کد رشته بیمه ای',
         field: 'policyTypeCode',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: ' بیمه شده',
         field: 'insured',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'تاریخ صدور ',
         field: 'issueDate',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'کد ملی بیمه‌گزار',
         field: 'insurerNid',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: ' موبایل',
         field: 'mobile',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'کد صدور بیمه‌نامه',
         field: 'issuerCode',
         enableRowGroup: true,
-        minWidth: 130
-      }, {
-        headerName: 'issuerDesc',
-        field: 'issuerDesc',
-        enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       },
       {
         headerName: 'کد نماینده',
         field: 'agentCode',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'نام نمایندگی',
         field: 'agentDesc',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'تاریخ شروع بیمه‌نامه ',
         field: 'beginDate',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: ' تاریخ اتمام بیمه‌نامه',
         field: 'endDate',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'تاریخ صدور بیمه‌نام',
         field: 'issuanceDate',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'کد بیمه‌گزار ',
         field: 'insurerCode',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'نام بیمه',
         field: 'insurerName',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'حق بیمه کل',
         field: 'premium',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
         headerName: 'کد ملی بیمه‌گزار',
         field: 'nid',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       }, {
-        headerName: 'isBimeGozar',
+        headerName: 'نوع بیمه شده',
         field: 'isBimeGozar',
         enableRowGroup: true,
-        minWidth: 130
+        minWidth: 110
       },
     ];
     this.cacheBlockSize = 100;
     this.localeText = LocalText;
-    // this.sideBar = {
-    //   toolPanels: [
-    //     {
-    //       id: 'appSearch',
-    //       labelDefault: 'جستجو',
-    //       labelKey: 'appSearch',
-    //       iconKey: 'app-search',
-    //       toolPanel: 'searchComponent'
-    //     }
-    //   ],
-    //   defaultToolPanel: 'appSearch'
-    // };
-    // this.frameworkComponents = {detailButton: GridDetailButtonComponent, timeLine: TimlineButtonGridComponent};
-
 
     this.defaultColDef = {
       width: 260,

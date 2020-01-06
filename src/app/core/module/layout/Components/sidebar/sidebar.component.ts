@@ -25,6 +25,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
         {title: 'بیمه های یک بیمه شده', path: 'insurance-insured', hasChile: false},
         {title: 'کل خسارات درمان', path: 'total-damage-treatment', hasChile: false},
         {title: 'استعلام بیمه نامه با کد یکتا', path: 'unic-insurance', hasChile: false},
+        {title: 'استعلام بیمه نامه با شماره چاپی', path: 'policy-insurance', hasChile: false},
         {title: 'بیمه های من', path: 'dashboard1', hasChile: false},
         {title: 'بررسی اصالت بیمه', path: 'dashboard1', hasChile: false},
         {title: 'صدور بیمه نامه های آنلاین', path: 'dashboard1', hasChile: false},

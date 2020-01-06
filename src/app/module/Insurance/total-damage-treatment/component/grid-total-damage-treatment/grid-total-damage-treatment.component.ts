@@ -85,59 +85,72 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
         headerName: 'شماره بیمه نامه',
         field: 'bno',
         enableRowGroup: true,
+        minWidth: 100
       }, {
         headerName: 'بیمه شده',
         field: 'insuredName',
         enableRowGroup: true,
+        minWidth: 100
       },
       {
         headerName: 'بیماری',
         field: 'disease',
         enableRowGroup: true,
+        minWidth: 100
       },
       {
         headerName: 'تاریخ بستری',
         field: 'hospitalizationDate',
         enableRowGroup: true,
+        minWidth: 100
       }, {
         headerName: 'تاریخ حواله',
         field: 'indemnityDate',
         enableRowGroup: true,
+        minWidth: 100
       }, {
         headerName: ' مرکز درمانی',
         field: 'healthCenter',
         enableRowGroup: true,
+        minWidth: 100
       }, {
         headerName: 'سریال معرفی نامه',
         field: 'indemnitySerial',
         enableRowGroup: true,
+        minWidth: 100
       }, {
         headerName: ' وضعیت پرونده',
         field: 'documentStatus',
         enableRowGroup: true,
+        minWidth: 100
       },
       {
         headerName: 'مبلغ درخواستی',
         field: 'requestedAmount',
         enableRowGroup: true,
+        minWidth: 100
       }, {
         headerName: 'مبلغ پرداختی',
         field: 'paidAmount',
         enableRowGroup: true,
+        minWidth: 100
       },
       {
         headerName: 'نوع',
         field: 'damageKindText',
         enableRowGroup: true,
+        minWidth: 100
       },
       {
         headerName: 'مبلغ مورد تایید کارشناس',
         field: 'confirmAmount',
         enableRowGroup: true,
+        minWidth: 100
       }, {
         headerName: 'مبلغ فرانشیز',
         field: 'franshiz',
         enableRowGroup: true,
+        minWidth: 100
       },
 
     ];
