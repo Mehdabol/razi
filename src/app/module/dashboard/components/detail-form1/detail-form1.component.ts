@@ -86,19 +86,21 @@ export class DetailForm1Component implements OnInit {
   }
 
   onApprove() {
-    this.service.approve(this.DataModel).subscribe((res) => {
-
+    this.service.approve(this.id).subscribe((res) => {
+      this.alertService.success('عملیات با موفقیت انجام شد');
     });
   }
 
   onClose() {
-    this.service.close(this.DataModel).subscribe((res) => {
+    this.service.close(this.id).subscribe((res) => {
+      this.alertService.success('عملیات با موفقیت انجام شد');
 
     });
   }
 
   CanReject() {
-    this.service.reject(this.DataModel).subscribe((res) => {
+    this.service.reject(this.id).subscribe((res) => {
+      this.alertService.success('عملیات با موفقیت انجام شد');
 
     });
   }

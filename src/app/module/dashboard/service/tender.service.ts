@@ -78,17 +78,17 @@ export class TenderService {
   }
 
   approve(data) {
-    return this.service.post(this.development + 'Approve', data);
+    return this.service.post(this.development + `Approve?BPID=${data}`, '');
 
   }
 
   reject(data) {
-    return this.service.post(this.development + 'Reject', data);
+    return this.service.post(this.development + `Reject?BPID=${data}`, '');
 
   }
 
   close(data) {
-    return this.service.post(this.development + 'Close' , data);
+    return this.service.post(this.development + `Close?BPID=${data}`, '');
 
   }
 }
