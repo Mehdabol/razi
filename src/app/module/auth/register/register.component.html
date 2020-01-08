@@ -11,63 +11,106 @@
       </div>
       <div class="card-content">
         <div class="card-body">
-          <form class="form-horizontal" (ngSubmit)="onSubmitForm(f)" #f='ngForm'>
-            <div class="form-group position-relative has-icon-left">
-              <label>نام کاربری</label>
-              <input type="text" class="form-control " name="userName" ngModel
-                     placeholder="نام کاربری" required>
+          <form #f='ngForm' (ngSubmit)="onSubmitForm(f)" class="form-horizontal row">
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>نام </label>
+              <input class="form-control " name="firstName" ngModel placeholder="نام "
+                     required type="text">
             </div>
-            <div class="form-group position-relative has-icon-left">
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>نام خانوادگی</label>
+              <input class="form-control " name="lastName" ngModel placeholder="نام خانوادگی"
+                     required type="text">
+            </div>
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>نام پدر</label>
+              <input class="form-control " name="fatherName" ngModel placeholder="نام پدر"
+                     required type="text">
+            </div>
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>کد ملی</label>
+              <input class="form-control " name="NationalID" ngModel placeholder="کد ملی"
+                     required type="text">
+            </div>
+
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>رمز عبور </label>
+              <input class="form-control " name="password" ngModel placeholder="رمز عبور "
+                     required type="password">
+            </div>
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>تکرار رمز عبور </label>
+              <input class="form-control " name="confirmPassword" ngModel placeholder="تکرار رمز عبور "
+                     required type="password">
+            </div>
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>نام کاربری</label>
+              <input class="form-control " name="userName" ngModel placeholder="نام کاربری"
+                     required type="text">
+            </div>
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>تاریخ تولد</label>
+              <dp-date-picker
+                dir="rtl"
+                [(ngModel)]="brithDate"
+                name="birthDate"
+                mode="day"
+                [config]="FormatDate"
+                theme="dp-material">
+              </dp-date-picker>
+            </div>
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>جنسیت</label>
+              <select class="form-control" name="gender" ngModel>
+                <option></option>
+                <option value="true">مرد</option>
+                <option value="false">زن</option>
+                <option></option>
+              </select>
+            </div>
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>کد پستی</label>
+              <input class="form-control " name="postalCode" ngModel placeholder="کد پستی"
+                     required type="text">
+            </div>
+
+            <div class="form-group position-relative has-icon-left col-md-6">
+              <label>وضعیت تاهل</label>
+              <select class="form-control" name="married" ngModel>
+                <option></option>
+                <option value="true">متاهل</option>
+                <option value="false">مجرد</option>
+                <option></option>
+              </select>
+            </div>
+            <div class="form-group position-relative has-icon-left col-md-6">
               <label>ایمیل</label>
 
-              <input type="text" class="form-control " name="email" ngModel
-                     placeholder="ایمیل" required>
+              <input class="form-control " name="email" ngModel placeholder="ایمیل"
+                     required type="text">
             </div>
-            <div class="form-group position-relative has-icon-left">
-              <label>رمز عبور </label>
-
-              <input type="password" class="form-control " name="password" ngModel
-                     placeholder="رمز عبور " required>
-
+            <div class="form-group position-relative has-icon-left col-md-12">
+              <label>آدرس</label>
+              <textarea class="form-control " name="address" ngModel placeholder="آدرس"
+                        required>
+              </textarea>
             </div>
-            <div class="form-group position-relative has-icon-left">
-              <label>تکرار رمز عبور </label>
-
-              <input type="password" class="form-control " name="confirmPassword" ngModel
-                     placeholder="تکرار رمز عبور " required>
-
-            </div>
-            <div class="form-group position-relative has-icon-left">
-              <label>شماره موبایل</label>
-
-              <input type="text" class="form-control " name="mobileNumber" ngModel
-                     placeholder="شماره موبایل" required>
-
-            </div>
-            <div class="form-group row">
-              <div class="col-md-6 col-12 text-center text-sm-left">
-
-              </div>
-              <div class="col-md-6 col-12  text-center "><a href="recover-password.html"
-                                                            class="card-link"></a></div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <button type="submit"
-                        class="btn text-center  btn-block btn-glow btn-bg-gradient-x-purple-blue   mb-1">
-                  تایید
-                </button>
-              </div>
-              <div class="col-md-6">
-
-                <button type="button" (click)="onBack()"
-                        class="btn text-center  btn-block btn-glow btn-danger-back mb-1">
-                  بازگشت
-                </button>
-              </div>
-            </div>
-
           </form>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="btn text-center  btn-block btn-glow btn-bg-gradient-x-purple-blue   mb-1"
+                      type="submit" (click)="onSubmitForm(f)">
+                تایید
+              </button>
+            </div>
+            <div class="col-md-6">
+
+              <button (click)="onBack()" class="btn text-center  btn-block btn-glow btn-danger-back mb-1"
+                      type="button">
+                بازگشت
+              </button>
+            </div>
+          </div>
         </div>
 
       </div>

@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  brithDate = '';
+  FormatDate = {format: 'YYYY/MM/DD'};
 
   constructor(private errorService: FormValidateService,
               private alertService: AlertService,
