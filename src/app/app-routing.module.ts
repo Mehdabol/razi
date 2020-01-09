@@ -18,6 +18,7 @@ import {ResetPasswordComponent} from './module/auth/reset-password/reset-passwor
 import {PageUniqueCodeInsuranceComponent} from './module/Insurance/unique-code-insurance/page/page-unique-code-insurance/page-unique-code-insurance.component';
 import {PageInsurancePrintedPolicyNumberComponent} from './module/Insurance/insurance-printed-policy-number/page/page-insurance-printed-policy-number/page-insurance-printed-policy-number.component';
 import {DownloadNecessityFilesComponent} from './module/files/download-necessity-files/components/download-necessity-files.component';
+import {DownloadAppComponent} from './module/files/download-app/component/download-app/download-app.component';
 
 const routes: Routes = [
   {
@@ -44,7 +45,8 @@ const routes: Routes = [
       {path: 'unic-insurance', component: PageUniqueCodeInsuranceComponent, canActivate: [AuthGuard]},
       {path: 'policy-insurance', component: PageInsurancePrintedPolicyNumberComponent, canActivate: [AuthGuard]},
       {path: 'total-damage-treatment', component: PageTotalDamageTreatmentComponent, canActivate: [AuthGuard]},
-      {path: 'download-necessity-files', component: DownloadNecessityFilesComponent, canActivate: [AuthGuard]},
+      {path: 'download-necessity-files', component: DownloadNecessityFilesComponent},
+      {path: 'download-app', component: DownloadAppComponent},
 
     ]
   },

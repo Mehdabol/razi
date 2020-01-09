@@ -1,0 +1,137 @@
+a {
+  width: 107px;
+  border: 1px solid red;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+img {
+  width: 35px;
+}
+.label-app:hover{
+  list-style: none;
+  text-decoration: none;
+}
+.jss369 {
+  font-weight: 200;
+  line-height: 2rem;
+}
+
+.MuiTypography-body1 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+
+.MuiGrid-root {
+  padding-top: 10px;
+
+}
+.one {
+  border-top: 2px solid rgb(255, 193, 7);
+  border-right-color: rgb(255, 193, 7);
+  border-bottom-color: rgb(255, 193, 7);
+  border-left-color: rgb(255, 193, 7);
+}
+.two {
+  border-top: 2px solid rgb(239, 75, 55);
+  border-right-color: rgb(239, 75, 55);
+  border-bottom-color: rgb(239, 75, 55);
+  border-left-color: rgb(239, 75, 55);
+}
+.there {
+  border-top: 2px solid rgb(36, 117, 49);
+  border-right-color: rgb(36, 117, 49);
+  border-bottom-color: rgb(36, 117, 49);
+  border-left-color: rgb(36, 117, 49);
+}
+.font {
+  border-top: 2px solid rgb(239, 9, 182);
+  border-right-color: rgb(239, 9, 182);
+  border-bottom-color: rgb(239, 9, 182);
+  border-left-color: rgb(239, 9, 182);
+}
+.others {
+  border-top: 2px solid rgb(36, 93, 157);
+  border-right-color: rgb(36, 93, 157);
+  border-bottom-color: rgb(36, 93, 157);
+  border-left-color: rgb(36, 93, 157);
+}
+.jss368 {
+  margin: 8px 0 0 0;
+  display: flex;
+  padding: 0 1rem;
+  min-width: 10px;
+  justify-content: space-between;
+}
+
+.MuiButton-outlinedPrimary {
+  color: #3f51b5;
+  border: 1px solid rgba(63, 81, 181, 0.5);
+}
+
+.MuiButton-outlined {
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  padding: 5px 15px;
+}
+
+.MuiButton-root {
+  color: rgba(0, 0, 0, 0.87);
+  height: 2.5rem;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  min-width: 140px;
+  box-sizing: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: IRANSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 500;
+  line-height: 1.75;
+  border-radius: 1.25rem;
+  text-transform: uppercase;
+
+  &:hover{
+    list-style: none;
+    text-decoration: none;
+  }
+}
+
+.MuiButtonBase-root {
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  padding: 20px 0 ;
+  border-radius: 30px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+
+  &:hover {
+    background-color: #e2eae9;
+  }
+}
+
+.MuiButton-label {
+  width: 40%;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+
+.MuiButton-outlinedPrimary {
+  color: #3f51b5;
+  border: 1px solid rgba(63, 81, 181, 0.5);
+}

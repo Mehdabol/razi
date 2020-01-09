@@ -57,6 +57,7 @@ import { PageUniqueCodeInsuranceComponent } from './module/Insurance/unique-code
 import { GridInsurancePrintedPolicyNumberComponent } from './module/Insurance/insurance-printed-policy-number/component/grid-insurance-printed-policy-number/grid-insurance-printed-policy-number.component';
 import { PageInsurancePrintedPolicyNumberComponent } from './module/Insurance/insurance-printed-policy-number/page/page-insurance-printed-policy-number/page-insurance-printed-policy-number.component';
 import { DownloadNecessityFilesComponent } from './module/files/download-necessity-files/components/download-necessity-files.component';
+import { DownloadAppComponent } from './module/files/download-app/component/download-app/download-app.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { DownloadNecessityFilesComponent } from './module/files/download-necessi
     PageUniqueCodeInsuranceComponent,
     GridInsurancePrintedPolicyNumberComponent,
     PageInsurancePrintedPolicyNumberComponent,
-    DownloadNecessityFilesComponent
+    DownloadNecessityFilesComponent,
+    DownloadAppComponent
   ],
   imports: [
     AppRoutingModule,
