@@ -20,6 +20,7 @@ import {PageInsurancePrintedPolicyNumberComponent} from './module/Insurance/insu
 import {DownloadNecessityFilesComponent} from './module/files/download-necessity-files/components/download-necessity-files.component';
 import {DownloadAppComponent} from './module/files/download-app/component/download-app/download-app.component';
 import {CheckInsurancePolicyComponent} from './module/Check-authenticity-insurance-policy/components/check-insurance-policy/check-insurance-policy.component';
+import {OfferFormsComponent} from './module/files/offer/components/offer-forms/offer-forms.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,7 @@ const routes: Routes = [
       {path: 'download-necessity-files', component: DownloadNecessityFilesComponent},
       {path: 'download-app', component: DownloadAppComponent},
       {path: 'check-insurance-policy', component: CheckInsurancePolicyComponent},
+      {path: 'offer-forms', component: OfferFormsComponent},
 
     ]
   },
