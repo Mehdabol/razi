@@ -60,7 +60,6 @@ export class DetailForm1Component implements OnInit {
               private route: ActivatedRoute,
               private modalService: NgbModal) {
     this.id = route.snapshot.paramMap.get('id');
-    this.getEditData();
   }
 
   ngOnInit() {
@@ -75,12 +74,16 @@ export class DetailForm1Component implements OnInit {
     this.getPhonePrefixTypes();
     this.getBimefieldType();
     this.getHozurType();
+    this.getEditData();
+
   }
 
   getEditData() {
     this.service.getEditData(this.id).subscribe((res) => {
-      debugger;
-      this.DataModel = res.Item;
+      // debugger;
+      res.Item.SabteDarkhastDTO.ShohratKhesaratMonagheseGozar = Number(res.Item.SabteDarkhastDTO.ShohratKhesaratMonagheseGozar);
+      this.DataModel = res.Item.SabteDarkhastDTO;
+      this.gridHamraz = res.Item.SabteDarkhastDTO.SabteDarkhastBimeGroups
       this.permisson = res.Premissions;
     });
   }

@@ -52,7 +52,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4" *ngIf="this.hozuriSelect !== 1">
+              <div class="col-md-4" *ngIf="DataModel.HozurTypeID !== 1">
                 <div class="form-group ">
                   <label class="field-require">معرف :</label>
                   <mat-select [(ngModel)]="DataModel.MonagheseGozar" disabled
@@ -210,32 +210,36 @@
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="field-require">تاریخ برگزاری مناقصه : </label>
-                  <dp-date-picker
-                    [(ngModel)]="DataModel.BaragorzariDate" disabled
-                    name="BaragorzariDate"
-                    dir="ltr"
-                    required
-                    class="form-control"
-                    mode="day"
-                    theme="dp-material"
-                    [config]="showFormat">
-                  </dp-date-picker>
+                    <input class="form-control"   [(ngModel)]="DataModel.BaragorzariDate" disabled
+                         name="BaragorzariDate">
+                  <!--<dp-date-picker-->
+                    <!--[(ngModel)]="DataModel.BaragorzariDate" disabled-->
+                    <!--name="BaragorzariDate"-->
+                    <!--dir="ltr"-->
+                    <!--required-->
+                    <!--class="form-control"-->
+                    <!--mode="day"-->
+                    <!--theme="dp-material"-->
+                    <!--[config]="showFormat">-->
+                  <!--</dp-date-picker>-->
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="form-group ">
                   <label class="field-require"> مهلت نهایی اعلام حق بیمه : </label>
-                  <dp-date-picker
-                    [(ngModel)]="DataModel.MohlatElamHagheBimeDate"
-                    name="MohlatElamHagheBimeDate"
-                    dir="ltr"
-                    required disabled
-                    class="form-control"
-                    mode="day"
-                    theme="dp-material"
-                    [config]="showFormat">
-                  </dp-date-picker>
+                  <input class="form-control"   [(ngModel)]="DataModel.MohlatElamHagheBimeDate"
+                         name="MohlatElamHagheBimeDate" disabled>
+                  <!--<dp-date-picker-->
+                    <!--[(ngModel)]="DataModel.MohlatElamHagheBimeDate"-->
+                    <!--name="MohlatElamHagheBimeDate"-->
+                    <!--dir="ltr"-->
+                    <!--required disabled-->
+                    <!--class="form-control"-->
+                    <!--mode="day"-->
+                    <!--theme="dp-material"-->
+                    <!--[config]="showFormat">-->
+                  <!--</dp-date-picker>-->
                 </div>
               </div>
 
@@ -346,17 +350,19 @@
                   <div class="col-md-4">
                     <div class="form-group ">
                       <label class="field-require"> تاریخ سررسید : </label>
-                      <dp-date-picker
-                        disabled
-                        [(ngModel)]="DataModel.SarresidDate"
-                        name="SarresidDate"
-                        dir="ltr"
-                        required
-                        class="form-control"
-                        mode="day"
-                        theme="dp-material"
-                        [config]="showFormat">
-                      </dp-date-picker>
+                      <input class="form-control"   [(ngModel)]="DataModel.SarresidDate"
+                             name="SarresidDate" disabled>
+                      <!--<dp-date-picker-->
+                        <!--disabled-->
+                        <!--[(ngModel)]="DataModel.SarresidDate"-->
+                        <!--name="SarresidDate"-->
+                        <!--dir="ltr"-->
+                        <!--required-->
+                        <!--class="form-control"-->
+                        <!--mode="day"-->
+                        <!--theme="dp-material"-->
+                        <!--[config]="showFormat">-->
+                      <!--</dp-date-picker>-->
                     </div>
                   </div>
 
@@ -455,21 +461,21 @@
 
 
           </div>
-          <div class="row">
-            <div class="col-md-12 two">
-              <label>پیوست های مناقصه</label>
-            </div>
-            <div class="panel-shadow">
-              <div class="col-md-12">
-                <app-dpk-form-upload disabled
-                                     name="upload"
-                                     (fileData)="onUploadFile($event)"
-                                     [label]="'پیوست کلیه صفحات'"
-                                     [uploadInput]="'حجم فایل نباید بیشتر از 10 مگ باشد'"
-                ></app-dpk-form-upload>
-              </div>
-            </div>
-          </div>
+          <!--<div class="row">-->
+            <!--<div class="col-md-12 two">-->
+              <!--<label>پیوست های مناقصه</label>-->
+            <!--</div>-->
+            <!--<div class="panel-shadow">-->
+              <!--<div class="col-md-12">-->
+                <!--<app-dpk-form-upload disabled-->
+                                     <!--name="upload"-->
+                                     <!--(fileData)="onUploadFile($event)"-->
+                                     <!--[label]="'پیوست کلیه صفحات'"-->
+                                     <!--[uploadInput]="'حجم فایل نباید بیشتر از 10 مگ باشد'"-->
+                <!--&gt;</app-dpk-form-upload>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
         </div>
       </div>
     </form>
