@@ -23,14 +23,14 @@
             </div>
             <div class="col-md-12 mt-2" *ngIf="!selectInqueryCode">
               <label>شماره چاپی بیمه نامه</label>
-              <input class="form-control"  mask="00000000/00/000000" [showMaskTyped]="true">
+              <input class="form-control" mask="00000000/00/000000" [showMaskTyped]="true">
             </div>
 
             <div class="col-md-12 mt-2" *ngIf="selectInqueryCode">
               <div class="row">
                 <div class="col-md-12 mt-2">
                   <label>کد یکتا بیمه نامه در بیمه مرکزی</label>
-                  <input class="form-control"  mask="00000000000" [showMaskTyped]="true">
+                  <input class="form-control" mask="00000000000" [showMaskTyped]="true">
                 </div>
 
                 <div class="col-md-12 mt-2">
@@ -41,7 +41,7 @@
               </div>
             </div>
             <div class="col-md-12 mt-4 text-center">
-              <button class="btn btn-outline-info estelam">
+              <button class="btn btn-outline-info estelam" (click)="open(content)">
                 <span class="mr-2"> بررسی</span>
                 <i class="fa fa-search "></i>
               </button>
@@ -55,3 +55,17 @@
   <div class="col-md-4"></div>
 
 </div>
+<ng-template #content let-modal>
+  <div class="modal-header text-center">
+    <div class="col-md-12 text-center">
+      <h4 style="font-weight: bold; font-size: 15px;">گزارش نتیجه استعلام</h4>
+    </div>
+  </div>
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <div class="col-md-12 text-center">
+      <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">بستن</button>
+    </div>
+  </div>
+</ng-template>

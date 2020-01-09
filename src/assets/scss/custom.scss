@@ -217,7 +217,7 @@ label {
     color: #17a2b8
   }
 
-  &:hover {
+  &:hover , &:active , &:focus {
     .fa {
       color: #fff;
     }
