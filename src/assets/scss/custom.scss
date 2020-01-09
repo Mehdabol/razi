@@ -1,5 +1,5 @@
 .fa {
-  color: #94958e !important;
+  color: #94958e;
 }
 
 a {
@@ -137,7 +137,7 @@ label {
 }
 
 .btn .fa {
-  color: #fff !important;
+  color: #fff;
 }
 
 .mat-pseudo-checkbox.mat-pseudo-checkbox-checked, .mat-pseudo-checkbox.mat-pseudo-checkbox-indeterminate {
@@ -210,6 +210,18 @@ label {
 
 .settingPanelToggle .fa {
   color: #fff !important;
+}
+
+.estelam {
+  .fa {
+    color: #17a2b8
+  }
+
+  &:hover {
+    .fa {
+      color: #fff;
+    }
+  }
 }
 
 .btn-restore-theme {
@@ -332,5 +344,5 @@ table.table {
 }
 
 .card .card-header .form-control {
-  border-radius: 5px!important;
+  border-radius: 5px !important;
 }

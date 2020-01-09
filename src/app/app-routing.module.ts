@@ -19,6 +19,7 @@ import {PageUniqueCodeInsuranceComponent} from './module/Insurance/unique-code-i
 import {PageInsurancePrintedPolicyNumberComponent} from './module/Insurance/insurance-printed-policy-number/page/page-insurance-printed-policy-number/page-insurance-printed-policy-number.component';
 import {DownloadNecessityFilesComponent} from './module/files/download-necessity-files/components/download-necessity-files.component';
 import {DownloadAppComponent} from './module/files/download-app/component/download-app/download-app.component';
+import {CheckInsurancePolicyComponent} from './module/Check-authenticity-insurance-policy/components/check-insurance-policy/check-insurance-policy.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,7 @@ const routes: Routes = [
       {path: 'total-damage-treatment', component: PageTotalDamageTreatmentComponent, canActivate: [AuthGuard]},
       {path: 'download-necessity-files', component: DownloadNecessityFilesComponent},
       {path: 'download-app', component: DownloadAppComponent},
+      {path: 'check-insurance-policy', component: CheckInsurancePolicyComponent},
 
     ]
   },
