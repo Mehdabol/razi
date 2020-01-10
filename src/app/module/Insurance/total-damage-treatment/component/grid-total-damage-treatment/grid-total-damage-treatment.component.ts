@@ -60,6 +60,7 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
         GridTotalDamageTreatmentComponent.self.service.getGridData().subscribe((res: any) => {
           if (data) {
             params.successCallback(res.Data, res.Data.length);
+            GridTotalDamageTreatmentComponent.self.sizeTofix();
             (res.Data.length === 0 || res.Data == null) ? GridTotalDamageTreatmentComponent.self.gridApi.showNoRowsOverlay() :
               GridTotalDamageTreatmentComponent.self.gridApi.hideOverlay();
           } else {
@@ -82,45 +83,31 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
         hide: true
       },
       {
-        headerName: 'شماره بیمه نامه',
-        field: 'bno',
+        headerName: 'نام و نام خانوادگی',
+        field: 'insuredName',
         enableRowGroup: true,
         minWidth: 100
       }, {
-        headerName: 'بیمه شده',
-        field: 'insuredName',
+        headerName: 'کد بیمه شده',
+        field: 'insuredId',
         enableRowGroup: true,
         minWidth: 100
       },
       {
-        headerName: 'بیماری',
+        headerName: 'نوع بیماری',
         field: 'disease',
+        enableRowGroup: true,
+        minWidth: 100
+      },
+      {
+        headerName: 'نوع پرونده',
+        field: 'damageKindText',
         enableRowGroup: true,
         minWidth: 100
       },
       {
         headerName: 'تاریخ بستری',
         field: 'hospitalizationDate',
-        enableRowGroup: true,
-        minWidth: 100
-      }, {
-        headerName: 'تاریخ حواله',
-        field: 'indemnityDate',
-        enableRowGroup: true,
-        minWidth: 100
-      }, {
-        headerName: ' مرکز درمانی',
-        field: 'healthCenter',
-        enableRowGroup: true,
-        minWidth: 100
-      }, {
-        headerName: 'سریال معرفی نامه',
-        field: 'indemnitySerial',
-        enableRowGroup: true,
-        minWidth: 100
-      }, {
-        headerName: ' وضعیت پرونده',
-        field: 'documentStatus',
         enableRowGroup: true,
         minWidth: 100
       },
@@ -130,47 +117,31 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
         enableRowGroup: true,
         minWidth: 100
       }, {
-        headerName: 'مبلغ پرداختی',
-        field: 'paidAmount',
-        enableRowGroup: true,
-        minWidth: 100
-      },
-      {
-        headerName: 'نوع',
-        field: 'damageKindText',
-        enableRowGroup: true,
-        minWidth: 100
-      },
-      {
         headerName: 'مبلغ مورد تایید کارشناس',
         field: 'confirmAmount',
         enableRowGroup: true,
         minWidth: 100
       }, {
-        headerName: 'مبلغ فرانشیز',
+        headerName: ' فرانشیز',
         field: 'franshiz',
+        enableRowGroup: true,
+        minWidth: 100
+      }, {
+        headerName: 'مبلغ پرداختی',
+        field: 'paidAmount',
+        enableRowGroup: true,
+        minWidth: 100
+      }, {
+        headerName: 'تاریخ حواله',
+        field: 'indemnityDate',
         enableRowGroup: true,
         minWidth: 100
       },
 
+
     ];
     this.cacheBlockSize = 100;
     this.localeText = LocalText;
-    // this.sideBar = {
-    //   toolPanels: [
-    //     {
-    //       id: 'appSearch',
-    //       labelDefault: 'جستجو',
-    //       labelKey: 'appSearch',
-    //       iconKey: 'app-search',
-    //       toolPanel: 'searchComponent'
-    //     }
-    //   ],
-    //   defaultToolPanel: 'appSearch'
-    // };
-    // this.frameworkComponents = {detailButton: GridDetailButtonComponent, timeLine: TimlineButtonGridComponent};
-
-
     this.defaultColDef = {
       width: 260,
       sortable: true,
@@ -182,6 +153,10 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
     this.rowModelType = 'serverSide';
     this.maxConcurrentDatasourceRequests = 3;
     this.rowGroupPanelShow = 'always';
+  }
+
+  sizeTofix() {
+    this.gridApi.sizeColumnsToFit();
   }
 
   onFirstDataRendered(params) {

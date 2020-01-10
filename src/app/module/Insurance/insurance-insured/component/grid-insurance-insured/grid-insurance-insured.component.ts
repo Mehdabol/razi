@@ -64,6 +64,7 @@ export class GridInsuranceInsuredComponent implements OnInit {
                 res.Data[i].isBimeGozar = res.Data[i].isBimeGozar ? 'بیمه گذار' : 'بیمه شده';
               }
               params.successCallback(res.Data, res.Data.length);
+              GridInsuranceInsuredComponent.self.sizeTofix();
               (res.Data.length === 0 || res.Data == null) ? GridInsuranceInsuredComponent.self.gridApi.showNoRowsOverlay() :
                 GridInsuranceInsuredComponent.self.gridApi.hideOverlay();
             } else {
@@ -85,107 +86,42 @@ export class GridInsuranceInsuredComponent implements OnInit {
         field: 'bid',
         hide: true
       }, {
-        headerName: '#',
+        headerName: 'نام',
+        field: 'insuredName',
+        enableRowGroup: true,
+
+      }, {
+        headerName: 'وضعیت',
+        field: 'damageKindText',
+        enableRowGroup: true,
+
+      }, {
+        headerName: 'اعتبار',
         field: '',
-        hide: false
+        enableRowGroup: true,
+
       }, {
-        headerName: 'نام و نام خانوادگی',
-        field: 'firstName',
+        headerName: 'وضعیت اعتبار',
+        field: '',
         enableRowGroup: true,
-        minWidth: 110
+
       }, {
-        headerName: 'رشته بیمه',
-        field: 'policyType',
+        headerName: 'شماره بیمه نامه',
+        field: 'bno',
         enableRowGroup: true,
-        minWidth: 110
+
       }, {
-        headerName: 'کد رشته بیمه ای',
-        field: 'policyTypeCode',
+        headerName: 'کد آنلاین بیمه نامه',
+        field: 'bid',
         enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: ' بیمه شده',
-        field: 'insured',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'تاریخ صدور ',
-        field: 'issueDate',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'کد ملی بیمه‌گزار',
-        field: 'insurerNid',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: ' موبایل',
-        field: 'mobile',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'کد صدور بیمه‌نامه',
-        field: 'issuerCode',
-        enableRowGroup: true,
-        minWidth: 110
-      },
-      {
-        headerName: 'کد نماینده',
-        field: 'agentCode',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'نام نمایندگی',
-        field: 'agentDesc',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'تاریخ شروع بیمه‌نامه ',
-        field: 'beginDate',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: ' تاریخ اتمام بیمه‌نامه',
-        field: 'endDate',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'تاریخ صدور بیمه‌نام',
-        field: 'issuanceDate',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'کد بیمه‌گزار ',
-        field: 'insurerCode',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'نام بیمه',
-        field: 'insurerName',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'حق بیمه کل',
-        field: 'premium',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'کد ملی بیمه‌گزار',
-        field: 'nid',
-        enableRowGroup: true,
-        minWidth: 110
-      }, {
-        headerName: 'نوع بیمه شده',
-        field: 'isBimeGozar',
-        enableRowGroup: true,
-        minWidth: 110
+
       },
     ];
     this.cacheBlockSize = 100;
     this.localeText = LocalText;
 
     this.defaultColDef = {
-      width: 260,
+      width: 150,
       sortable: true,
       resizable: true,
       filter: true,
@@ -195,6 +131,10 @@ export class GridInsuranceInsuredComponent implements OnInit {
     this.rowModelType = 'serverSide';
     this.maxConcurrentDatasourceRequests = 3;
     this.rowGroupPanelShow = 'always';
+  }
+
+  sizeTofix() {
+    this.gridApi.sizeColumnsToFit();
   }
 
   onFirstDataRendered(params) {

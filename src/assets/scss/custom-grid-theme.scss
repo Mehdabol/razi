@@ -1,6 +1,7 @@
 .ag-theme-material .ag-rtl .ag-cell {
   direction: rtl !important;
 }
+
 .ag-theme-material .ag-group-expanded .ag-icon-contracted:empty {
   float: left;
 }
@@ -17,42 +18,56 @@
   height: auto !important;
 }
 
-.ag-theme-material .ag-rtl .ag-side-bar, .ag-theme-material .ag-rtl .ag-tool-panel-wrapper{
-  border-right: 1px solid #BDC3C7!important;
+.ag-theme-material .ag-rtl .ag-side-bar, .ag-theme-material .ag-rtl .ag-tool-panel-wrapper {
+  border-right: 1px solid #BDC3C7 !important;
 }
 
 .ag-theme-material .ag-header {
-  min-height: 77px!important;
-  height: 54px!important;
-  padding: 6px!important;
-  border-top: 1px solid #BDC3C7!important;
+  min-height: 77px !important;
+  height: 54px !important;
+  padding: 6px !important;
+  border-top: 1px solid #BDC3C7 !important;
 }
+
 .ag-root-wrapper-body.ag-layout-normal {
-  border-right: 1px solid #BDC3C7!important;
+  border-right: 1px solid #BDC3C7 !important;
 }
+
 //.ag-theme-material .ag-side-bar .ag-side-buttons {
 //  background: #f5f7f7;
 //}
 .ag-theme-material .ag-side-bar {
-  background-color: #f5f7f7!important;
+  background-color: #f5f7f7 !important;
 }
 
-.ag-theme-material .ag-stub-cell .ag-loading-icon {
-  float: initial!important;
-  display: none!important;
+.ag-theme-material {
 
+  .ag-stub-cell .ag-loading-icon {
+    float: initial !important;
+    display: none !important;
+
+  }
+
+
+  .ag-row-even {
+    background-color: #e2e2e2;
+  }
 }
+
 
 .ag-theme-material .ag-stub-cell .ag-loading-text {
-  float: right!important;
+  float: right !important;
   margin-right: 10px;
 }
+
 .ag-theme-material .ag-header-cell::after, .ag-theme-material .ag-header-group-cell::after {
-  height: 31px!important;
+  height: 31px !important;
 }
-.container-fluid .ag-side-bar .ag-side-buttons{
-  width: 30px!important;
+
+.container-fluid .ag-side-bar .ag-side-buttons {
+  width: 30px !important;
 }
+
 //.ag-theme-material .ag-side-bar .ag-side-buttons {
 //  border-left: 1px solid #fbf9f9;
 //  border-right: 1px solid gainsboro;
@@ -62,12 +77,14 @@
 //  border-color: transparent;
 //}
 
-.ag-theme-material .ag-rtl .ag-header-group-cell-label{
+.ag-theme-material .ag-rtl .ag-header-group-cell-label {
   justify-content: center;
 }
+
 .ag-header-cell {
-  border-left: 1px solid #c4c4c4!important;
+  border-left: 1px solid #c4c4c4 !important;
 }
+
 .ag-header-icon.ag-header-cell-menu-button {
   display: none;
 }

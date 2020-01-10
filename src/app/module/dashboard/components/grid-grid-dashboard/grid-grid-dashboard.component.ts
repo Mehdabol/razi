@@ -82,59 +82,59 @@ export class GridGridDashboardComponent implements OnInit {
         headerName: 'کاربر',
         field: 'Code',
         enableRowGroup: true,
-        minWidth: 150
+        minWidth: 30
       },
       {
         headerName: 'پیشرفت',
         field: 'PackatGoshayesheDate',
         enableRowGroup: true,
-        minWidth: 150
+        minWidth: 70
       },
       {
         headerName: 'تاریخ ثبت',
         field: 'Code',
         enableRowGroup: true,
-        minWidth: 150
+        minWidth: 70
       }, {
         headerName: 'نام مناقصه گذار',
         field: 'MonagheseGozar',
         enableRowGroup: true,
-        minWidth: 150
+        minWidth: 90
       }, {
         headerName: 'موضوع مناقصه',
         field: 'MonaghesTopic',
         enableRowGroup: true,
-        minWidth: 150
+        minWidth: 80
       }, {
         headerName: 'شماره مناقصه',
         field: 'Code',
         enableRowGroup: true,
-        minWidth: 150
+        minWidth: 80
       }, {
         headerName: 'گروه بیمه',
         field: 'BimeGroupID',
         enableRowGroup: true,
-        minWidth: 150
+        minWidth: 20
       }, {
         headerName: 'حق بیمه پیشنهادی',
         field: 'LastYearHagheBimeAmount',
         enableRowGroup: true,
-        minWidth: 150
+        minWidth: 100
       }, {
         headerName: 'تاریخ برگزاری مناقصه',
         field: 'BargorzariDate',
         enableRowGroup: true,
-        minWidth: 150
+        minWidth: 100
       }, {
         headerName: 'وضعیت درخواست',
         field: 'StateTitle',
         enableRowGroup: true,
-        minWidth: 180
+        minWidth: 100
       },
       {
         headerName: '',
         cellRenderer: 'timeLine',
-        minWidth: 90,
+        minWidth: 85,
         cellRendererParams: {
           onClick: this.onCliTime.bind(this),
           label: 'گردش کار مناقصه',
@@ -144,7 +144,7 @@ export class GridGridDashboardComponent implements OnInit {
       {
         headerName: ' ',
         cellRenderer: 'detailButton',
-        minWidth: 90,
+        minWidth: 85,
         cellRendererParams: {
           onClick: this.onDetailButton.bind(this),
           label: 'جزئیات',
