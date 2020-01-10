@@ -64,7 +64,7 @@ export class GridInsuranceInsuredComponent implements OnInit {
                 res.Data[i].isBimeGozar = res.Data[i].isBimeGozar ? 'بیمه گذار' : 'بیمه شده';
               }
               params.successCallback(res.Data, res.Data.length);
-              GridInsuranceInsuredComponent.self.sizeTofix();
+              // GridInsuranceInsuredComponent.self.autoSize();
               (res.Data.length === 0 || res.Data == null) ? GridInsuranceInsuredComponent.self.gridApi.showNoRowsOverlay() :
                 GridInsuranceInsuredComponent.self.gridApi.hideOverlay();
             } else {
@@ -87,33 +87,30 @@ export class GridInsuranceInsuredComponent implements OnInit {
         hide: true
       }, {
         headerName: 'نام',
-        field: 'insuredName',
-        enableRowGroup: true,
+        field: 'isBimeGozar',
 
       }, {
         headerName: 'وضعیت',
         field: 'isBimeGozar',
-        enableRowGroup: true,
-
       }, {
         headerName: 'اعتبار',
-        field: '',
-        enableRowGroup: true,
+        field: 'isBimeGozar',
+
 
       }, {
         headerName: 'وضعیت اعتبار',
-        field: '',
-        enableRowGroup: true,
+        field: 'isBimeGozar',
+
 
       }, {
         headerName: 'شماره بیمه نامه',
         field: 'bno',
-        enableRowGroup: true,
+
 
       }, {
         headerName: 'کد آنلاین بیمه نامه',
         field: 'bid',
-        enableRowGroup: true,
+
 
       },
     ];
@@ -121,7 +118,6 @@ export class GridInsuranceInsuredComponent implements OnInit {
     this.localeText = LocalText;
 
     this.defaultColDef = {
-      width: 150,
       sortable: true,
       resizable: true,
       filter: true,
@@ -133,11 +129,23 @@ export class GridInsuranceInsuredComponent implements OnInit {
     this.rowGroupPanelShow = 'always';
   }
 
-  sizeTofix() {
-    this.gridApi.sizeColumnsToFit();
+
+  autoSize() {
+    // const allColumnIds = [];
+    // this.gridColumnApi.getAllColumns().forEach((column) => {
+    //   allColumnIds.push(column.colId);
+    // });
+    // this.gridColumnApi.autoSizeColumns(allColumnIds);
   }
+
 
   onFirstDataRendered(params) {
     params.api.sizeColumnsToFit();
+    // const allColumnIds = [];
+    // this.gridColumnApi.getAllColumns().forEach((column) => {
+    //   allColumnIds.push(column.colId);
+    // });
+    // this.gridColumnApi.autoSizeColumns(allColumnIds);
   }
+
 }

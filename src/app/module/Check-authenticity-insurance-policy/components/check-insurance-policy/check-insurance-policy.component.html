@@ -24,25 +24,25 @@
               </div>
               <div class="col-md-12 mt-2" *ngIf="!selectInqueryCode">
                 <label>شماره چاپی بیمه نامه</label>
-                <input class="form-control" mask="00000000/00/000000" [showMaskTyped]="true">
+                <input class="form-control" mask="00000000/00/000000" [showMaskTyped]="true" name="chapi" ngModel>
               </div>
 
               <div class="col-md-12 mt-2" *ngIf="selectInqueryCode">
                 <div class="row">
                   <div class="col-md-12 mt-2">
                     <label>کد یکتا بیمه نامه در بیمه مرکزی</label>
-                    <input class="form-control" mask="00000000000" [showMaskTyped]="true">
+                    <input class="form-control" mask="00000000000" [showMaskTyped]="true" name="yekte" ngModel>
                   </div>
 
-                  <div class="col-md-12 mt-2">
+                  <div class="col-md-12 mt-2" *ngIf="token">
                     <label>کد ملی</label>
-                    <input class="form-control" mask="0000000000" [showMaskTyped]="true">
+                    <input class="form-control" mask="0000000000" [showMaskTyped]="true" name="nationalCode" ngModel>
 
                   </div>
                 </div>
               </div>
               <div class="col-md-12 mt-4 text-center">
-                <button class="btn btn-outline-info estelam" (click)="open(content)">
+                <button class="btn btn-outline-info estelam" (click)="postData(f,content)">
                   <span class="mr-2"> استعلام</span>
                   <i class="fa fa-search "></i>
                 </button>

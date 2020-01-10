@@ -1,3 +1,43 @@
+.ag-layout-normal {
+  .ag-body-viewport.ag-layout-normal.ag-row-no-animation {
+    overflow: hidden;
+  }
+
+  .ag-body-horizontal-scroll-viewport {
+    overflow: hidden;
+  }
+
+  &:hover {
+    .ag-body-viewport.ag-layout-normal.ag-row-no-animation {
+      overflow: auto;
+    }
+
+    .ag-body-horizontal-scroll-viewport {
+      overflow: auto;
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c4c4c4;
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c4c4c4;
+  }
+}
+
 .ag-theme-material .ag-rtl .ag-cell {
   direction: rtl !important;
 }
@@ -49,8 +89,8 @@
   }
 
 
-  .ag-row-even {
-    background-color: #e2e2e2;
+  .ag-row-odd {
+    background-color: #bed3f345;
   }
 }
 

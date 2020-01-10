@@ -51,15 +51,16 @@ import {InsuranceInsuredService} from './module/Insurance/insurance-insured/serv
 import {GridTotalDamageTreatmentComponent} from './module/Insurance/total-damage-treatment/component/grid-total-damage-treatment/grid-total-damage-treatment.component';
 import {PageTotalDamageTreatmentComponent} from './module/Insurance/total-damage-treatment/page/page-total-damage-treatment/page-total-damage-treatment.component';
 import {TotalDamageTreatmentService} from './module/Insurance/total-damage-treatment/service/total-damage-treatment.service';
-import { ResetPasswordComponent } from './module/auth/reset-password/reset-password.component';
-import { GridUniqueCodeInsuranceComponent } from './module/Insurance/unique-code-insurance/components/grid-unique-code-insurance/grid-unique-code-insurance.component';
-import { PageUniqueCodeInsuranceComponent } from './module/Insurance/unique-code-insurance/page/page-unique-code-insurance/page-unique-code-insurance.component';
-import { GridInsurancePrintedPolicyNumberComponent } from './module/Insurance/insurance-printed-policy-number/component/grid-insurance-printed-policy-number/grid-insurance-printed-policy-number.component';
-import { PageInsurancePrintedPolicyNumberComponent } from './module/Insurance/insurance-printed-policy-number/page/page-insurance-printed-policy-number/page-insurance-printed-policy-number.component';
-import { DownloadNecessityFilesComponent } from './module/files/download-necessity-files/components/download-necessity-files.component';
-import { DownloadAppComponent } from './module/files/download-app/component/download-app/download-app.component';
-import { CheckInsurancePolicyComponent } from './module/Check-authenticity-insurance-policy/components/check-insurance-policy/check-insurance-policy.component';
-import { OfferFormsComponent } from './module/files/offer/components/offer-forms/offer-forms.component';
+import {ResetPasswordComponent} from './module/auth/reset-password/reset-password.component';
+import {GridUniqueCodeInsuranceComponent} from './module/Insurance/unique-code-insurance/components/grid-unique-code-insurance/grid-unique-code-insurance.component';
+import {PageUniqueCodeInsuranceComponent} from './module/Insurance/unique-code-insurance/page/page-unique-code-insurance/page-unique-code-insurance.component';
+import {GridInsurancePrintedPolicyNumberComponent} from './module/Insurance/insurance-printed-policy-number/component/grid-insurance-printed-policy-number/grid-insurance-printed-policy-number.component';
+import {PageInsurancePrintedPolicyNumberComponent} from './module/Insurance/insurance-printed-policy-number/page/page-insurance-printed-policy-number/page-insurance-printed-policy-number.component';
+import {DownloadNecessityFilesComponent} from './module/files/download-necessity-files/components/download-necessity-files.component';
+import {DownloadAppComponent} from './module/files/download-app/component/download-app/download-app.component';
+import {CheckInsurancePolicyComponent} from './module/Check-authenticity-insurance-policy/components/check-insurance-policy/check-insurance-policy.component';
+import {OfferFormsComponent} from './module/files/offer/components/offer-forms/offer-forms.component';
+import {CheckInsuranceService} from './module/Check-authenticity-insurance-policy/service/check-insurance.service';
 
 @NgModule({
   declarations: [
@@ -128,11 +129,12 @@ import { OfferFormsComponent } from './module/files/offer/components/offer-forms
     NotificationService,
     InsuranceInsuredService,
     TotalDamageTreatmentService,
+    CheckInsuranceService,
     TenderService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-    { provide: APP_BASE_HREF, useValue: '/' }],
+    {provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

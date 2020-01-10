@@ -14,7 +14,7 @@ import {TimlineButtonGridComponent} from '../timline-button-grid/timline-button-
 export class GridGridDashboardComponent implements OnInit {
   static self: GridGridDashboardComponent;
 
-  canStartButton: boolean = false;
+  canStartButton = false;
 
 
   showFormat = {
@@ -46,7 +46,6 @@ export class GridGridDashboardComponent implements OnInit {
   }
 
 
-
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
@@ -57,6 +56,7 @@ export class GridGridDashboardComponent implements OnInit {
           .subscribe((res: any) => {
             if (data) {
               params.successCallback(res.Items, res.TotalRecord);
+              GridGridDashboardComponent.self.autoSize();
               (res.Items.length === 0 || res.Items == null) ? GridGridDashboardComponent.self.gridApi.showNoRowsOverlay() :
                 GridGridDashboardComponent.self.gridApi.hideOverlay();
             } else {
@@ -67,6 +67,23 @@ export class GridGridDashboardComponent implements OnInit {
     };
     params.api.setServerSideDatasource(dataSource);
 
+  }
+
+  autoSize() {
+    const allColumnIds = [];
+    this.gridColumnApi.getAllColumns().forEach((column) => {
+      allColumnIds.push(column.colId);
+    });
+    this.gridColumnApi.autoSizeColumns(allColumnIds);
+  }
+
+
+  onFirstDataRendered(params) {
+    const allColumnIds = [];
+    this.gridColumnApi.getAllColumns().forEach((column) => {
+      allColumnIds.push(column.colId);
+    });
+    this.gridColumnApi.autoSizeColumns(allColumnIds);
   }
 
 
@@ -81,60 +98,38 @@ export class GridGridDashboardComponent implements OnInit {
       {
         headerName: 'کاربر',
         field: 'Code',
-        enableRowGroup: true,
-        minWidth: 30
       },
       {
         headerName: 'پیشرفت',
         field: 'PackatGoshayesheDate',
-        enableRowGroup: true,
-        minWidth: 70
       },
       {
         headerName: 'تاریخ ثبت',
         field: 'Code',
-        enableRowGroup: true,
-        minWidth: 70
       }, {
         headerName: 'نام مناقصه گذار',
         field: 'MonagheseGozar',
-        enableRowGroup: true,
-        minWidth: 90
       }, {
         headerName: 'موضوع مناقصه',
         field: 'MonaghesTopic',
-        enableRowGroup: true,
-        minWidth: 80
       }, {
         headerName: 'شماره مناقصه',
         field: 'Code',
-        enableRowGroup: true,
-        minWidth: 80
       }, {
         headerName: 'گروه بیمه',
         field: 'BimeGroupID',
-        enableRowGroup: true,
-        minWidth: 20
       }, {
         headerName: 'حق بیمه پیشنهادی',
         field: 'LastYearHagheBimeAmount',
-        enableRowGroup: true,
-        minWidth: 100
-      }, {
+      },  {
         headerName: 'تاریخ برگزاری مناقصه',
         field: 'BargorzariDate',
-        enableRowGroup: true,
-        minWidth: 100
-      }, {
+      },  {
         headerName: 'وضعیت درخواست',
         field: 'StateTitle',
-        enableRowGroup: true,
-        minWidth: 100
-      },
-      {
+      }, {
         headerName: '',
         cellRenderer: 'timeLine',
-        minWidth: 85,
         cellRendererParams: {
           onClick: this.onCliTime.bind(this),
           label: 'گردش کار مناقصه',
@@ -155,21 +150,7 @@ export class GridGridDashboardComponent implements OnInit {
     ];
     this.cacheBlockSize = 100;
     this.localeText = LocalText;
-    // this.sideBar = {
-    //   toolPanels: [
-    //     {
-    //       id: 'appSearch',
-    //       labelDefault: 'جستجو',
-    //       labelKey: 'appSearch',
-    //       iconKey: 'app-search',
-    //       toolPanel: 'searchComponent'
-    //     }
-    //   ],
-    //   defaultToolPanel: 'appSearch'
-    // };
     this.frameworkComponents = {detailButton: GridDetailButtonComponent, timeLine: TimlineButtonGridComponent};
-
-
     this.defaultColDef = {
       width: 260,
       sortable: true,
@@ -181,10 +162,6 @@ export class GridGridDashboardComponent implements OnInit {
     this.rowModelType = 'serverSide';
     this.maxConcurrentDatasourceRequests = 3;
     this.rowGroupPanelShow = 'always';
-  }
-
-  onFirstDataRendered(params) {
-    params.api.sizeColumnsToFit();
   }
 
 

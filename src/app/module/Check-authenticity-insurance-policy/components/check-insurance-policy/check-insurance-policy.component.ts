@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {CheckInsuranceService} from '../../service/check-insurance.service';
 
 @Component({
   selector: 'app-check-insurance-policy',
@@ -10,18 +11,52 @@ export class CheckInsurancePolicyComponent implements OnInit {
   selectInqueryCode = false;
   selectEstelam = 'false';
   closeResult: string;
+  token = '';
+  modalContent;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal,
+              private service: CheckInsuranceService) {
   }
 
   ngOnInit() {
+    this.token = localStorage.getItem('token');
   }
 
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  open() {
+    this.modalService.open(this.modalContent, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  onChange(event) {
+    this.selectInqueryCode = JSON.parse(event.value);
+  }
+
+  postData(form, modalContent) {
+    this.modalContent = modalContent;
+    if (this.selectInqueryCode) {
+      this.getDataYekta(form);
+    } else {
+      this.getDataChapi(form);
+    }
+  }
+
+  getDataChapi(form) {
+    const data = {policyId: form.value.chapi};
+    this.service.getPolicyInsurance(data).subscribe((res) => {
+      debugger;
+      this.open();
+    });
+
+  }
+
+  getDataYekta(form) {
+    const data = {policyIdfullBNo: form.value.yekte, nationalCode: form.value.nationalCode};
+    this.service.getYektaCodeRes(data).subscribe((res) => {
+      debugger;
+      this.open();
     });
   }
 
@@ -33,10 +68,6 @@ export class CheckInsurancePolicyComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
-  }
-
-  onChange(event) {
-    this.selectInqueryCode = JSON.parse(event.value);
   }
 
 }

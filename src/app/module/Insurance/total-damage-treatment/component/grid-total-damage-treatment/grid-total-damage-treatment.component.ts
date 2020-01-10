@@ -43,10 +43,6 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
     GridTotalDamageTreatmentComponent.self = this;
   }
 
-  onSearch() {
-    this.onGridReady(this.paramGrid);
-  }
-
   onRowClicked(event: any) {
   }
 
@@ -60,7 +56,7 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
         GridTotalDamageTreatmentComponent.self.service.getGridData().subscribe((res: any) => {
           if (data) {
             params.successCallback(res.Data, res.Data.length);
-            GridTotalDamageTreatmentComponent.self.sizeTofix();
+            GridTotalDamageTreatmentComponent.self.autoSize();
             (res.Data.length === 0 || res.Data == null) ? GridTotalDamageTreatmentComponent.self.gridApi.showNoRowsOverlay() :
               GridTotalDamageTreatmentComponent.self.gridApi.hideOverlay();
           } else {
@@ -155,12 +151,21 @@ export class GridTotalDamageTreatmentComponent implements OnInit {
     this.rowGroupPanelShow = 'always';
   }
 
-  sizeTofix() {
-    this.gridApi.sizeColumnsToFit();
+  autoSize() {
+    const allColumnIds = [];
+    this.gridColumnApi.getAllColumns().forEach((column) => {
+      allColumnIds.push(column.colId);
+    });
+    this.gridColumnApi.autoSizeColumns(allColumnIds);
   }
 
+
   onFirstDataRendered(params) {
-    params.api.sizeColumnsToFit();
+    const allColumnIds = [];
+    this.gridColumnApi.getAllColumns().forEach((column) => {
+      allColumnIds.push(column.colId);
+    });
+    this.gridColumnApi.autoSizeColumns(allColumnIds);
   }
 
 }
