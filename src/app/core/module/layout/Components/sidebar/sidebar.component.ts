@@ -97,8 +97,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
     },
     {
       title: 'خدمات بیمه ای', icon: 'fa fa-home', hasChile: true, subMenu: [
-        {title: 'بیمه های من', path: 'insurance-insured', hasChile: false},
-        {title: 'خسارت های درمانی', path: 'total-damage-treatment', hasChile: false},
         {title: 'استعلام اصالت بیمه نامه', path: 'check-insurance-policy', hasChile: false},
         {title: 'صدور بیمه نامه های آنلاین', path: 'dashboard1', hasChile: false},
         {title: 'پرداخت اقساط اعلامیه بدهکار', path: 'dashboard1', hasChile: false},
@@ -133,24 +131,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
         {title: 'امور نمایندگان', path: 'dashboard1', subMenu: [], hasChile: false},
         {title: 'منابع انسانی', path: 'dashboard1', subMenu: [], hasChile: false},
 
-      ]
-    },
-    {
-      title: 'اطلاعات پایه', icon: 'fa fa-home', hasChile: true, subMenu: [
-        {title: 'مدیریت دسترسی', path: 'dashboard1', hasChile: false},
-        {title: 'تعریف اشخاص (حقیقی/حقوقی) ', path: 'dashboard1', hasChile: false},
-      ]
-    },
-    {
-      title: 'ویژه نمایندگان', icon: 'fa fa-home', hasChile: true, subMenu: [
-        {title: 'کارمزد نمایندگان', path: 'dashboard1', hasChile: false},
-        {title: 'بارگذاری کارمزد نمایندگان', path: 'dashboard1', hasChile: false},
-        {title: 'قرارداد نمایندگان', path: 'dashboard1', hasChile: false},
-      ]
-    },
-    {
-      title: 'ویژه شعب', icon: 'fa fa-home', hasChile: true, subMenu: [
-        {title: 'خلاصه عملکرد شعب', path: 'dashboard1', hasChile: false},
       ]
     },
     {

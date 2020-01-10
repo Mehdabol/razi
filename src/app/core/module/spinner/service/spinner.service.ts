@@ -6,14 +6,18 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class SpinnerService {
-    private loaderSubject = new Subject<boolean>();
-    loaderState = this.loaderSubject.asObservable();
-    constructor() { }
-    show() {
-        this.loaderSubject.next(true);
-    }
-    hide() {
-        this.loaderSubject.next(false);
-    }
+  private loaderSubject = new Subject<boolean>();
+  loaderState = this.loaderSubject.asObservable();
+
+  constructor() {
+  }
+
+  show() {
+    this.loaderSubject.next(true);
+  }
+
+  hide() {
+    this.loaderSubject.next(false);
+  }
 
 }

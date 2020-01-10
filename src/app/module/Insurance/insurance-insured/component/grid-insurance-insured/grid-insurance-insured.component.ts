@@ -92,7 +92,7 @@ export class GridInsuranceInsuredComponent implements OnInit {
 
       }, {
         headerName: 'وضعیت',
-        field: 'damageKindText',
+        field: 'isBimeGozar',
         enableRowGroup: true,
 
       }, {

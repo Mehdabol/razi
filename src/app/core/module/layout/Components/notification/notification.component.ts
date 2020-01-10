@@ -21,7 +21,6 @@ export class NotificationComponent implements OnInit {
 
   getNotification() {
     this.notiService.getNotification().subscribe((res) => {
-      debugger;
     });
   }
 
