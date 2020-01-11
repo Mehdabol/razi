@@ -46,7 +46,6 @@ export class CheckInsurancePolicyComponent implements OnInit {
   getDataChapi(form) {
     const data = {policyId: form.value.chapi};
     this.service.getPolicyInsurance(data).subscribe((res) => {
-      debugger;
       this.open();
     });
 
@@ -55,7 +54,6 @@ export class CheckInsurancePolicyComponent implements OnInit {
   getDataYekta(form) {
     const data = {policyIdfullBNo: form.value.yekte, nationalCode: form.value.nationalCode};
     this.service.getYektaCodeRes(data).subscribe((res) => {
-      debugger;
       this.open();
     });
   }

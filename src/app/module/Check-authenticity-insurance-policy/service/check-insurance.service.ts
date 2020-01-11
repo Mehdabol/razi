@@ -10,11 +10,11 @@ export class CheckInsuranceService {
 
 
   getYektaCodeRes(data) {
-    return this.service.post(this.url + 'GetAllPolicyInq', data);
+    return this.service.post(this.url + 'GetAllCompanyPolicyInq', data);
   }
 
   getPolicyInsurance(data) {
-    return this.service.post(this.url + 'GetAllCompanyPolicyInq', data);
+    return this.service.post(this.url + 'GetAllPolicyInq', data);
   }
 }
 
