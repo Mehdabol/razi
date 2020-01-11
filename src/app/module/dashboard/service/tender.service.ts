@@ -7,7 +7,7 @@ export class TenderService {
   BpUrl = 'razitender/api/BP/';
   sabtUrl = 'razitender/api/SabteDarkhast/';
   development = 'razitender/api/DevelopmentManagerTopicCondsReview/';
-
+  tender = 'razitender/api/TenderExpertTopicCondsReview/';
   constructor(private service: ApiService<any>) {
   }
 
@@ -89,6 +89,21 @@ export class TenderService {
 
   close(data) {
     return this.service.post(this.development + `Close?BPID=${data}`, '');
+  }
+  getEditDataTender(id) {
+    return this.service.get(this.tender + `Get/${id}`);
+  }
+  approveTender(data) {
+    return this.service.post(this.tender + `Approve?BPID=${data}`, '');
 
+  }
+
+  rejectTender(data) {
+    return this.service.post(this.tender + `Reject?BPID=${data}`, '');
+
+  }
+
+  closeTender(data) {
+    return this.service.post(this.tender + `Close?BPID=${data}`, '');
   }
 }

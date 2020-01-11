@@ -171,7 +171,15 @@ export class GridGridDashboardComponent implements OnInit {
   // }
 
   onDetailButton(event) {
-    this.router.navigate([`pages/detail1/${event.rowData.BPID}`]);
+    debugger;
+    const data = event.rowData.Controllername; // DevelopmentManagerTopicCondsReviewController
+    if (data.includes('Development')) {
+      this.router.navigate([`pages/detail1/${event.rowData.BPID}`]);
+    } else if (data.includes('Tender')) {
+      this.router.navigate([`pages/detail2/${event.rowData.BPID}`]);
+    } else {
+      this.router.navigate([`pages/detail2/${event.rowData.BPID}`]);
+    }
   }
 
   onAdd() {

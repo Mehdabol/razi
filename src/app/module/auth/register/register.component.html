@@ -34,6 +34,13 @@
             </div>
 
             <div class="form-group position-relative has-icon-left col-md-6">
+              <label>موبایل</label>
+              <input class="form-control " name="mobileNumber" ngModel placeholder="موبایل"
+                     required type="text">
+            </div>
+
+
+            <div class="form-group position-relative has-icon-left col-md-6">
               <label>رمز عبور </label>
               <input class="form-control " name="password" ngModel placeholder="رمز عبور "
                      required type="password">
@@ -84,10 +91,11 @@
               <input class="form-control " name="email" ngModel placeholder="ایمیل"
                      required type="text">
             </div>
-            <div class="form-group position-relative has-icon-left col-md-6">
+            <div class="form-group position-relative has-icon-left col-md-12">
               <label>آدرس</label>
-              <input class="form-control " name="address" ngModel placeholder="آدرس"
+              <textarea class="form-control " name="address" ngModel placeholder="آدرس"
                         required>
+              </textarea>
             </div>
           </form>
           <div class="row">
