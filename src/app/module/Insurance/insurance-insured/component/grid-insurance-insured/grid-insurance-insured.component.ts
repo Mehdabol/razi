@@ -59,10 +59,6 @@ export class GridInsuranceInsuredComponent implements OnInit {
         GridInsuranceInsuredComponent.self.service.getGridData()
           .subscribe((res: any) => {
             if (data) {
-              for (let i = 0; i < res.Data.length; i++) {
-                res.Data[i].firstName = res.Data[i].firstName + res.Data[i].lastName;
-                res.Data[i].isBimeGozar = res.Data[i].isBimeGozar ? 'بیمه گذار' : 'بیمه شده';
-              }
               params.successCallback(res.Data, res.Data.length);
               // GridInsuranceInsuredComponent.self.autoSize();
               (res.Data.length === 0 || res.Data == null) ? GridInsuranceInsuredComponent.self.gridApi.showNoRowsOverlay() :
@@ -87,29 +83,29 @@ export class GridInsuranceInsuredComponent implements OnInit {
         hide: true
       }, {
         headerName: 'نام',
-        field: 'isBimeGozar',
+        field: 'Name',
 
       }, {
         headerName: 'وضعیت',
-        field: 'isBimeGozar',
+        field: 'Vazeiyat',
       }, {
         headerName: 'اعتبار',
-        field: 'isBimeGozar',
+        field: 'Etebar',
 
 
       }, {
         headerName: 'وضعیت اعتبار',
-        field: 'isBimeGozar',
+        field: 'VazeiyatEtebar',
 
 
       }, {
         headerName: 'شماره بیمه نامه',
-        field: 'bno',
+        field: 'ShomareBimeName',
 
 
       }, {
         headerName: 'کد آنلاین بیمه نامه',
-        field: 'bid',
+        field: 'OnlineCode',
 
 
       },
