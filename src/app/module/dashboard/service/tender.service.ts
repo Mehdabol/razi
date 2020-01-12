@@ -91,7 +91,7 @@ export class TenderService {
     return this.service.post(this.development + `Close?BPID=${data}`, '');
   }
   getEditDataTender(id) {
-    return this.service.get(this.tender + `Get/${id}`);
+    return this.service.get(this.tender + `Get?id=${id}`);
   }
   approveTender(data) {
     return this.service.post(this.tender + `Approve?BPID=${data}`, '');
