@@ -1,0 +1,31 @@
+<div class="card ">
+  <div class="card-header ">
+    <button class="btn btn-danger" (click)="onBack()">
+      <i class="fa fa-arrow-right"></i>
+      <span class="ml-2">بازگشت</span>
+    </button>
+  </div>
+  <div class="card-body ">
+    <ag-grid-angular
+      style="width: 100%; height:500px;"
+      class="ag-theme-material"
+      id="myAgGridSample"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowModelType]="rowModelType"
+      [animateRows]="false"
+      [debug]="true"
+      [rowData]="rowData"
+      [sideBar]="sideBar"
+      [frameworkComponents]="frameworkComponents"
+      (gridReady)="onGridReady($event)"
+      [maxConcurrentDatasourceRequests]="maxConcurrentDatasourceRequests"
+      [cacheBlockSize]="cacheBlockSize"
+      [enableRtl]="true"
+      [floatingFilter]="false"
+      [localeText]="localeText"
+      (firstDataRendered)="onFirstDataRendered($event)"
+    ></ag-grid-angular>
+
+  </div>
+</div>

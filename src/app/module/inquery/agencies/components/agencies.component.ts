@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AgenciesService} from '../service/agencies.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-agencies',
@@ -11,7 +12,8 @@ export class AgenciesComponent implements OnInit {
   ostan = [];
   CityList = [];
 
-  constructor(private service: AgenciesService) {
+  constructor(private service: AgenciesService,
+              private router: Router) {
   }
 
   get absUrl() {
@@ -20,7 +22,6 @@ export class AgenciesComponent implements OnInit {
 
   ngOnInit() {
     this.getOstan();
-    this.getCity();
   }
 
 
@@ -30,14 +31,14 @@ export class AgenciesComponent implements OnInit {
     });
   }
 
-  getCity() {
-    this.service.getCity().subscribe((res) => {
+  getCity(event) {
+    this.service.getCity(event).subscribe((res) => {
       this.CityList = res.Data;
     });
   }
 
   onFilter(form) {
-    debugger;
+    this.router.navigate([`pages/agencies-grid/${form.value.city}/${form.value.ostan}`]);
   }
 
 

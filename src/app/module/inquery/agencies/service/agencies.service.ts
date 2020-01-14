@@ -13,8 +13,12 @@ export class AgenciesService {
     return this.service.post(this.url + 'GetAllStates', '');
   }
 
-  getCity() {
-    return this.service.post(this.url + 'GetAllCities', '');
+  getCity(id) {
+    return this.service.post(this.url + `GetAllCities?ostanCode=${id}`, '');
+  }
+
+  getGridAgencies(data) {
+    return this.service.post(this.url + 'GetAllAgentListByRegion', data);
   }
 }
 

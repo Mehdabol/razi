@@ -1,31 +1,31 @@
 <div class="card">
   <div class="card-body">
     <div class="col-md-4">
-      <form #f=ngForm>
-        <div class="row">
-          <div class="col-md-12">
-            <label>استان</label>
-            <mat-select ngModel
-                        name="ostan" required>
-              <mat-option></mat-option>
-              <mat-option *ngFor="let item of ostan"
-                          [value]="item.OstanCode">{{item.OstanName}}</mat-option>
-            </mat-select>
-          </div>
-          <div class="col-md-12 mt-3">
-            <label>شهر (ابتدا استان انتخاب شود)</label>
-            <mat-select ngModel
-                        name="city" required>
-              <mat-option></mat-option>
-              <mat-option *ngFor="let item of CityList"
-                          [value]="item.CityCode">{{item.CityName}}</mat-option>
-            </mat-select>
-          </div>
-          <div class="col-md-12 mt-3">
-            <button type="submit" (click)="onFilter(f)" class="btn btn-info"> جستجو</button>
-          </div>
-        </div>
-      </form>
+          <form #f=ngForm>
+            <div class="row">
+              <div class="col-md-12">
+                <label>استان</label>
+                <mat-select ngModel
+                            name="ostan" required (ngModelChange)="getCity($event)">
+                  <mat-option></mat-option>
+                  <mat-option *ngFor="let item of ostan"
+                              [value]="item.OstanCode">{{item.OstanName}}</mat-option>
+                </mat-select>
+              </div>
+              <div class="col-md-12 mt-3">
+                <label>شهر (ابتدا استان انتخاب شود)</label>
+                <mat-select ngModel
+                            name="city" required>
+                  <mat-option></mat-option>
+                  <mat-option *ngFor="let item of CityList"
+                              [value]="item.CityCode">{{item.CityName}}</mat-option>
+                </mat-select>
+              </div>
+              <div class="col-md-12 mt-3">
+                <button type="submit" (click)="onFilter(f)" class="btn btn-info"> جستجو</button>
+              </div>
+            </div>
+          </form>
     </div>
     <div class="col-md-8">
       <div class="svg-wrapper">

@@ -63,6 +63,7 @@ import {OfferFormsComponent} from './module/files/offer/components/offer-forms/o
 import {CheckInsuranceService} from './module/inquery/Check-authenticity-insurance-policy/service/check-insurance.service';
 import { AgenciesComponent } from './module/inquery/agencies/components/agencies.component';
 import {AgenciesService} from './module/inquery/agencies/service/agencies.service';
+import { GridAgenciesComponent } from './module/inquery/agencies/components/grid-agencies/grid-agencies.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import {AgenciesService} from './module/inquery/agencies/service/agencies.servic
     DownloadAppComponent,
     CheckInsurancePolicyComponent,
     OfferFormsComponent,
-    AgenciesComponent
+    AgenciesComponent,
+    GridAgenciesComponent
   ],
   imports: [
     AppRoutingModule,

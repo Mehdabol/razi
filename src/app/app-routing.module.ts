@@ -22,6 +22,7 @@ import {DownloadAppComponent} from './module/files/download-app/component/downlo
 import {CheckInsurancePolicyComponent} from './module/inquery/Check-authenticity-insurance-policy/components/check-insurance-policy/check-insurance-policy.component';
 import {OfferFormsComponent} from './module/files/offer/components/offer-forms/offer-forms.component';
 import {AgenciesComponent} from './module/inquery/agencies/components/agencies.component';
+import {GridAgenciesComponent} from './module/inquery/agencies/components/grid-agencies/grid-agencies.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,7 @@ const routes: Routes = [
       {path: 'check-insurance-policy', component: CheckInsurancePolicyComponent},
       {path: 'offer-forms', component: OfferFormsComponent},
       {path: 'agencies', component: AgenciesComponent},
+      {path: 'agencies-grid/:city/:ostan', component: GridAgenciesComponent},
 
     ]
   },
