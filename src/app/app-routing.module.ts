@@ -22,6 +22,8 @@ import {CheckInsurancePolicyComponent} from './module/inquery/Check-authenticity
 import {OfferFormsComponent} from './module/files/offer/components/offer-forms/offer-forms.component';
 import {AgenciesComponent} from './module/inquery/agencies/components/agencies.component';
 import {GridAgenciesComponent} from './module/inquery/agencies/components/grid-agencies/grid-agencies.component';
+import {PageHealthCentersComponent} from './module/inquery/health-centers/component/page-health-centers/page-health-centers.component';
+import {GridHealthCentersComponent} from './module/inquery/health-centers/component/grid-health-centers/grid-health-centers.component';
 
 const routes: Routes = [
   {
@@ -53,7 +55,9 @@ const routes: Routes = [
       {path: 'offer-forms', component: OfferFormsComponent},
       {path: 'agencies', component: AgenciesComponent},
       {path: 'agencies-grid/:city/:ostan', component: GridAgenciesComponent},
-
+      {path: 'health-centers', component: PageHealthCentersComponent},
+      {path: 'health-centers-grid/:city/:ostan', component: GridHealthCentersComponent},
+      ,
     ]
   },
   {

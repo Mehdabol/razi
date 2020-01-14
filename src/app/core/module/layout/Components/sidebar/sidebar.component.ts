@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
     {
       title: 'اطلاع رسانی', icon: 'fa fa-home', hasChile: true, subMenu: [
-        {title: 'مراکز درمانی', path: 'dashboard1', hasChile: false},
+        {title: 'مراکز درمانی', path: 'health-centers', hasChile: false},
         {title: 'نمایندگان', path: 'agencies', hasChile: false},
         {title: 'شعب', path: 'dashboard1', hasChile: false},
         {title: 'خدمات بیمه ای', path: 'dashboard1', hasChile: false},
@@ -89,7 +89,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   menuItem = [
     {
       title: 'اطلاع رسانی', icon: 'fa fa-home', hasChile: true, subMenu: [
-        {title: 'مراکز درمانی', path: 'dashboard1', hasChile: false},
+        {title: 'مراکز درمانی', path: 'health-centers', hasChile: false},
         {title: 'نمایندگان', path: 'agencies', hasChile: false},
         {title: 'شعب', path: 'dashboard1', hasChile: false},
         {title: 'خدمات بیمه ای', path: 'dashboard1', hasChile: false},

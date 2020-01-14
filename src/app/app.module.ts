@@ -63,6 +63,8 @@ import {CheckInsuranceService} from './module/inquery/Check-authenticity-insuran
 import {AgenciesComponent} from './module/inquery/agencies/components/agencies.component';
 import {AgenciesService} from './module/inquery/agencies/service/agencies.service';
 import {GridAgenciesComponent} from './module/inquery/agencies/components/grid-agencies/grid-agencies.component';
+import { PageHealthCentersComponent } from './module/inquery/health-centers/component/page-health-centers/page-health-centers.component';
+import { GridHealthCentersComponent } from './module/inquery/health-centers/component/grid-health-centers/grid-health-centers.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +104,9 @@ import {GridAgenciesComponent} from './module/inquery/agencies/components/grid-a
     CheckInsurancePolicyComponent,
     OfferFormsComponent,
     AgenciesComponent,
-    GridAgenciesComponent
+    GridAgenciesComponent,
+    PageHealthCentersComponent,
+    GridHealthCentersComponent
   ],
   imports: [
     AppRoutingModule,
