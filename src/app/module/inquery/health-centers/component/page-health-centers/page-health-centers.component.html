@@ -22,6 +22,15 @@
             </mat-select>
           </div>
           <div class="col-md-12 mt-3">
+            <label>نوع خدمت </label>
+            <mat-select ngModel
+                        name="service" required>
+              <mat-option></mat-option>
+              <mat-option *ngFor="let item of serviceType"
+                          [value]="item.id">{{item.name}}</mat-option>
+            </mat-select>
+          </div>
+          <div class="col-md-12 mt-3">
             <button type="submit" (click)="onFilter(f)" class="btn btn-info"> جستجو</button>
           </div>
         </div>

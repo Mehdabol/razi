@@ -56,8 +56,7 @@ const routes: Routes = [
       {path: 'agencies', component: AgenciesComponent},
       {path: 'agencies-grid/:city/:ostan', component: GridAgenciesComponent},
       {path: 'health-centers', component: PageHealthCentersComponent},
-      {path: 'health-centers-grid/:city/:ostan', component: GridHealthCentersComponent},
-      ,
+      {path: 'health-centers-grid/:city/:ostan/:service', component: GridHealthCentersComponent},
     ]
   },
   {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AgenciesService} from '../../../agencies/service/agencies.service';
 import {Router} from '@angular/router';
 
@@ -11,7 +11,9 @@ export class PageHealthCentersComponent implements OnInit {
 
   ostan = [];
   CityList = [];
-
+  serviceType = [
+    {id: 1, name: 'خدمات دندان پزشکی'}
+  ];
   constructor(private service: AgenciesService,
               private router: Router) {
   }
@@ -38,7 +40,7 @@ export class PageHealthCentersComponent implements OnInit {
   }
 
   onFilter(form) {
-    this.router.navigate([`pages/agencies-grid/${form.value.city}/${form.value.ostan}`]);
+    this.router.navigate([`pages/health-centers-grid/${form.value.city}/${form.value.ostan}/${form.value.service}`]);
   }
 
 }

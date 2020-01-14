@@ -135,12 +135,12 @@ export class ApiService<T> {
       errorMessage = error.error.message;
     } else if (error.status === 404 || error.status === '404') {
       errorMessage = [`برقراری ارتباط با سرور مقدور نمیباشد`];
-      ApiService.self.alertService.error(errorMessage);
+      // ApiService.self.alertService.error(errorMessage);
     } else if (error.message === null || error.message === 'null') {
       errorMessage = [`برقراری ارتباط با سرور مقدور نمیباشد`];
     } else {
       errorMessage = error.message;
-      ApiService.self.alertService.error(errorMessage);
+      // ApiService.self.alertService.error(errorMessage);
     }
     return throwError(errorMessage);
   }

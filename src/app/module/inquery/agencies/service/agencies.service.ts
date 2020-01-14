@@ -20,5 +20,8 @@ export class AgenciesService {
   getGridAgencies(data) {
     return this.service.post(this.url + 'GetAllAgentListByRegion', data);
   }
+  getGridHealthCenter(data) {
+    return this.service.post(this.url + 'GetAllHealthCenters', data);
+  }
 }
 
