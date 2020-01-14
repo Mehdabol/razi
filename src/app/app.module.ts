@@ -58,9 +58,11 @@ import {GridInsurancePrintedPolicyNumberComponent} from './module/Insurance/insu
 import {PageInsurancePrintedPolicyNumberComponent} from './module/Insurance/insurance-printed-policy-number/page/page-insurance-printed-policy-number/page-insurance-printed-policy-number.component';
 import {DownloadNecessityFilesComponent} from './module/files/download-necessity-files/components/download-necessity-files.component';
 import {DownloadAppComponent} from './module/files/download-app/component/download-app/download-app.component';
-import {CheckInsurancePolicyComponent} from './module/Check-authenticity-insurance-policy/components/check-insurance-policy/check-insurance-policy.component';
+import {CheckInsurancePolicyComponent} from './module/inquery/Check-authenticity-insurance-policy/components/check-insurance-policy/check-insurance-policy.component';
 import {OfferFormsComponent} from './module/files/offer/components/offer-forms/offer-forms.component';
-import {CheckInsuranceService} from './module/Check-authenticity-insurance-policy/service/check-insurance.service';
+import {CheckInsuranceService} from './module/inquery/Check-authenticity-insurance-policy/service/check-insurance.service';
+import { AgenciesComponent } from './module/inquery/agencies/components/agencies.component';
+import {AgenciesService} from './module/inquery/agencies/service/agencies.service';
 
 @NgModule({
   declarations: [
@@ -99,7 +101,8 @@ import {CheckInsuranceService} from './module/Check-authenticity-insurance-polic
     DownloadNecessityFilesComponent,
     DownloadAppComponent,
     CheckInsurancePolicyComponent,
-    OfferFormsComponent
+    OfferFormsComponent,
+    AgenciesComponent
   ],
   imports: [
     AppRoutingModule,
@@ -127,6 +130,7 @@ import {CheckInsuranceService} from './module/Check-authenticity-insurance-polic
   providers: [AuthService, AuthGuard, FormValidateService,
     ConvertDateService,
     NotificationService,
+    AgenciesService,
     InsuranceInsuredService,
     TotalDamageTreatmentService,
     CheckInsuranceService,

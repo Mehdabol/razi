@@ -19,8 +19,9 @@ import {PageUniqueCodeInsuranceComponent} from './module/Insurance/unique-code-i
 import {PageInsurancePrintedPolicyNumberComponent} from './module/Insurance/insurance-printed-policy-number/page/page-insurance-printed-policy-number/page-insurance-printed-policy-number.component';
 import {DownloadNecessityFilesComponent} from './module/files/download-necessity-files/components/download-necessity-files.component';
 import {DownloadAppComponent} from './module/files/download-app/component/download-app/download-app.component';
-import {CheckInsurancePolicyComponent} from './module/Check-authenticity-insurance-policy/components/check-insurance-policy/check-insurance-policy.component';
+import {CheckInsurancePolicyComponent} from './module/inquery/Check-authenticity-insurance-policy/components/check-insurance-policy/check-insurance-policy.component';
 import {OfferFormsComponent} from './module/files/offer/components/offer-forms/offer-forms.component';
+import {AgenciesComponent} from './module/inquery/agencies/components/agencies.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,7 @@ const routes: Routes = [
       {path: 'download-app', component: DownloadAppComponent},
       {path: 'check-insurance-policy', component: CheckInsurancePolicyComponent},
       {path: 'offer-forms', component: OfferFormsComponent},
+      {path: 'agencies', component: AgenciesComponent},
 
     ]
   },

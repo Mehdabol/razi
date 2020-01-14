@@ -3,7 +3,7 @@ import {ApiService} from '../../../../../http/api.service';
 
 @Injectable()
 export class NotificationService {
-  url = 'api/Notification/';
+  url = 'razitender/api/Notification/';
 
   constructor(private apiService: ApiService<any>) {
   }

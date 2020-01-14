@@ -14,6 +14,7 @@ export class NotificationComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.getNotification();
     // setInterval(() => {
     //   this.getNotification();
     // }, 3000);
@@ -21,6 +22,7 @@ export class NotificationComponent implements OnInit {
 
   getNotification() {
     this.notiService.getNotification().subscribe((res) => {
+      debugger;
     });
   }
 
