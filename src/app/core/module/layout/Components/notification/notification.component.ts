@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NotificationService} from './service/notification.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-notification',
@@ -9,7 +10,9 @@ import {NotificationService} from './service/notification.service';
 })
 export class NotificationComponent implements OnInit {
   message = [];
+  modalContent;
   constructor(private router: Router,
+              private modalService: NgbModal,
               private notiService: NotificationService) {
   }
 
@@ -32,9 +35,16 @@ export class NotificationComponent implements OnInit {
     });
   }
 
-  readNotification(id) {
+  readNotification(id, modalContent) {
+    this.modalContent = modalContent;
     const data = this.message.filter(x => x.ID === id);
-    debugger;
+    this.open();
+    // debugger;
   }
+
+  open() {
+    this.modalService.open(this.modalContent, {ariaLabelledBy: 'modal-basic-title'});
+  }
+
 
 }

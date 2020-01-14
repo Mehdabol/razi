@@ -33,7 +33,6 @@ import {JwtInterceptor} from './core/interceptor/jwt.interceptor';
 import {LoaderInterceptor} from './core/interceptor/loader.interceptor';
 import {DetailForm1Component} from './module/dashboard/components/detail-form1/detail-form1.component';
 import {DetailForm2Component} from './module/dashboard/components/detail-form2/detail-form2.component';
-import {GridNotificationComponent} from './core/module/layout/Components/notification/grid-notification/grid-notification.component';
 import {NgxMaskModule} from 'ngx-mask';
 import {DashboardBarChartComponent} from './module/dashboard/components/dashboard-bar-chart/dashboard-bar-chart.component';
 import {TimeLineGoComponent} from './module/dashboard/components/time-line-go/time-line-go.component';
@@ -61,9 +60,9 @@ import {DownloadAppComponent} from './module/files/download-app/component/downlo
 import {CheckInsurancePolicyComponent} from './module/inquery/Check-authenticity-insurance-policy/components/check-insurance-policy/check-insurance-policy.component';
 import {OfferFormsComponent} from './module/files/offer/components/offer-forms/offer-forms.component';
 import {CheckInsuranceService} from './module/inquery/Check-authenticity-insurance-policy/service/check-insurance.service';
-import { AgenciesComponent } from './module/inquery/agencies/components/agencies.component';
+import {AgenciesComponent} from './module/inquery/agencies/components/agencies.component';
 import {AgenciesService} from './module/inquery/agencies/service/agencies.service';
-import { GridAgenciesComponent } from './module/inquery/agencies/components/grid-agencies/grid-agencies.component';
+import {GridAgenciesComponent} from './module/inquery/agencies/components/grid-agencies/grid-agencies.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +82,6 @@ import { GridAgenciesComponent } from './module/inquery/agencies/components/grid
     DetailForm1Component,
     DetailForm2Component,
     DashboardBarChartComponent,
-    GridNotificationComponent,
     TimeLineGoComponent,
     LoginComponent,
     RegisterComponent,

@@ -12,7 +12,7 @@
 
     </div>
     <div class="dropdown-list-content dropdown-list-icons" style="cursor: pointer;"
-         (click)="readNotification(item.ID)"
+         (click)="readNotification(item.ID, content)"
          *ngFor="let item of message" >
       <a class="dropdown-item dropdown-item-unread" >
         <span
@@ -30,3 +30,19 @@
     </div>
   </div>
 </li>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header text-center">
+    <div class="col-md-12 text-center">
+      <h4 style="font-weight: bold; font-size: 15px;">مشاهده پیام</h4>
+    </div>
+  </div>
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <div class="col-md-12 text-center">
+      <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">بستن</button>
+    </div>
+  </div>
+</ng-template>
