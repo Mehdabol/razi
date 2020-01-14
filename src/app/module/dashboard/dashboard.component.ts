@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 
 import {Chart} from 'chart.js';
+import {TenderService} from './service/tender.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,10 +15,18 @@ export class DashboardComponent implements OnInit {
   Run = [];
   barchart = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private service: TenderService) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getbpsatatesumm();
+  }
+
+  getbpsatatesumm() {
+    this.service.getbpsatatesumm().subscribe((res) => {
+      debugger;
+    });
+  }
 }
 
 

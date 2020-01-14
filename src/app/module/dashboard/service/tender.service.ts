@@ -20,6 +20,9 @@ export class TenderService {
   getOstanType() {
     return this.service.get(this.url + 'Ostans');
   }
+  getbpsatatesumm() {
+    return this.service.get(this.BpUrl + 'GetBPStateSummry');
+  }
 
   getCitiesTypeType() {
     return this.service.get(this.url + 'Cities');
