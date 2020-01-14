@@ -8,26 +8,33 @@ import {NotificationService} from './service/notification.service';
   styleUrls: ['./notification.component.scss']
 })
 export class NotificationComponent implements OnInit {
-
+  message = [];
   constructor(private router: Router,
               private notiService: NotificationService) {
   }
 
   ngOnInit() {
-    // this.getNotification();
-    // setInterval(() => {
-    //   this.getNotification();
-    // }, 3000);
+    const token = localStorage.getItem('token');
+    if (token) {
+      setTimeout(() => {
+        this.getNotification();
+      }, 100);
+      setInterval(() => {
+        this.getNotification();
+      }, 30000);
+    }
+
   }
 
   getNotification() {
     this.notiService.getNotification().subscribe((res) => {
-      debugger;
+      this.message = res.Items;
     });
   }
 
-  onGetGrid() {
-    this.router.navigate(['/pages/notification/1']);
+  readNotification(id) {
+    const data = this.message.filter(x => x.ID === id);
+    debugger;
   }
 
 }

@@ -2,22 +2,26 @@
   <a data-toggle="dropdown"
      class="nav-link notification-toggle nav-link-lg">
     <i class="fa fa-bell" data-feather="bell"></i>
-    <span class="badge headerBadge2">
-                3 </span> </a>
+    <span class="badge headerBadge2" *ngIf="message.length > 0">
+              {{message.length }}
+    </span>
+  </a>
   <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
     <div class="dropdown-header">
       اطلاعیه
 
     </div>
-    <div class="dropdown-list-content dropdown-list-icons">
-      <a class="dropdown-item dropdown-item-unread" (click)="onGetGrid()">
+    <div class="dropdown-list-content dropdown-list-icons" style="cursor: pointer;"
+         (click)="readNotification(item.ID)"
+         *ngFor="let item of message" >
+      <a class="dropdown-item dropdown-item-unread" >
         <span
-          class="dropdown-item-icon bg-primary text-white">
+          class="dropdown-item-icon bg-primary text-white " >
           <i class="fa fa-code"></i>
         </span>
-        <span class="dropdown-item-desc">
-          به روزرسانی الگو اکنون در دسترس است!
-          <span class="time">جدید</span>
+        <span class="dropdown-item-desc" style="margin: auto 10px;">
+        {{item.Comment}}
+          <!--<span class="time">جدید</span>-->
         </span>
       </a>
 

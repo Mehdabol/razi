@@ -25,7 +25,7 @@
   </div>
   <ul class="navbar-nav navbar-right">
    
-    <app-notification></app-notification>
+    <app-notification *ngIf="hasLogin"></app-notification>
     <li class="dropdown">
       <a data-toggle="dropdown"
          class="nav-link dropdown-toggle nav-link-lg nav-link-user">
