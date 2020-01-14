@@ -17,6 +17,10 @@ export class AgenciesService {
     return this.service.post(this.url + `GetAllCities?ostanCode=${id}`, '');
   }
 
+  getServiceType() {
+    return this.service.post(this.url + `GetAllKhedmatTypes`, '');
+  }
+
   getGridAgencies(data) {
     return this.service.post(this.url + 'GetAllAgentListByRegion', data);
   }

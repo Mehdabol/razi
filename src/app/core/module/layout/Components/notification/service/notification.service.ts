@@ -12,8 +12,8 @@ export class NotificationService {
     return this.apiService.post(this.url + 'GetNotifications', '');
   }
 
-  readNotification(data , id) {
-    return this.apiService.post(this.url + 'GetNotifications', '');
+  readNotification( id) {
+    return this.apiService.post(this.url + `Read/${id}`, '');
 
   }
 }

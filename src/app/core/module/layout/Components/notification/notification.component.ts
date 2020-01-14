@@ -38,7 +38,10 @@ export class NotificationComponent implements OnInit {
   readNotification(id, modalContent) {
     this.modalContent = modalContent;
     const data = this.message.filter(x => x.ID === id);
-    this.open();
+    this.notiService.readNotification(id).subscribe((res) => {
+      debugger;
+    })
+    // this.open();
     // debugger;
   }
 

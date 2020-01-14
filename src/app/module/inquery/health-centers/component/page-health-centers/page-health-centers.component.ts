@@ -11,9 +11,7 @@ export class PageHealthCentersComponent implements OnInit {
 
   ostan = [];
   CityList = [];
-  serviceType = [
-    {id: 1, name: 'خدمات دندان پزشکی'}
-  ];
+  serviceType = [];
   constructor(private service: AgenciesService,
               private router: Router) {
   }
@@ -24,12 +22,19 @@ export class PageHealthCentersComponent implements OnInit {
 
   ngOnInit() {
     this.getOstan();
+    this.getServiceType();
   }
 
 
   getOstan() {
     this.service.getOstan().subscribe((res) => {
       this.ostan = res.Data;
+    });
+  }
+
+  getServiceType() {
+    this.service.getServiceType().subscribe((res) => {
+      this.serviceType = res.Data;
     });
   }
 
